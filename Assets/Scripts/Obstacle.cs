@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Obstacle : MonoBehaviour
+{
+    private GameObject player;
+    private float rotationDirectionMultiplier = 0f;
+    private int randomRotationSpeedMultiplier = 0;
+    public float speed;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        bool rotateBackwards = (Random.value > 0.5f);
+        rotationDirectionMultiplier = (rotateBackwards ? (-1) : 1);
+        randomRotationSpeedMultiplier = Random.Range(1, 80);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(0, 0, rotationDirectionMultiplier * Time.deltaTime * randomRotationSpeedMultiplier, Space.Self);
+        transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Border")
+        {
+            Destroy(this.gameObject);
+        }
+
+        else if(collision.tag == "Player")
+        {
+            Destroy(player.gameObject);
+        }
+    }
+}
