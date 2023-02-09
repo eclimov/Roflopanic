@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RofloWipe
+  m_Controller: {fileID: 9100000, guid: a7ba05b016eef7347a342d06b02aae8c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1ec73993c0375414481d29307637ffd6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: decc0724498d2e948afa80b0ddf7278e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e5b561dbbe5969d4f9a5968f065530da, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 55b8d2d993901a84990bd9c9bd588851, type: 2}
