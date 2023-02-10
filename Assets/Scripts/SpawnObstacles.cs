@@ -12,10 +12,21 @@ public class SpawnObstacles : MonoBehaviour
     public float timeBetweenSpawn;
     private float spawnTime;
 
+    // There should be a delay before emit, to wait until loading animation finishes
+    private bool isReadyToEmit = false;
+    public float waitBeforeStart;
+
+    // Start is called before the first frame update
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(waitBeforeStart);
+        isReadyToEmit = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > spawnTime)
+        if(isReadyToEmit && Time.time > spawnTime)
         {
             Spawn();
             spawnTime = Time.time + timeBetweenSpawn;

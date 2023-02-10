@@ -1136,6 +1136,7 @@ MonoBehaviour:
   maxY: 4
   minY: -4
   timeBetweenSpawn: 0.4
+  waitBeforeStart: 1
 --- !u!4 &1537412682
 Transform:
   m_ObjectHideFlags: 0
