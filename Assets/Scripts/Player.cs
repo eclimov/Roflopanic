@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     public float playerSpeed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
+    private Vector3 mousePos;
+    private Camera mainCam;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        mainCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
         float directionY = 0f;
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
             if (mousePos.x > 1)
             {

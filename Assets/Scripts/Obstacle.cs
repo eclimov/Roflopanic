@@ -9,6 +9,14 @@ public class Obstacle : MonoBehaviour
     private int randomRotationSpeedMultiplier = 0;
     public float speed;
 
+    private Transform myTransform;
+
+    private void Awake()
+    {
+        // For Optimization purposes
+        myTransform = transform;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +29,8 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, rotationDirectionMultiplier * Time.deltaTime * randomRotationSpeedMultiplier, Space.Self);
-        transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+        myTransform.Rotate(0, 0, rotationDirectionMultiplier * Time.deltaTime * randomRotationSpeedMultiplier, Space.Self);
+        myTransform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
