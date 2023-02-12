@@ -16,6 +16,13 @@ public class SpawnObstacles : MonoBehaviour
     private bool isReadyToEmit = false;
     public float waitBeforeStart;
 
+    private Transform myTransform;
+    private void Awake()
+    {
+        // For Optimization purposes
+        myTransform = transform;
+    }
+
     // Start is called before the first frame update
     private IEnumerator Start()
     {
@@ -39,8 +46,8 @@ public class SpawnObstacles : MonoBehaviour
         float randomY = Random.Range(minY, maxY);
 
         Instantiate(
-            obstacle, 
-            transform.position + new Vector3(randomX, randomY, 0), 
+            obstacle,
+            myTransform.position + new Vector3(randomX, randomY, 0), 
             Quaternion.Euler(new Vector3(0, 0, Random.Range(0f, 360f))) // Random Z rotation https://forum.unity.com/threads/instantiate-with-a-random-y-rotation.345052/
         );
     }

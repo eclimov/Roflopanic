@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870ec8fd82667ef4bae6e0191660026c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultBackgroundSpeed: 0.05
+  defaultBackgroundSpeed: 0.03
   backgroundRenderer: {fileID: 1672317908}
 --- !u!23 &1672317908
 MeshRenderer:
