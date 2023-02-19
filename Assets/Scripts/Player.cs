@@ -25,8 +25,10 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-            if (mousePos.x > 1)
+            if (
+                mousePos.x > 1
+                && mousePos.y < 3.4f // Non-interactive area for Pause button (the dimensions represent FOV: https://forum.unity.com/threads/screentoworldpoint-always-the-same.337105/)
+            )
             {
                 directionY = 1f;
             }
