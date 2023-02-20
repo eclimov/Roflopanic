@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(instance);
 
+            musicSource.loop = true;
             PlayMusic("music-menu"); // Play menu music by default
         }
         else
@@ -47,7 +48,7 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        if(PauseMenu.GameIsPaused)
+        if (PauseMenu.GameIsPaused)
         {
             musicSource.pitch = .6f;
             musicSource.volume = .6f;
