@@ -10,9 +10,10 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindGameObjectWithTag("Player") == null)
+        if(GameObject.FindGameObjectWithTag("Player") == null && !gameOverPanel.activeInHierarchy)
         {
             gameOverPanel.SetActive(true);
+            Vibration.Vibrate(100);
         }
     }
 }
