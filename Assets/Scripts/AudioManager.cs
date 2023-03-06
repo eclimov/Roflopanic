@@ -8,9 +8,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioClip[] musicClips;
+    public AudioClip[] soundClips;
 
     public AudioSource musicSource;
-    public AudioSource soundSource; // TODO: implement for sounds
+    public AudioSource soundSource;
+
+    private bool isSoundEnabled;
 
     private void Awake()
     {
@@ -20,7 +23,7 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(instance);
 
             musicSource.loop = true;
-            PlayMusic("music-menu"); // Play menu music by default
+            soundSource.loop = false;
         }
         else
         {
@@ -28,9 +31,28 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        LoadMusicSettings();
+    }
+
+    public void LoadMusicSettings()
+    {
+        if (SettingsManager.isMusicEnabled)
+        {
+            PlayMusic("music-menu"); // Play menu music by default
+        } else if(musicSource.isPlaying) // if music is disabled, but it's currently playing, stop it
+        {
+            musicSource.Stop();
+        }
+    }
+
     public void PlayMusic (string clipName)
     {
-        if(musicSource.clip?.name == clipName && musicSource.isPlaying) // If the same music is playing already, do nothing
+        if(
+            !SettingsManager.isMusicEnabled || // If music disabled OR
+            musicSource.clip?.name == clipName && musicSource.isPlaying // If the same music is playing already
+        )
         {
             return;
         }
@@ -44,6 +66,34 @@ public class AudioManager : MonoBehaviour
 
         musicSource.clip = clip;
         musicSource.Play();
+    }
+
+    public void PlayButtonSound()
+    {
+        PlaySound("button");
+    }
+
+    public void PlayDeathSound()
+    {
+        PlaySound("death");
+    }
+
+    public void PlaySound(string clipName)
+    {
+        if(!SettingsManager.isSoundEnabled)
+        {
+            return;
+        }
+
+        AudioClip clip = Array.Find(soundClips, item => item.name == clipName);
+        if (clip == null)
+        {
+            Debug.LogWarning("Sound: " + clipName + " not found!");
+            return;
+        }
+
+        soundSource.clip = clip;
+        soundSource.Play();
     }
 
     void Update()

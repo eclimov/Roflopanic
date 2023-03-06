@@ -13,7 +13,6 @@ public class GameOver : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("Player") == null && !gameOverPanel.activeInHierarchy)
         {
             gameOverPanel.SetActive(true);
-            Vibration.Vibrate(100);
         }
     }
 }

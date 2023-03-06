@@ -26,9 +26,13 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(1, () => audioManager.PlayMusic("music-gameplay")));
     }
 
-    public void LoadAbout()
+    public void LoadSettings()
     {
         StartCoroutine(LoadLevel(2));
+    }
+    public void LoadAbout()
+    {
+        StartCoroutine(LoadLevel(3));
     }
 
     public void LoadThisLevel()
@@ -45,7 +49,6 @@ public class LevelLoader : MonoBehaviour
         // Waiting real seconds because of the possible timescale 0 (while the game is paused)
         // https://forum.unity.com/threads/waitforseconds-while-time-scale-0.272786/
         yield return new WaitForSecondsRealtime(transitionTime);
-
 
         // Load Scene Asynchronously
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelIndex);

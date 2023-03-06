@@ -8,6 +8,7 @@ TagManager:
   - MenuPanel
   - Bear
   - AudioManager
+  - Language Button
   layers:
   - Default
   - TransparentFX

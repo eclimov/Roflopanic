@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    private GameObject player;
     private float rotationDirectionMultiplier = 0f;
     private int randomRotationSpeedMultiplier = 0;
     public float speed;
@@ -20,7 +19,6 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         bool rotateBackwards = (Random.value > 0.5f);
         rotationDirectionMultiplier = (rotateBackwards ? (-1) : 1);
         randomRotationSpeedMultiplier = Random.Range(1, 80);
@@ -42,7 +40,13 @@ public class Obstacle : MonoBehaviour
 
         else if(collision.tag == "Player")
         {
-            Destroy(player.gameObject);
+            AudioManager.instance.PlayDeathSound();
+            Destroy(GameObject.FindGameObjectWithTag("Player").gameObject);
+
+            if (SettingsManager.isVibrationEnabled)
+            {
+                Vibration.Vibrate(100);
+            }
         }
     }
 }
