@@ -5,13 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    public static bool isGameOver;
     public GameObject gameOverPanel;
+
+    private void Awake()
+    {
+        isGameOver = false; // Leave it here, to reset the value on restart
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(GameObject.FindGameObjectWithTag("Player") == null && !gameOverPanel.activeInHierarchy)
         {
+            isGameOver = true;
             gameOverPanel.SetActive(true);
         }
     }
