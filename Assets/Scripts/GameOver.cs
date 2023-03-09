@@ -16,9 +16,8 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindGameObjectWithTag("Player") == null && !gameOverPanel.activeInHierarchy)
+        if(isGameOver && !gameOverPanel.activeInHierarchy)
         {
-            isGameOver = true;
             gameOverPanel.SetActive(true);
         }
     }
