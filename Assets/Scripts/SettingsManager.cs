@@ -16,6 +16,8 @@ public class SettingsManager : MonoBehaviour
     public static bool isSoundEnabled;
     public static bool isVibrationEnabled;
     public static int localeId;
+    public static int highscore;
+    public static int totalScore;
 
     private bool isLocaleCoroutineActive = false;
 
@@ -30,6 +32,8 @@ public class SettingsManager : MonoBehaviour
             isSoundEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isSoundEnabled", 1));
             isVibrationEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isVibrationEnabled", 1));
             localeId = LocalizationSettings.SelectedLocale.SortOrder;
+            highscore = PlayerPrefs.GetInt("highscore", 0);
+            totalScore = PlayerPrefs.GetInt("totalScore", 0);
         }
         else
         {
@@ -92,5 +96,17 @@ public class SettingsManager : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
         localeId = _localeID;
         isLocaleCoroutineActive = false;
+    }
+
+    public void SetHighscore(int newHighscore)
+    {
+        highscore = newHighscore;
+        PlayerPrefs.SetInt("highscore", highscore);
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        totalScore += scoreToAdd;
+        PlayerPrefs.SetInt("totalScore", totalScore);
     }
 }

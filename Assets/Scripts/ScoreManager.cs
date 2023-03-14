@@ -34,6 +34,11 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        scoreText.text = ((int)score).ToString();
+        scoreText.text = GetScore().ToString();
+    }
+
+    public int GetScore()
+    {
+        return (int)score;
     }
 }

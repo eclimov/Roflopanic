@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: ab460739b38b794408856035ff254c38, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3768503849124626434
   m_TableData:
   - m_Id: 131872616448
     m_Localized: Music
@@ -43,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 33168370987008
-    m_Localized: Resume
+    m_Localized: Continue
     m_Metadata:
       m_Items: []
   - m_Id: 33748011216896
@@ -58,6 +59,36 @@ MonoBehaviour:
     m_Localized: About
     m_Metadata:
       m_Items: []
+  - m_Id: 2905937026772992
+    m_Localized: 'Highscore: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 3768503849124626434
+  - m_Id: 2906407992586240
+    m_Localized: 'Total score: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 3768503849124626434
+  - m_Id: 2923425135357952
+    m_Localized: Wasted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2923461227343872
+    m_Localized: Highscore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3187495252029440
+    m_Localized: 'Watch an ad
+
+      Support the author
+
+      Get 300 points'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3768503849124626434
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00703830ef520a000070f8d75c530a00

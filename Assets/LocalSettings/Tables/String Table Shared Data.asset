@@ -40,7 +40,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 33168370987008
-    m_Key: resume
+    m_Key: continue
     m_Metadata:
       m_Items: []
   - m_Id: 33748011216896
@@ -53,6 +53,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 34222407970816
     m_Key: about
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2905937026772992
+    m_Key: dynamic-highscore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2906407992586240
+    m_Key: dynamic-total-score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2923425135357952
+    m_Key: game-over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2923461227343872
+    m_Key: highscore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3187495252029440
+    m_Key: ad-button-get-points
     m_Metadata:
       m_Items: []
   m_Metadata:
