@@ -52,7 +52,7 @@ public class LevelLoader : MonoBehaviour
 
         // Load Scene Asynchronously
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelIndex);
-        
+
         whenDone?.Invoke();
 
         // Wait until the asynchronous scene fully loads

@@ -18,6 +18,7 @@ public class SettingsManager : MonoBehaviour
     public static int localeId;
     public static int highscore;
     public static int totalScore;
+    public static int targetTotalScore = 300;
 
     private bool isLocaleCoroutineActive = false;
 
@@ -33,7 +34,7 @@ public class SettingsManager : MonoBehaviour
             isVibrationEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isVibrationEnabled", 1));
             localeId = LocalizationSettings.SelectedLocale.SortOrder;
             highscore = PlayerPrefs.GetInt("highscore", 0);
-            totalScore = PlayerPrefs.GetInt("totalScore", 0);
+            totalScore = GetTotalScore();
         }
         else
         {
@@ -52,6 +53,16 @@ public class SettingsManager : MonoBehaviour
         {
             PlayerPrefs.Save();
         }
+    }
+
+    public static int GetTotalScore()
+    {
+        return PlayerPrefs.GetInt("totalScore", 0);
+    }
+
+    public bool IsTargetTotalScoreAchieved()
+    {
+        return GetTotalScore() >= targetTotalScore;
     }
 
     public void setMusicEnabled(bool isEnabled)

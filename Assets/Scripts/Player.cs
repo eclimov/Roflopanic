@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float playerSpeed;
+    public GameObject CrownSprite;
+
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     private Vector3 mousePos;
@@ -16,6 +18,11 @@ public class Player : MonoBehaviour
     {
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
+
+        if(FindObjectOfType<SettingsManager>().IsTargetTotalScoreAchieved())
+        {
+            CrownSprite.SetActive(true);
+        }
     }
 
     // Update is called once per frame

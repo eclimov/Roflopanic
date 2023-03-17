@@ -28,9 +28,17 @@ public class GameOver : MonoBehaviour
                 isHighscore = true;
                 settingsManager.SetHighscore(score);
             }
-            settingsManager.AddScore(score);
 
+            // Order of operations below is important, to allow animating progress bar from former total score, with a delay
             gameOverPanel.SetActive(true);
+            settingsManager.AddScore(score);
+            StartCoroutine(AnimateProgressBarWithADelay(SettingsManager.totalScore, 1f));
         }
+    }
+
+    IEnumerator AnimateProgressBarWithADelay(int to, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        FindObjectOfType<ProgressBar>().AnimateProgress(to, .1f);
     }
 }

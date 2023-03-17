@@ -13,8 +13,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource soundSource;
 
-    private bool isSoundEnabled;
-
     private void Awake()
     {
         if(instance == null)
