@@ -75,6 +75,14 @@ MonoBehaviour:
     m_Key: ad-button-get-points
     m_Metadata:
       m_Items: []
+  - m_Id: 4579535646912512
+    m_Key: developer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4580570457206784
+    m_Key: icons
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
