@@ -92,6 +92,10 @@ MonoBehaviour:
     m_Localized: "\u0418\u043A\u043E\u043D\u043A\u0438"
     m_Metadata:
       m_Items: []
+  - m_Id: 5061924890374144
+    m_Localized: RofloPanic
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

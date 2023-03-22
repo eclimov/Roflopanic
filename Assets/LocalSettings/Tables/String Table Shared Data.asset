@@ -15,44 +15,24 @@ MonoBehaviour:
   m_TableCollectionName: String Table
   m_TableCollectionNameGuidString: ab460739b38b794408856035ff254c38
   m_Entries:
-  - m_Id: 131872616448
-    m_Key: music
+  - m_Id: 34222407970816
+    m_Key: about
     m_Metadata:
       m_Items: []
-  - m_Id: 25518610608128
-    m_Key: sound
-    m_Metadata:
-      m_Items: []
-  - m_Id: 25628182605824
-    m_Key: vibration
+  - m_Id: 3187495252029440
+    m_Key: ad-button-get-points
     m_Metadata:
       m_Items: []
   - m_Id: 32074479726592
     m_Key: back
     m_Metadata:
       m_Items: []
-  - m_Id: 32775985459200
-    m_Key: restart
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32952506937344
-    m_Key: menu
-    m_Metadata:
-      m_Items: []
   - m_Id: 33168370987008
     m_Key: continue
     m_Metadata:
       m_Items: []
-  - m_Id: 33748011216896
-    m_Key: start
-    m_Metadata:
-      m_Items: []
-  - m_Id: 33900562247680
-    m_Key: settings
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34222407970816
-    m_Key: about
+  - m_Id: 4579535646912512
+    m_Key: developer
     m_Metadata:
       m_Items: []
   - m_Id: 2905937026772992
@@ -71,16 +51,40 @@ MonoBehaviour:
     m_Key: highscore
     m_Metadata:
       m_Items: []
-  - m_Id: 3187495252029440
-    m_Key: ad-button-get-points
-    m_Metadata:
-      m_Items: []
-  - m_Id: 4579535646912512
-    m_Key: developer
-    m_Metadata:
-      m_Items: []
   - m_Id: 4580570457206784
     m_Key: icons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32952506937344
+    m_Key: menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131872616448
+    m_Key: music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5061924890374144
+    m_Key: application-name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32775985459200
+    m_Key: restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33900562247680
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25518610608128
+    m_Key: sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33748011216896
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25628182605824
+    m_Key: vibration
     m_Metadata:
       m_Items: []
   m_Metadata:

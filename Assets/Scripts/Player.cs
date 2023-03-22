@@ -28,10 +28,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // float directionY = Input.GetAxisRaw("Vertical");
-
         ScoreManager.scoreUpdateType = ScoreManager.ScoreUpdateTypesEnum.SECOND;
 
+        // float directionY = Input.GetAxisRaw("Vertical");
         float directionY = 0f;
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {
