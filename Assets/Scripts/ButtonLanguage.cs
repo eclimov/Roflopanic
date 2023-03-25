@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonLanguage : MonoBehaviour
 {
-    public int localeId;
+    public ushort localeId;
 
     private void Start()
     {
@@ -32,7 +32,7 @@ public class ButtonLanguage : MonoBehaviour
         GetComponent<Image>().color = tempColor;
     }
 
-    public void ChangeLocaleProxy(int localeId)
+    public void ChangeLocaleProxy(ushort localeId)
     {
         FindObjectOfType<SettingsManager>().ChangeLocale(localeId);
     }

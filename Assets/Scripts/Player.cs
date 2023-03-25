@@ -8,11 +8,12 @@ public class Player : MonoBehaviour
     public GameObject CrownSprite;
 
     private Rigidbody2D rb;
-    private Vector2 playerDirection;
     private Vector3 mousePos;
     private Camera mainCam;
 
     private bool isColliding = false;
+
+    private float directionY;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
         ScoreManager.scoreUpdateType = ScoreManager.ScoreUpdateTypesEnum.SECOND;
 
         // float directionY = Input.GetAxisRaw("Vertical");
-        float directionY = 0f;
+        directionY = 0f;
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -52,8 +53,6 @@ public class Player : MonoBehaviour
                 ScoreManager.scoreUpdateType = ScoreManager.ScoreUpdateTypesEnum.FRAME;
             }
         }
-
-        playerDirection = new Vector2(0, directionY).normalized;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -68,6 +67,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
 	{
-        rb.velocity = new Vector2(0, playerDirection.y * playerSpeed); // TODO: check if it's possible to use the value of directionY here directly
+        rb.velocity = new Vector2(0, directionY * playerSpeed);
     }
 }

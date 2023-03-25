@@ -15,10 +15,11 @@ public class SettingsManager : MonoBehaviour
     public static bool isMusicEnabled;
     public static bool isSoundEnabled;
     public static bool isVibrationEnabled;
-    public static int localeId;
+    public static ushort localeId;
     public static int highscore;
     public static int totalScore;
-    public static int targetTotalScore = 300;
+
+	public static int targetTotalScore = 300;
 
     private bool isLocaleCoroutineActive = false;
 
@@ -91,7 +92,7 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    public void ChangeLocale(int localeID)
+    public void ChangeLocale(ushort localeID)
     {
         if (isLocaleCoroutineActive == true) // Avoid calling the coroutine multiple times
         {
@@ -100,7 +101,7 @@ public class SettingsManager : MonoBehaviour
         StartCoroutine(SetLocale(localeID));
     }
 
-    IEnumerator SetLocale(int _localeID)
+    IEnumerator SetLocale(ushort _localeID)
     {
         isLocaleCoroutineActive = true;
         yield return LocalizationSettings.InitializationOperation;

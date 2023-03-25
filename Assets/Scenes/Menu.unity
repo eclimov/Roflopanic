@@ -1044,7 +1044,7 @@ GameObject:
   - component: {fileID: 1347138585}
   m_Layer: 5
   m_Name: Bear Panel
-  m_TagString: Bear
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1271,6 +1271,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510832209}
   m_CullTransparentMesh: 1
+--- !u!1 &1610410204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8306911468641337748, guid: a5cf28a133dba194c988183e5c08a0fb, type: 3}
+  m_PrefabInstance: {fileID: 7637636271395561269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1624152832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,6 +1927,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7637636271683222893, guid: a5cf28a133dba194c988183e5c08a0fb, type: 3}
+      propertyPath: AnimationObject
+      value: 
+      objectReference: {fileID: 1610410204}
     - target: {fileID: 7637636272444052312, guid: a5cf28a133dba194c988183e5c08a0fb, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1933,6 +1942,10 @@ PrefabInstance:
     - target: {fileID: 7637636272953939566, guid: a5cf28a133dba194c988183e5c08a0fb, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306911468641337748, guid: a5cf28a133dba194c988183e5c08a0fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cf28a133dba194c988183e5c08a0fb, type: 3}

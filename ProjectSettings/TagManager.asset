@@ -6,9 +6,6 @@ TagManager:
   tags:
   - Border
   - MenuPanel
-  - Bear
-  - AudioManager
-  - Language Button
   layers:
   - Default
   - TransparentFX

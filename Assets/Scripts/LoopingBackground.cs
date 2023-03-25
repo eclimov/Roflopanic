@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LoopingBackground : MonoBehaviour
 {
     public float defaultBackgroundSpeed;
     public Renderer backgroundRenderer;
+
+    private Vector2 scrolling;
 
     private static LoopingBackground instance;
 
@@ -36,15 +39,25 @@ public class LoopingBackground : MonoBehaviour
         backgroundRenderer.material.mainTextureScale = new Vector2(newWidth / oldWidth, newHeight / oldHeight);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
         float backgroundSpeed = defaultBackgroundSpeed;
-        if (GameObject.FindGameObjectWithTag("MenuPanel") == null)
+        if (scene.name == "Gameplay")
         {
             backgroundSpeed = 20 * defaultBackgroundSpeed;
         }
 
-        backgroundRenderer.material.mainTextureOffset += new Vector2(backgroundSpeed * Time.deltaTime, 0f);
+        scrolling = new Vector2(backgroundSpeed, 0f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        backgroundRenderer.material.mainTextureOffset += scrolling * Time.deltaTime;
     }
 }

@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnObstacles : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject obstacle;
+    public GameObject obstaclePrefab;
     public float maxX;
     public float minX;
     public float maxY;
     public float minY;
     public float timeBetweenSpawn;
+
     private float spawnTime;
 
     // There should be a delay before emit, to wait until loading animation finishes
     private bool isReadyToEmit = false;
     public float waitBeforeStart;
 
+    private byte poolSize = 5; 
+    private Queue<GameObject> pool;
+
     private Transform myTransform;
+
     private void Awake()
     {
         // For Optimization purposes
@@ -26,6 +31,14 @@ public class SpawnObstacles : MonoBehaviour
     // Start is called before the first frame update
     private IEnumerator Start()
     {
+        pool = new Queue<GameObject>();
+        for (byte i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(obstaclePrefab);
+            obj.SetActive(false);
+            pool.Enqueue(obj);
+        }
+
         yield return new WaitForSeconds(waitBeforeStart);
         isReadyToEmit = true;
     }
@@ -45,10 +58,10 @@ public class SpawnObstacles : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
 
-        Instantiate(
-            obstacle,
-            myTransform.position + new Vector3(randomX, randomY, 0), 
-            Quaternion.Euler(new Vector3(0, 0, Random.Range(0f, 360f))) // Random Z rotation https://forum.unity.com/threads/instantiate-with-a-random-y-rotation.345052/
-        );
+        GameObject objectToSpawn = pool.Dequeue();
+        objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
+
+        pool.Enqueue(objectToSpawn);
     }
 }

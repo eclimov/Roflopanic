@@ -19,6 +19,8 @@ public class EyeMover : MonoBehaviour
     private Transform myTransform;
     private Transform eyesTransform;
 
+    private WaitForSecondsRealtime cachedWaitForSecondsRealtime;
+
     private void Awake()
     {
         direction = Vector3.zero;
@@ -26,13 +28,15 @@ public class EyeMover : MonoBehaviour
         // For Optimization purposes
         myTransform = transform;
         eyesTransform = eyes.transform;
+
+        cachedWaitForSecondsRealtime = new WaitForSecondsRealtime(2f);
     }
 
     private void Start()
     {
-        if(lookAtTarget == null)
+        if (lookAtTarget == null)
         {
-            StartCoroutine(InfiniteTargetRefresh(2f));
+            StartCoroutine(InfiniteTargetRefresh());
         }
     }
 
@@ -50,15 +54,18 @@ public class EyeMover : MonoBehaviour
         eyesTransform.localPosition = Vector3.Lerp(eyesTransform.localPosition, new Vector3(0f, .25f) + offset, Time.unscaledDeltaTime* 20f); // Smooth translate
     }
 
-    IEnumerator InfiniteTargetRefresh(float interval)
+    IEnumerator InfiniteTargetRefresh()
     {
         for (; ; )
         {
             if(Random.Range(0, 2) == 1)
             {
                 SetRandomObstacleAsTarget();
+            } else
+            {
+                lookAtTarget = null;
             }
-            yield return new WaitForSecondsRealtime(interval);
+            yield return cachedWaitForSecondsRealtime;
         }
     }
 
