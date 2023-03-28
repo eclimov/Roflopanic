@@ -97,10 +97,15 @@ MonoBehaviour:
     m_Localized: RofloPanic
     m_Metadata:
       m_Items: []
+  - m_Id: 7947339087507456
+    m_Localized: "Points\xD7{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 3768503849124626434
   references:
     version: 2
     RefIds:
     - rid: 3768503849124626434
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00703830ef520a000070f8d75c530a00
+        m_Entries: 00703830ef520a000070f8d75c530a0000703813103c1c00

@@ -87,6 +87,10 @@ MonoBehaviour:
     m_Key: vibration
     m_Metadata:
       m_Items: []
+  - m_Id: 7947339087507456
+    m_Key: multiply-points
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

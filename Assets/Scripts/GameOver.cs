@@ -7,12 +7,14 @@ public class GameOver : MonoBehaviour
 {
     public static bool isGameOver;
     public static bool isHighscore;
+    public static bool isEligibleForReward;
     public GameObject gameOverPanel;
 
     private void Awake()
     {
         isGameOver = false; // Leave it here, to reset the value on restart
         isHighscore = false;
+        isEligibleForReward = true;
     }
 
     // Update is called once per frame

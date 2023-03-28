@@ -76,6 +76,11 @@ public class AudioManager : MonoBehaviour
         PlaySound("death");
     }
 
+    public void PlayCashSound()
+    {
+        PlaySound("cash");
+    }
+
     public void PlaySound(string clipName)
     {
         if(!SettingsManager.isSoundEnabled)
@@ -90,8 +95,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        soundSource.clip = clip;
-        soundSource.Play();
+        soundSource.PlayOneShot(clip);
     }
 
     void Update()

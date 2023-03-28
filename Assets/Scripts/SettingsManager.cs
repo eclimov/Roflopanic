@@ -6,12 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;
+using GoogleMobileAds.Api;
 
 
 public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager instance;
-    
+
+    public static bool isMobileAdsSDKInitialized;
     public static bool isMusicEnabled;
     public static bool isSoundEnabled;
     public static bool isVibrationEnabled;
@@ -19,7 +21,10 @@ public class SettingsManager : MonoBehaviour
     public static int highscore;
     public static int totalScore;
 
-	public static int targetTotalScore = 300;
+    public static int targetTotalScore = 300;
+
+    public static ushort rewardScore = 300;
+    public static byte rewardPointsMultiplier = 3;
 
     private bool isLocaleCoroutineActive = false;
 
@@ -36,6 +41,13 @@ public class SettingsManager : MonoBehaviour
             localeId = LocalizationSettings.SelectedLocale.SortOrder;
             highscore = PlayerPrefs.GetInt("highscore", 0);
             totalScore = GetTotalScore();
+
+            // Initialize the Google Mobile Ads SDK.
+            MobileAds.Initialize((InitializationStatus initStatus) =>
+            {
+                // This callback is called once the MobileAds SDK is initialized.
+                isMobileAdsSDKInitialized = true;
+            });
         }
         else
         {
