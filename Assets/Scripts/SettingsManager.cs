@@ -21,7 +21,7 @@ public class SettingsManager : MonoBehaviour
     public static int highscore;
     public static int totalScore;
 
-    public static int targetTotalScore = 300;
+    public static int targetTotalScore = 50_000;
 
     public static ushort rewardScore = 300;
     public static byte rewardPointsMultiplier = 3;

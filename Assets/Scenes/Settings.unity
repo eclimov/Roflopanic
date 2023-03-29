@@ -1005,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 130670372970620634, guid: c54062d4084178641882b2d2f44f164e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 130670372970620636, guid: c54062d4084178641882b2d2f44f164e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
