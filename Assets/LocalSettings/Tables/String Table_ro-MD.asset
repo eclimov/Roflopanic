@@ -98,6 +98,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 3768503962982940672
+  - m_Id: 8632423792799744
+    m_Localized: "Rat\u0103"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

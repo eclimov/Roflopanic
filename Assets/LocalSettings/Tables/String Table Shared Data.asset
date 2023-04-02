@@ -91,6 +91,10 @@ MonoBehaviour:
     m_Key: multiply-points
     m_Metadata:
       m_Items: []
+  - m_Id: 8632423792799744
+    m_Key: rate
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

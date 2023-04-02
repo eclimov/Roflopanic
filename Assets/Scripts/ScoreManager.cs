@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
     public static ScoreUpdateTypesEnum scoreUpdateType = ScoreUpdateTypesEnum.SECOND;
 
     public Text scoreText;
-    
     private float score = 0f;
 
     // Update is called once per frame
