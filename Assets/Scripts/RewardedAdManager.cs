@@ -11,7 +11,21 @@ using System.Collections;
 public class RewardedAdManager : MonoBehaviour
 {
     public static RewardedAdManager instance;
-    public bool isAdReady;
+    
+    private bool _isAdReady;
+    public bool IsAdReady // Example: https://answers.unity.com/questions/1206632/trigger-event-on-variable-change.html
+    {
+        get { return _isAdReady; }
+        set
+        {
+            if (_isAdReady == value) return;
+            _isAdReady = value;
+            if (OnIsAdReadyChange != null)
+                OnIsAdReadyChange(_isAdReady);
+        }
+    }
+    public delegate void OnIsAdReadyChangeDelegate(bool newVal);
+    public event OnIsAdReadyChangeDelegate OnIsAdReadyChange;
 
     private RewardedAd rewardedAd;
 
@@ -57,8 +71,8 @@ public class RewardedAdManager : MonoBehaviour
                 RequestAndLoadRewardedAd();
             }
 
-            isAdReady = rewardedAd != null
-                && (sceneName == "Menu" || sceneName == "Gameplay" && GameOver.isEligibleForReward)
+            IsAdReady = rewardedAd != null
+                && (sceneName == "Menu" || sceneName == "Gameplay")
                 && !(Application.internetReachability == NetworkReachability.NotReachable)
                 && rewardedAd.CanShowAd();
 
@@ -137,7 +151,7 @@ public class RewardedAdManager : MonoBehaviour
             // Rewarded ad granted a reward
             rewardedAd.Show((Reward reward) =>
             {
-                isAdReady = false; // Disable button right after ad was watched, to prevent double watch
+                IsAdReady = false; // Disable button right after ad was watched, to prevent double watch
 
                 SettingsManager settingsManager = FindObjectOfType<SettingsManager>();
                 if (sceneName == "Menu")
@@ -150,7 +164,6 @@ public class RewardedAdManager : MonoBehaviour
                     settingsManager.AddScore(
                         FindObjectOfType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1) // Add the gathered score (multiplier - 1) times
                     );
-                    GameOver.isEligibleForReward = false; // Do not allow multiplying more;
                 }
 
                 AudioManager.instance.PlayCashSound();

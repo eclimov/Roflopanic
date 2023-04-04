@@ -1879,6 +1879,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 233846609}
     m_Modifications:
+    - target: {fileID: 5499050696629859646, guid: eb147a8685354ff46937e266167c6386, type: 3}
+      propertyPath: isOneTimeTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8124646224612613373, guid: eb147a8685354ff46937e266167c6386, type: 3}
       propertyPath: m_Name
       value: Button Play Ad

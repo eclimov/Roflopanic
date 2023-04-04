@@ -1508,25 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106fd49fa1fe7c439b6724820783ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnAdLoadedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAdFailedToLoadEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAdOpeningEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAdFailedToShowEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUserEarnedRewardEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAdClosedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isAdReady: 0
 --- !u!114 &1940012985 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8147212604169505114, guid: eb147a8685354ff46937e266167c6386, type: 3}
