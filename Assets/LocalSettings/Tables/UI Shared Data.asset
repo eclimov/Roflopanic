@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: String Table Shared Data
+  m_Name: UI Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: String Table
+  m_TableCollectionName: UI
   m_TableCollectionNameGuidString: ab460739b38b794408856035ff254c38
   m_Entries:
   - m_Id: 34222407970816

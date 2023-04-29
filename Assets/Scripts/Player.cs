@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
 
-    private bool isColliding = false;
+    private bool isCollidingBorder = false;
 
     private float directionY;
+
+    private ScoreManager scoreManager;
 
     void Awake()
     {
@@ -24,13 +26,13 @@ public class Player : MonoBehaviour
         {
             CrownSprite.SetActive(true);
         }
+
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ScoreManager.scoreUpdateType = ScoreManager.ScoreUpdateTypesEnum.SECOND;
-
         // float directionY = Input.GetAxisRaw("Vertical");
         directionY = 0f;
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
@@ -48,21 +50,37 @@ public class Player : MonoBehaviour
                 directionY = -1f;
             }
 
-            if(!isColliding) // Do not allow sticking to the wall and gaining points
+            if(!isCollidingBorder) // Do not allow sticking to the wall and gaining points
             {
-                ScoreManager.scoreUpdateType = ScoreManager.ScoreUpdateTypesEnum.FRAME;
+                scoreManager.IncreaseTargetScore();
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Coin")
+        {
+            collision.gameObject.SetActive(false);
+            scoreManager.OnCoinCollected();
+            AudioManager.instance.PlayCoinSound();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isColliding = true;
+        if (collision.gameObject.tag == "Border")
+        {
+            isCollidingBorder = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        isColliding = false;
+        if (collision.gameObject.tag == "Border")
+        {
+            isCollidingBorder = false;
+        }
     }
 
     private void FixedUpdate()

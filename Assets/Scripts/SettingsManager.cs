@@ -21,6 +21,8 @@ public class SettingsManager : MonoBehaviour
     public static int highscore;
     public static int totalScore;
 
+    public static float speed = 15; // The speed of obstacles and coins
+
     public static int targetTotalScore = 50_000;
 
     public static ushort rewardScore = 300;
@@ -76,6 +78,35 @@ public class SettingsManager : MonoBehaviour
     public bool IsTargetTotalScoreAchieved()
     {
         return GetTotalScore() >= targetTotalScore;
+    }
+
+    private static List<string> GetSeenGuideScenesList()
+    {
+        List<string> list = new List<string>();
+
+        string isGuideSeenScenesPref = PlayerPrefs.GetString("isGuideSeenScenes", "");
+        if(isGuideSeenScenesPref != "") // Otherwise, it will fill add an empty item to the list
+        {
+            list.AddRange(isGuideSeenScenesPref.Split(","));
+        }
+
+        return list;
+    }
+
+    public static bool IsSceneGuideSeen(string sceneName)
+    {
+        return GetSeenGuideScenesList().Contains(sceneName);
+    }
+
+    public static void SetSceneGuideSeen(string sceneName)
+    {
+        if(!IsSceneGuideSeen(sceneName))
+        {
+            List<string> list = GetSeenGuideScenesList();
+            list.Add(sceneName);
+
+            PlayerPrefs.SetString("isGuideSeenScenes", String.Join(",", list.ToArray()));
+        }
     }
 
     public void setMusicEnabled(bool isEnabled)

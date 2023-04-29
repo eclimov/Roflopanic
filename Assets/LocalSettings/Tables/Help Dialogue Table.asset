@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Help Dialogue Table
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: f566074e5eb60aa4c96a9352cb7c8b96, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 8c24f5cf503f8764abc0e17be5391b27, type: 2}
+  - {fileID: 11400000, guid: c7b3c41ac62d7104c938f9c20b10717e, type: 2}
+  - {fileID: 11400000, guid: 6eea1bd89a95a1f44a67a5b7ab1a8f35, type: 2}
+  - {fileID: 11400000, guid: bdd1c50dd9a65824dab7bfd7be2db5b8, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

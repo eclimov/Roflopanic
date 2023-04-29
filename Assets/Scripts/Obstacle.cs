@@ -6,7 +6,6 @@ public class Obstacle : MonoBehaviour
 {
     private float rotationDirectionMultiplier = 0f;
     private int randomRotationSpeedMultiplier = 0;
-    public float speed;
 
     private Vector3 speedVector;
 
@@ -27,7 +26,7 @@ public class Obstacle : MonoBehaviour
         rotationDirectionMultiplier = (rotateBackwards ? (-1) : 1);
         randomRotationSpeedMultiplier = Random.Range(1, 80);
 
-        speedVector = new Vector3(speed, 0, 0);
+        speedVector = new Vector3(SettingsManager.speed, 0, 0);
     }
 
     // Update is called once per frame

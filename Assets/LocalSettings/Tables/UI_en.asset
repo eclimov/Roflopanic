@@ -10,86 +10,87 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: String Table_uk
+  m_Name: UI_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: uk
+    m_Code: en
   m_SharedData: {fileID: 11400000, guid: ab460739b38b794408856035ff254c38, type: 2}
   m_Metadata:
     m_Items:
-    - rid: 3768503849124626435
+    - rid: 3768503849124626434
   m_TableData:
   - m_Id: 131872616448
-    m_Localized: "\u041C\u0443\u0437\u0438\u043A\u0430"
+    m_Localized: Music
     m_Metadata:
       m_Items: []
   - m_Id: 25518610608128
-    m_Localized: "\u0417\u0432\u0443\u043A"
+    m_Localized: Sound
     m_Metadata:
       m_Items: []
   - m_Id: 25628182605824
-    m_Localized: "\u0412\u0456\u0431\u0440\u0430\u0446\u0456\u044F"
+    m_Localized: Vibration
     m_Metadata:
       m_Items: []
   - m_Id: 32074479726592
-    m_Localized: "\u041D\u0430\u0437\u0430\u0434"
+    m_Localized: Back
     m_Metadata:
       m_Items: []
   - m_Id: 32775985459200
-    m_Localized: "\u0417\u0430\u043D\u043E\u0432\u043E"
+    m_Localized: Restart
     m_Metadata:
       m_Items: []
   - m_Id: 32952506937344
-    m_Localized: "\u041C\u0435\u043D\u044E"
+    m_Localized: Menu
     m_Metadata:
       m_Items: []
   - m_Id: 33168370987008
-    m_Localized: "\u041F\u0440\u043E\u0434\u043E\u0432\u0436\u0438\u0442\u0438"
+    m_Localized: Continue
     m_Metadata:
       m_Items: []
   - m_Id: 33748011216896
-    m_Localized: "\u041F\u043E\u0447\u0430\u0442\u0438"
+    m_Localized: Start
     m_Metadata:
       m_Items: []
   - m_Id: 33900562247680
-    m_Localized: "\u041D\u0430\u043B\u0430\u0448\u0442\u0443\u0432\u0430\u043D\u043D\u044F"
+    m_Localized: Settings
     m_Metadata:
       m_Items: []
   - m_Id: 34222407970816
-    m_Localized: "\u041F\u0440\u043E \u0433\u0440\u0443"
+    m_Localized: About
     m_Metadata:
       m_Items: []
   - m_Id: 2905937026772992
-    m_Localized: "\u0420\u0435\u043A\u043E\u0440\u0434: {0}"
+    m_Localized: 'Highscore: {0}'
     m_Metadata:
       m_Items:
-      - rid: 3768503849124626435
+      - rid: 3768503849124626434
   - m_Id: 2906407992586240
-    m_Localized: "\u0423\u0441\u044C\u043E\u0433\u043E \u043E\u0447\u043E\u043A:
-      {0}"
+    m_Localized: 'Total score: {0}'
     m_Metadata:
       m_Items:
-      - rid: 3768503849124626435
-  - m_Id: 2923461227343872
-    m_Localized: "\u0420\u0435\u043A\u043E\u0440\u0434"
+      - rid: 3768503849124626434
+  - m_Id: 2923425135357952
+    m_Localized: Wasted
     m_Metadata:
       m_Items: []
-  - m_Id: 2923425135357952
-    m_Localized: "\u041F\u0440\u043E\u0433\u0440\u0430\u043D\u043E"
+  - m_Id: 2923461227343872
+    m_Localized: Highscore
     m_Metadata:
       m_Items: []
   - m_Id: 3187495252029440
-    m_Localized: "\u0414\u0438\u0432\u0438\u0442\u0438\u0441\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443\n\u041F\u0456\u0434\u0442\u0440\u0438\u043C\u0430\u0442\u0438
-      \u0430\u0432\u0442\u043E\u0440\u0430\n\u0417\u0434\u043E\u0431\u0443\u0442\u0438
-      300 \u043E\u0447\u043E\u043A"
+    m_Localized: 'Watch an ad
+
+      Support the author
+
+      Get 300 points'
     m_Metadata:
       m_Items: []
   - m_Id: 4579535646912512
-    m_Localized: "\u0420\u043E\u0437\u0440\u043E\u0431\u043D\u0438\u043A"
+    m_Localized: Developer
     m_Metadata:
       m_Items: []
   - m_Id: 4580570457206784
-    m_Localized: "\u0406\u043A\u043E\u043D\u043A\u0438"
+    m_Localized: Icons
     m_Metadata:
       m_Items: []
   - m_Id: 5061924890374144
@@ -97,18 +98,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7947339087507456
-    m_Localized: "\u041E\u0447\u043A\u0438\xD7{0}"
+    m_Localized: "Points\xD7{0}"
     m_Metadata:
       m_Items:
-      - rid: 3768503849124626435
+      - rid: 3768503849124626434
   - m_Id: 8632423792799744
-    m_Localized: "\u041E\u0446\u0456\u043D\u0438\u0442\u0438"
+    m_Localized: Rate
     m_Metadata:
       m_Items: []
   references:
     version: 2
     RefIds:
-    - rid: 3768503849124626435
+    - rid: 3768503849124626434
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_Entries: 00703830ef520a000070f8d75c530a0000703813103c1c00

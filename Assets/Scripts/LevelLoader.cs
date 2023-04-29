@@ -9,11 +9,41 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
 
+    public delegate void OnLevelLoadedDelegate();
+    public event OnLevelLoadedDelegate OnLevelLoad;
+
     private AudioManager audioManager;
+    private WaitForSecondsRealtime cachedWaitForSecondsRealtime;
 
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
+
+        cachedWaitForSecondsRealtime = new WaitForSecondsRealtime(transitionTime);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
+    {
+        StartCoroutine(EmitSceneLoaded());
+    }
+
+    private IEnumerator EmitSceneLoaded()
+    {
+        yield return cachedWaitForSecondsRealtime;
+        if (OnLevelLoad != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnLevelLoad();
+        }
     }
 
     public void LoadMenu()
@@ -48,7 +78,7 @@ public class LevelLoader : MonoBehaviour
         // Wait
         // Waiting real seconds because of the possible timescale 0 (while the game is paused)
         // https://forum.unity.com/threads/waitforseconds-while-time-scale-0.272786/
-        yield return new WaitForSecondsRealtime(transitionTime);
+        yield return cachedWaitForSecondsRealtime;
 
         // Load Scene Asynchronously
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelIndex);

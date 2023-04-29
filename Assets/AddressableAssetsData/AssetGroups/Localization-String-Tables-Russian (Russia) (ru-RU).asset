@@ -18,7 +18,13 @@ MonoBehaviour:
   m_GUID: 612d9f1fd91801e4ea4dda7544f8ec67
   m_SerializeEntries:
   - m_GUID: e2ecfcf0562cd234ca100d96d6a63462
-    m_Address: String Table_ru-RU
+    m_Address: UI_ru-RU
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+    - Preload
+  - m_GUID: bdd1c50dd9a65824dab7bfd7be2db5b8
+    m_Address: Help Dialogue Table_ru-RU
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru-RU

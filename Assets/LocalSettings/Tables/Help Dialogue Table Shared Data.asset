@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Help Dialogue Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Help Dialogue Table
+  m_TableCollectionNameGuidString: f566074e5eb60aa4c96a9352cb7c8b96
+  m_Entries:
+  - m_Id: 104836132864
+    m_Key: guide-menu-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180232941568
+    m_Key: guide-menu-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 227091705856
+    m_Key: guide-menu-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335262806016
+    m_Key: guide-menu-4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387544805376
+    m_Key: guide-gameplay-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445489115136
+    m_Key: guide-gameplay-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529161285632
+    m_Key: guide-gameplay-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 597289365504
+    m_Key: guide-gameplay-4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1398145602318336
+    m_Key: help-character-name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6498213205485289478
+  references:
+    version: 2
+    RefIds:
+    - rid: 6498213205485289478
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682244093422

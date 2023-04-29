@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+    public GameObject coinPrefab;
     public GameObject obstaclePrefab;
     public float maxX;
     public float minX;
@@ -15,10 +16,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     // There should be a delay before emit, to wait until loading animation finishes
     private bool isReadyToEmit = false;
-    public float waitBeforeStart;
 
+    private LevelLoader levelLoader;
     private byte poolSize = 5; 
     private Queue<GameObject> pool;
+    private GameObject coin;
+    private WaitForSeconds cachedWaitForSecondsBeforeCoinSpawn;
 
     private Transform myTransform;
 
@@ -29,8 +32,11 @@ public class ObstacleSpawner : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    private IEnumerator Start()
+    private void Start()
     {
+        levelLoader = FindObjectOfType<LevelLoader>();
+        levelLoader.OnLevelLoad += SetEmitterReady;
+
         pool = new Queue<GameObject>();
         for (byte i = 0; i < poolSize; i++)
         {
@@ -39,7 +45,18 @@ public class ObstacleSpawner : MonoBehaviour
             pool.Enqueue(obj);
         }
 
-        yield return new WaitForSeconds(waitBeforeStart);
+        coin = Instantiate(coinPrefab);
+        coin.SetActive(false);
+        cachedWaitForSecondsBeforeCoinSpawn = new WaitForSeconds(timeBetweenSpawn / 2);
+    }
+
+    protected void OnDestroy()
+    {
+        levelLoader.OnLevelLoad -= SetEmitterReady;
+    }
+
+    private void SetEmitterReady()
+    {
         isReadyToEmit = true;
     }
 
@@ -63,5 +80,24 @@ public class ObstacleSpawner : MonoBehaviour
         objectToSpawn.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
 
         pool.Enqueue(objectToSpawn);
+
+        if(
+            Random.Range(0, 50) == 0 // Chance of spawning a coin
+            && !coin.activeInHierarchy
+        )
+        {
+            StartCoroutine(SpawnCoinDelayed());
+        }
+    }
+
+    IEnumerator SpawnCoinDelayed()
+    {
+        yield return cachedWaitForSecondsBeforeCoinSpawn;
+
+        float randomX = Random.Range(minX, maxX);
+        float randomY = Random.Range(minY, maxY);
+
+        coin.SetActive(true);
+        coin.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
     }
 }

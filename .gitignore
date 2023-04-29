@@ -49,3 +49,6 @@ crashlytics-build.properties
 
 .idea
 eclimov.keystore
+
+hooks
+lfs

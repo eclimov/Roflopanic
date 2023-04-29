@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Help Dialogue Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f566074e5eb60aa4c96a9352cb7c8b96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 104836132864
+    m_Localized: Hello!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180232941568
+    m_Localized: I will help you understand the game...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 227091705856
+    m_Localized: Your game statistics and achievements are shown in the panel on
+      the left. From the right panel, you can start the game or get to other sections.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335262806016
+    m_Localized: If you forget how to play, you can call me again through the button
+      in the upper left corner...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387544805376
+    m_Localized: Watch out, they're already here...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445489115136
+    m_Localized: 'Touch the right half of the screen to go up.
+
+      Touch the left
+      half of the screen to go down.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529161285632
+    m_Localized: 'Points are gained faster when you move.
+
+      Don''t forget the
+      coins...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 597289365504
+    m_Localized: I see them!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1398145602318336
+    m_Localized: Taras
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

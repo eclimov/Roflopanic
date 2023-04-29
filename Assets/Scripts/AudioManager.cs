@@ -66,6 +66,22 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void PauseMusic()
+    {
+        if(musicSource.isPlaying)
+        {
+            musicSource.Pause();
+        }
+    }
+
+    public void UnpauseMusic()
+    {
+        if (!musicSource.isPlaying)
+        {
+            musicSource.Play();
+        }
+    }
+
     public void PlayButtonSound()
     {
         PlaySound("button");
@@ -79,6 +95,16 @@ public class AudioManager : MonoBehaviour
     public void PlayCashSound()
     {
         PlaySound("cash");
+    }
+
+    public void PlayCoinSound()
+    {
+        PlaySound("coin-flip");
+    }
+
+    public void PlayVoiceLetterSound()
+    {
+        PlaySound("voice-letter");
     }
 
     public void PlaySound(string clipName)

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Help Dialogue Table_ro-MD
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ro-MD
+  m_SharedData: {fileID: 11400000, guid: f566074e5eb60aa4c96a9352cb7c8b96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 104836132864
+    m_Localized: Salut!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180232941568
+    m_Localized: "V\u0103 voi ajuta s\u0103 \xEEn\u021Belegi jocul..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 227091705856
+    m_Localized: "Statisticile jocului \u0219i realiz\u0103rile dvs. sunt afi\u0219ate
+      \xEEn panoul din st\xE2nga. Din panoul din dreapta, pute\u021Bi \xEEncepe jocul
+      sau pute\u021Bi ajunge la alte sec\u021Biuni."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335262806016
+    m_Localized: "Dac\u0103 ai uitat cum s\u0103 joci, m\u0103 po\u021Bi suna din
+      nou prin butonul din col\u021Bul din st\xE2nga sus..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387544805376
+    m_Localized: "Ai grij\u0103, ei sunt deja aproape..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445489115136
+    m_Localized: "Atinge\u021Bi jum\u0103tatea dreapt\u0103 a ecranului pentru a
+      merge \xEEn sus.\r\nAtinge\u021Bi jum\u0103tatea st\xE2ng\u0103 a ecranului
+      pentru a merge \xEEn jos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529161285632
+    m_Localized: "Punctele se c\xE2\u0219tig\u0103 mai repede c\xE2nd te mi\u0219ti.\nNu
+      uita de monede..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 597289365504
+    m_Localized: Ii vad!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1398145602318336
+    m_Localized: Taras
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
