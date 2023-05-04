@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: rate
     m_Metadata:
       m_Items: []
+  - m_Id: 20986766416179200
+    m_Key: coin-chance
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

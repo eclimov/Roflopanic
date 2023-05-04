@@ -8,7 +8,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioClip[] musicClips;
-    public AudioClip[] soundClips;
+
+    public AudioClip soundButton;
+    public AudioClip soundDeath;
+    public AudioClip soundCash;
+    public AudioClip soundCoin;
+    public AudioClip soundVoiceLetter;
 
     public AudioSource musicSource;
     public AudioSource soundSource;
@@ -84,40 +89,33 @@ public class AudioManager : MonoBehaviour
 
     public void PlayButtonSound()
     {
-        PlaySound("button");
+        PlaySound(soundButton);
     }
 
     public void PlayDeathSound()
     {
-        PlaySound("death");
+        PlaySound(soundDeath);
     }
 
     public void PlayCashSound()
     {
-        PlaySound("cash");
+        PlaySound(soundCash);
     }
 
     public void PlayCoinSound()
     {
-        PlaySound("coin-flip");
+        PlaySound(soundCoin);
     }
 
     public void PlayVoiceLetterSound()
     {
-        PlaySound("voice-letter");
+        PlaySound(soundVoiceLetter);
     }
 
-    public void PlaySound(string clipName)
+    public void PlaySound(AudioClip clip)
     {
         if(!SettingsManager.isSoundEnabled)
         {
-            return;
-        }
-
-        AudioClip clip = Array.Find(soundClips, item => item.name == clipName);
-        if (clip == null)
-        {
-            Debug.LogWarning("Sound: " + clipName + " not found!");
             return;
         }
 
@@ -126,6 +124,7 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
+        // TODO: rework this to avoid checking the condition each frame
         if (PauseMenu.GameIsPaused)
         {
             musicSource.pitch = .6f;

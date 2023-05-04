@@ -24,11 +24,15 @@ public class SettingsManager : MonoBehaviour
     public static float speed = 15; // The speed of obstacles and coins
 
     public static int targetTotalScore = 50_000;
+    public static int maxCoinRateTotalScore = 1_000_000;
 
     public static ushort rewardScore = 300;
     public static byte rewardPointsMultiplier = 3;
 
     private bool isLocaleCoroutineActive = false;
+
+    public delegate void OnTotalScoreChangedDelegate();
+    public event OnTotalScoreChangedDelegate OnTotalScoreChange;
 
     private void Awake()
     {
@@ -73,6 +77,17 @@ public class SettingsManager : MonoBehaviour
     public static int GetTotalScore()
     {
         return PlayerPrefs.GetInt("totalScore", 0);
+    }
+
+    public static float GetCoinChance()
+    {
+        int totalScore = GetTotalScore();
+        if(totalScore >= maxCoinRateTotalScore)
+        {
+            return 1f;
+        }
+
+        return (float)totalScore / (float)maxCoinRateTotalScore;
     }
 
     public bool IsTargetTotalScoreAchieved()
@@ -163,5 +178,10 @@ public class SettingsManager : MonoBehaviour
     {
         totalScore += scoreToAdd;
         PlayerPrefs.SetInt("totalScore", totalScore);
+
+        if (OnTotalScoreChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnTotalScoreChange();
+        }
     }
 }

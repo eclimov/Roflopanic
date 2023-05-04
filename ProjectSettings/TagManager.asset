@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
-  - MenuPanel
   - Coin
+  - Language Button
   layers:
   - Default
   - TransparentFX

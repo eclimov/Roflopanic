@@ -51,6 +51,22 @@ MonoBehaviour:
     m_Key: help-character-name
     m_Metadata:
       m_Items: []
+  - m_Id: 3754430599557120
+    m_Key: coin-chance-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3754731217907712
+    m_Key: coin-chance-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3754920813031424
+    m_Key: coin-chance-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3755604711075840
+    m_Key: coin-chance-4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

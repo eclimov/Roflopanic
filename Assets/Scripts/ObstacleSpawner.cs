@@ -25,6 +25,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     private Transform myTransform;
 
+    private float coinSpawnChance;
+
     private void Awake()
     {
         // For Optimization purposes
@@ -48,6 +50,8 @@ public class ObstacleSpawner : MonoBehaviour
         coin = Instantiate(coinPrefab);
         coin.SetActive(false);
         cachedWaitForSecondsBeforeCoinSpawn = new WaitForSeconds(timeBetweenSpawn / 2);
+
+        coinSpawnChance = SettingsManager.GetCoinChance();
     }
 
     protected void OnDestroy()
@@ -82,7 +86,7 @@ public class ObstacleSpawner : MonoBehaviour
         pool.Enqueue(objectToSpawn);
 
         if(
-            Random.Range(0, 50) == 0 // Chance of spawning a coin
+            Random.value <= coinSpawnChance // Chance of spawning a coin
             && !coin.activeInHierarchy
         )
         {

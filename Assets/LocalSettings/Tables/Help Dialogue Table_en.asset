@@ -62,6 +62,23 @@ MonoBehaviour:
     m_Localized: Taras
     m_Metadata:
       m_Items: []
+  - m_Id: 3754430599557120
+    m_Localized: During the game you will meet coins...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3754731217907712
+    m_Localized: Collect them to get even more points!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3754920813031424
+    m_Localized: The more points, the higher the chance to meet a coin and become
+      even richer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3755604711075840
+    m_Localized: Not enough for food, but maybe enough for something else...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

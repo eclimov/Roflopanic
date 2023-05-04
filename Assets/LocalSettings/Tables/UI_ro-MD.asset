@@ -102,10 +102,15 @@ MonoBehaviour:
     m_Localized: "Rat\u0103"
     m_Metadata:
       m_Items: []
+  - m_Id: 20986766416179200
+    m_Localized: "\u015Eans\u0103 = {0}%"
+    m_Metadata:
+      m_Items:
+      - rid: 3768503962982940672
   references:
     version: 2
     RefIds:
     - rid: 3768503962982940672
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00703830ef520a000070f8d75c530a0000703813103c1c00
+        m_Entries: 00703830ef520a000070f8d75c530a0000703813103c1c00007038555a8f4a00

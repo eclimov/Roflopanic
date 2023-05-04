@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
-public class HelpManager : MonoBehaviour
+public class SceneGuideManager : MonoBehaviour
 {
-    public GameObject helpPanelPrefab;
-    public Dialogue dialogue;
+    public GameObject infoButton; // Button that can spawn the guide
 
     private LevelLoader levelLoader;
     private string currentSceneName;
@@ -32,21 +32,9 @@ public class HelpManager : MonoBehaviour
             return;
         }
 
-        SpawnHelpPanel();
-    }
-
-    public void SpawnHelpPanel()
-    {
-        GameObject obj = Instantiate(helpPanelPrefab, GameObject.Find("Canvas").transform, false);
-        obj.GetComponent<HelpPanelHandler>().OnPanelClose += (() => {
+        GameObject helpPanel = infoButton.GetComponent<InfoButtonHandler>().SpawnDialogue();
+        helpPanel.GetComponent<HelpPanelHandler>().OnPanelClose += (() => {
             SettingsManager.SetSceneGuideSeen(currentSceneName);
         });
-
-        TriggerDialogue();
-    }
-
-    public void TriggerDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 }

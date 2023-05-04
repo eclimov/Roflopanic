@@ -60,6 +60,23 @@ MonoBehaviour:
     m_Localized: Taras
     m_Metadata:
       m_Items: []
+  - m_Id: 3754430599557120
+    m_Localized: "\xCEn timpul jocului vei \xEEnt\xE2lni monede..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3754731217907712
+    m_Localized: "Adun\u0103-le pentru a ob\u021Bine \u0219i mai multe puncte!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3754920813031424
+    m_Localized: "Cu c\xE2t sunt mai multe puncte, cu at\xE2t este mai mare \u0219ansa
+      de a \xEEnt\xE2lni o moned\u0103 \u0219i de a deveni \u0219i mai bogat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3755604711075840
+    m_Localized: "Nu suficient pentru m\xE2ncare, dar poate suficient pentru altceva..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

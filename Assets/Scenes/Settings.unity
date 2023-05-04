@@ -803,6 +803,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 1944662301742328999, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5678041330101337004, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.35000038
@@ -1427,6 +1431,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Vibration
       objectReference: {fileID: 0}
+    - target: {fileID: 1944662301742328999, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5678041330101337004, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.35000038
@@ -1660,6 +1668,10 @@ PrefabInstance:
     - target: {fileID: 1944662301742328999, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
       propertyPath: m_text
       value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944662301742328999, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5678041330101337004, guid: 71be96cb4c8a05741aa0d30ee2ba3ac6, type: 3}
       propertyPath: m_AnchoredPosition.y
