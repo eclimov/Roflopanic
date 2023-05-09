@@ -21,8 +21,6 @@ public class SettingsManager : MonoBehaviour
     public static int highscore;
     public static int totalScore;
 
-    public static float speed = 15; // The speed of obstacles and coins
-
     public static int targetTotalScore = 50_000;
     public static int maxCoinRateTotalScore = 1_000_000;
 
@@ -30,6 +28,9 @@ public class SettingsManager : MonoBehaviour
     public static byte rewardPointsMultiplier = 3;
 
     private bool isLocaleCoroutineActive = false;
+
+    public static int difficultyId;
+    private DifficultyMap[] difficultyMaps;
 
     public delegate void OnTotalScoreChangedDelegate();
     public event OnTotalScoreChangedDelegate OnTotalScoreChange;
@@ -47,6 +48,40 @@ public class SettingsManager : MonoBehaviour
             localeId = LocalizationSettings.SelectedLocale.SortOrder;
             highscore = PlayerPrefs.GetInt("highscore", 0);
             totalScore = GetTotalScore();
+
+            /*
+             * 0 - easy
+             * 1 - medium
+             * 2 - hard
+            */
+            difficultyId = PlayerPrefs.GetInt("difficultyId", 1); // Use Medium difficulty by default
+            difficultyMaps = new DifficultyMap[]{
+                new DifficultyMap(
+                    backgroundSpeed: .25f,
+                    obstacleTimeBetweenSpawn: .8f,
+                    obstacleSpeed: 9f,
+                    playerSpeed: 8f,
+                    scoreIncrementMultiplier: 4f,
+                    coinBonusScore: 20f
+                ), // Easy
+                new DifficultyMap(
+                    backgroundSpeed: .6f,
+                    obstacleTimeBetweenSpawn: .4f,
+                    obstacleSpeed: 15f,
+                    playerSpeed: 12f,
+                    scoreIncrementMultiplier: 10f,
+                    coinBonusScore: 50f
+                ), // Medium
+
+                new DifficultyMap(
+                    backgroundSpeed: 1f,
+                    obstacleTimeBetweenSpawn: .28f,
+                    obstacleSpeed: 25f,
+                    playerSpeed: 21f,
+                    scoreIncrementMultiplier: 14f,
+                    coinBonusScore: 70f
+                ) // Hard
+            };
 
             // Initialize the Google Mobile Ads SDK.
             MobileAds.Initialize((InitializationStatus initStatus) =>
@@ -72,6 +107,17 @@ public class SettingsManager : MonoBehaviour
         {
             PlayerPrefs.Save();
         }
+    }
+
+    public static void SetDifficultyId(int value)
+    {
+        PlayerPrefs.SetInt("difficultyId", value);
+        difficultyId = value;
+    }
+
+    public DifficultyMap GetDifficultyMap()
+    {
+        return difficultyMaps[difficultyId];
     }
 
     public static int GetTotalScore()

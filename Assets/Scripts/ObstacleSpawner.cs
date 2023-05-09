@@ -10,7 +10,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float minX;
     public float maxY;
     public float minY;
-    public float timeBetweenSpawn;
+    private  float timeBetweenSpawn;
 
     private float spawnTime;
 
@@ -38,6 +38,8 @@ public class ObstacleSpawner : MonoBehaviour
     {
         levelLoader = FindObjectOfType<LevelLoader>();
         levelLoader.OnLevelLoad += SetEmitterReady;
+
+        timeBetweenSpawn = SettingsManager.instance.GetDifficultyMap().obstacleTimeBetweenSpawn;
 
         pool = new Queue<GameObject>();
         for (byte i = 0; i < poolSize; i++)

@@ -3,29 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class LoopingBackground : MonoBehaviour
+public abstract class AbstrctBackground : MonoBehaviour
 {
-    public float defaultBackgroundSpeed;
     public Renderer backgroundRenderer;
 
-    private Vector2 scrolling;
-
-    private static LoopingBackground instance;
+    protected Vector2 scrolling;
 
     private void Awake()
-    {
-        DontDestroyOnLoad(this);
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void Start()
     {
         float oldWidth = backgroundRenderer.bounds.size.x;
         float oldHeight = backgroundRenderer.bounds.size.y;
@@ -44,16 +28,17 @@ public class LoopingBackground : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
-        float backgroundSpeed = defaultBackgroundSpeed;
-        if (scene.name == "Gameplay")
-        {
-            backgroundSpeed = 20 * defaultBackgroundSpeed;
-        }
-
-        scrolling = new Vector2(backgroundSpeed, 0f);
+        SetScrolling();
     }
+
+    protected abstract void SetScrolling();
 
     // Update is called once per frame
     void Update()

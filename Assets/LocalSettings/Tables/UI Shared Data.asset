@@ -99,6 +99,22 @@ MonoBehaviour:
     m_Key: coin-chance
     m_Metadata:
       m_Items: []
+  - m_Id: 23148351591051264
+    m_Key: difficulty-label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23156544111144960
+    m_Key: difficulty-name-0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23156575698448384
+    m_Key: difficulty-name-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23156588159725568
+    m_Key: difficulty-name-2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

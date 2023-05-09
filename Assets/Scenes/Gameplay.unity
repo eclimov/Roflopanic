@@ -1624,6 +1624,87 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1001 &987644787
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6952696836731164705, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952696836731164709, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 860560050795313453, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+--- !u!1 &987644788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6952696836731164705, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+  m_PrefabInstance: {fileID: 987644787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &987644789 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6952696836731164711, guid: 509083e2e64d8ce4c9e83edeedcc4de7, type: 3}
+  m_PrefabInstance: {fileID: 987644787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &987644790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987644788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab4700c6c5457047b5630524e037306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundRenderer: {fileID: 987644789}
 --- !u!1001 &1047282815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1773,7 +1854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087710870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.16, y: 0, z: -2}
+  m_LocalPosition: {x: -7.2, y: 0, z: -2}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1810,7 +1891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80c2c0544702fe41a65ceca944f8950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 12
   CrownSprite: {fileID: 489342024}
 --- !u!50 &1087710874
 Rigidbody2D:
@@ -2552,7 +2632,6 @@ MonoBehaviour:
   minX: 3
   maxY: 4
   minY: -4
-  timeBetweenSpawn: 0.4
 --- !u!4 &1537412682
 Transform:
   m_ObjectHideFlags: 0

@@ -111,6 +111,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 3768503849124626434
+  - m_Id: 23148351591051264
+    m_Localized: 'Difficulty:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23156544111144960
+    m_Localized: Casual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23156575698448384
+    m_Localized: Adequate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23156588159725568
+    m_Localized: Hardcore
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

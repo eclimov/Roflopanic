@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float playerSpeed;
     public GameObject CrownSprite;
 
     private Rigidbody2D rb;
@@ -17,23 +16,27 @@ public class Player : MonoBehaviour
 
     private ScoreManager scoreManager;
 
+    private float playerSpeed;
+
     void Awake()
     {
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
 
-        if(FindObjectOfType<SettingsManager>().IsTargetTotalScoreAchieved())
+        if(SettingsManager.instance.IsTargetTotalScoreAchieved())
         {
             CrownSprite.SetActive(true);
         }
 
         scoreManager = FindObjectOfType<ScoreManager>();
+
+        playerSpeed = SettingsManager.instance.GetDifficultyMap().playerSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // float directionY = Input.GetAxisRaw("Vertical");
+        // directionY = Input.GetAxisRaw("Vertical");
         directionY = 0f;
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {

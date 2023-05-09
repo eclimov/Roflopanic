@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speedVector = new Vector3(SettingsManager.speed, 0, 0);
+        speedVector = new Vector3(SettingsManager.instance.GetDifficultyMap().obstacleSpeed, 0, 0);
     }
 
     // Update is called once per frame

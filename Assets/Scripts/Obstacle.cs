@@ -26,7 +26,7 @@ public class Obstacle : MonoBehaviour
         rotationDirectionMultiplier = (rotateBackwards ? (-1) : 1);
         randomRotationSpeedMultiplier = Random.Range(1, 80);
 
-        speedVector = new Vector3(SettingsManager.speed, 0, 0);
+        speedVector = new Vector3(SettingsManager.instance.GetDifficultyMap().obstacleSpeed, 0, 0);
     }
 
     // Update is called once per frame

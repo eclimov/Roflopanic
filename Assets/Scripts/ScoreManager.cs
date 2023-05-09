@@ -14,13 +14,19 @@ public class ScoreManager : MonoBehaviour
     private float targetScore = 0;
 
     private bool isTransitioning;
-    private int incrementMultiplier;
+
+    private float coinBonusScore;
+
+    private float defaultIncrementMultiplier;
+    private float incrementMultiplier;
 
     private WaitForSeconds cachedWaitForSecondsBeforeIncrement;
 
     private void Start()
     {
         cachedWaitForSecondsBeforeIncrement = new WaitForSeconds(1f);
+        defaultIncrementMultiplier = SettingsManager.instance.GetDifficultyMap().scoreIncrementMultiplier;
+        coinBonusScore = SettingsManager.instance.GetDifficultyMap().coinBonusScore;
 
         ResetIncrementMultiplier();
         SetTextValue();
@@ -29,7 +35,7 @@ public class ScoreManager : MonoBehaviour
 
     private void ResetIncrementMultiplier()
     {
-        incrementMultiplier = 10;
+        incrementMultiplier = defaultIncrementMultiplier;
     }
 
     private IEnumerator ScoreIncrementTimer()
@@ -88,7 +94,7 @@ public class ScoreManager : MonoBehaviour
 
     public void OnCoinCollected()
     {
-        targetScore += 50;
+        targetScore += coinBonusScore;
         isTransitioning = true;
         incrementMultiplier = 70;
 
