@@ -42,7 +42,7 @@ public class Obstacle : MonoBehaviour
         {
             AudioManager.instance.PlayDeathSound();
             Destroy(GameObject.FindGameObjectWithTag("Player").gameObject);
-            GameOver.isGameOver = true;
+            FindObjectOfType<GameManager>().SetGameOver(true);
 
             if (SettingsManager.isVibrationEnabled)
             {

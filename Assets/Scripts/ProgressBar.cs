@@ -26,6 +26,8 @@ public class ProgressBar : MonoBehaviour
     private Animator crownAnimator;
     private Animator progressBarGlintAnimator;
 
+    private SettingsManager settingsManager;
+
     private void Awake()
     {
         targetTotalScore = (float)SettingsManager.targetTotalScore;
@@ -34,7 +36,7 @@ public class ProgressBar : MonoBehaviour
         switch (DefaultValue)
         {
             case DefaultValueEnum.CurrentScore:
-                slider.value = CalculateProgressByValue(SettingsManager.totalScore);
+                slider.value = CalculateProgressByValue(SettingsManager.SaveData.totalScore);
                 break;
             default:
                 slider.value = 0f;
@@ -45,6 +47,28 @@ public class ProgressBar : MonoBehaviour
         progressBarGlintAnimator = ProgressBarGlint.GetComponent<Animator>();
 
         TargetTotalScoreText.GetComponent<TMP_Text>().text = targetTotalScore.ToString();
+    }
+
+    private void Start()
+    {
+        settingsManager = SettingsManager.instance;
+        settingsManager.OnTotalScoreChange += OnTotalScoreChangeHandler;
+    }
+
+    protected void OnDestroy()
+    {
+        settingsManager.OnTotalScoreChange -= OnTotalScoreChangeHandler;
+    }
+
+    private void OnTotalScoreChangeHandler()
+    {
+        StartCoroutine(AnimateProgressBarWithADelay(SettingsManager.SaveData.totalScore, 1f));
+    }
+
+    IEnumerator AnimateProgressBarWithADelay(int to, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AnimateProgress(to, .1f);
     }
 
     // Update is called once per frame

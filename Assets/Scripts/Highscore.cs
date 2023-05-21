@@ -25,7 +25,19 @@ public class Highscore : MonoBehaviour
 
     private void Start()
     {
-        localStringHighscore.Arguments[0] = SettingsManager.highscore;
+        SetHighscoreText();
+
+        SettingsManager.instance.OnHighscoreChange += SetHighscoreText;
+    }
+
+    protected void OnDestroy()
+    {
+        SettingsManager.instance.OnHighscoreChange -= SetHighscoreText;
+    }
+
+    private void SetHighscoreText()
+    {
+        localStringHighscore.Arguments[0] = SettingsManager.SaveData.highscore;
         localStringHighscore.RefreshString();
     }
 }

@@ -18,8 +18,9 @@ public class SettingsManager : MonoBehaviour
     public static bool isSoundEnabled;
     public static bool isVibrationEnabled;
     public static ushort localeId;
-    public static int highscore;
-    public static int totalScore;
+
+    // data that should be stored in cloud
+    public static SaveData.CloudSaveData SaveData;
 
     public static int targetTotalScore = 50_000;
     public static int maxCoinRateTotalScore = 1_000_000;
@@ -35,6 +36,9 @@ public class SettingsManager : MonoBehaviour
     public delegate void OnTotalScoreChangedDelegate();
     public event OnTotalScoreChangedDelegate OnTotalScoreChange;
 
+    public delegate void OnHighscoreChangedDelegate();
+    public event OnHighscoreChangedDelegate OnHighscoreChange;
+
     private void Awake()
     {
         if (instance == null)
@@ -46,8 +50,12 @@ public class SettingsManager : MonoBehaviour
             isSoundEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isSoundEnabled", 1));
             isVibrationEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isVibrationEnabled", 1));
             localeId = LocalizationSettings.SelectedLocale.SortOrder;
-            highscore = PlayerPrefs.GetInt("highscore", 0);
-            totalScore = GetTotalScore();
+
+            SaveData = new SaveData.CloudSaveData()
+            {
+                highscore = PlayerPrefs.GetInt("highscore", 0),
+                totalScore = GetTotalScore()
+            };
 
             /*
              * 0 - easy
@@ -216,18 +224,44 @@ public class SettingsManager : MonoBehaviour
 
     public void SetHighscore(int newHighscore)
     {
-        highscore = newHighscore;
-        PlayerPrefs.SetInt("highscore", highscore);
+        SaveData.highscore = newHighscore;
+        PlayerPrefs.SetInt("highscore", newHighscore);
+
+        if (OnHighscoreChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnHighscoreChange();
+        }
+
+        CloudSaveManager.Instance.Save();
     }
 
-    public void AddScore(int scoreToAdd)
+    private void SetTotalScore(int newTotalScore)
     {
-        totalScore += scoreToAdd;
-        PlayerPrefs.SetInt("totalScore", totalScore);
+        SaveData.totalScore = newTotalScore;
+        PlayerPrefs.SetInt("totalScore", newTotalScore);
 
         if (OnTotalScoreChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
             OnTotalScoreChange();
         }
+
+        CloudSaveManager.Instance.Save();
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        SetTotalScore(SaveData.totalScore + scoreToAdd);
+    }
+
+    public void DeleteData()
+    {
+        SetHighscore(0);
+        SetTotalScore(0);
+    }
+
+    public void SaveSaveData(SaveData.CloudSaveData data)
+    {
+        SetHighscore(data.highscore);
+        SetTotalScore(data.totalScore);
     }
 }

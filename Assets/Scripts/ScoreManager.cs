@@ -20,6 +20,8 @@ public class ScoreManager : MonoBehaviour
     private float defaultIncrementMultiplier;
     private float incrementMultiplier;
 
+    private GameManager gameManager;
+
     private WaitForSeconds cachedWaitForSecondsBeforeIncrement;
 
     private void Start()
@@ -28,9 +30,39 @@ public class ScoreManager : MonoBehaviour
         defaultIncrementMultiplier = SettingsManager.instance.GetDifficultyMap().scoreIncrementMultiplier;
         coinBonusScore = SettingsManager.instance.GetDifficultyMap().coinBonusScore;
 
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.OnGameOver += OnGameOverHandler;
+
         ResetIncrementMultiplier();
         SetTextValue();
         StartCoroutine(ScoreIncrementTimer());
+    }
+
+    protected void OnDestroy()
+    {
+        gameManager.OnGameOver -= OnGameOverHandler;
+    }
+
+    private void OnGameOverHandler()
+    {
+        StartCoroutine(UpdateScoreWithADelay(.1f)); // we need a delay here, because ProgressBar doesn't react on the score's update otherwise
+    }
+
+    IEnumerator UpdateScoreWithADelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (IsHighscore())
+        {
+            SettingsManager.instance.SetHighscore(GetScore());
+        }
+
+        SettingsManager.instance.AddScore(GetScore());
+    }
+
+    public bool IsHighscore()
+    {
+        return GetScore() > SettingsManager.SaveData.highscore;
     }
 
     private void ResetIncrementMultiplier()
@@ -80,7 +112,7 @@ public class ScoreManager : MonoBehaviour
 
     private bool CanIncreaseScore()
     {
-        return !(GameOver.isGameOver || PauseMenu.GameIsPaused);
+        return !(GameManager.isGameOver || PauseMenu.GameIsPaused);
     }
 
     public void IncreaseTargetScore(float value = 1f)

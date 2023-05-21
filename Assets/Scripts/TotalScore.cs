@@ -7,7 +7,7 @@ using System;
 
 public class TotalScore : MonoBehaviour
 {
-    [SerializeField] private LocalizedString localStringHighscore;
+    [SerializeField] private LocalizedString localStringTotalScore;
     [SerializeField] private TextMeshProUGUI textComp;
 
     private int totalScore = 0;
@@ -17,8 +17,8 @@ public class TotalScore : MonoBehaviour
 
     private void OnEnable()
     {
-        localStringHighscore.Arguments = new object[] { totalScore };
-        localStringHighscore.StringChanged += UpdateText;
+        localStringTotalScore.Arguments = new object[] { totalScore };
+        localStringTotalScore.StringChanged += UpdateText;
     }
 
     private void UpdateText(string value)
@@ -28,25 +28,32 @@ public class TotalScore : MonoBehaviour
 
     private void Start()
     {
-        totalScore = SettingsManager.totalScore;
+        totalScore = SettingsManager.SaveData.totalScore;
         UpdateTotalScoreValue(totalScore);
 
         increaseScore = (float)totalScore;
+
+        SettingsManager.instance.OnTotalScoreChange += SmoothValueIncrement;
+    }
+
+    protected void OnDestroy()
+    {
+        SettingsManager.instance.OnTotalScoreChange -= SmoothValueIncrement;
     }
 
     private void UpdateTotalScoreValue(int value)
     {
-        localStringHighscore.Arguments[0] = value;
-        localStringHighscore.RefreshString();
+        localStringTotalScore.Arguments[0] = value;
+        localStringTotalScore.RefreshString();
     }
 
     private void Update()
     {
         if(isSmoothIncrement)
         {
-            if (SettingsManager.totalScore > totalScore)
+            if (SettingsManager.SaveData.totalScore != totalScore)
             {
-                increaseScore = Mathf.MoveTowards(increaseScore, SettingsManager.totalScore, Time.deltaTime * SettingsManager.rewardScore);
+                increaseScore = Mathf.MoveTowards(increaseScore, SettingsManager.SaveData.totalScore, Time.deltaTime * SettingsManager.rewardScore);
                 totalScore = (int)increaseScore;
                 UpdateTotalScoreValue(totalScore);
             } else

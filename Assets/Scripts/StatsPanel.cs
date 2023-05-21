@@ -7,6 +7,6 @@ public class StatsPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<ProgressBar>().AnimateProgress(SettingsManager.totalScore, .5f);
+        FindObjectOfType<ProgressBar>().AnimateProgress(SettingsManager.SaveData.totalScore, .5f);
     }
 }

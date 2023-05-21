@@ -10,7 +10,6 @@ public class CoinChanceText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textComp;
 
     private string chance;
-    private SettingsManager settingsManager;
 
     private void OnEnable()
     {
@@ -22,13 +21,12 @@ public class CoinChanceText : MonoBehaviour
     {
         SetCoinChanceText();
 
-        settingsManager = SettingsManager.instance;
-        settingsManager.OnTotalScoreChange += SetCoinChanceText;
+        SettingsManager.instance.OnTotalScoreChange += SetCoinChanceText;
     }
 
     protected void OnDestroy()
     {
-        settingsManager.OnTotalScoreChange -= SetCoinChanceText;
+        SettingsManager.instance.OnTotalScoreChange -= SetCoinChanceText;
     }
 
     private void UpdateText(string value)

@@ -11,9 +11,13 @@ public class GameOverText : MonoBehaviour
     [SerializeField] private LocalizedString gameOverText;
     [SerializeField] private TextMeshProUGUI textComp;
 
+    private bool isHightscore;
+
     private void OnEnable()
     {
-        if(GameOver.isHighscore)
+        isHightscore = FindObjectOfType<ScoreManager>().IsHighscore();
+
+        if (isHightscore)
         {
             textComp.text = gameOverHighscoreText.GetLocalizedString();
         } else
@@ -24,7 +28,7 @@ public class GameOverText : MonoBehaviour
 
     private void Update()
     {
-        if(GameOver.isHighscore)
+        if(isHightscore)
         {
             GetComponent<TMP_Text>().color = Color.Lerp(Color.black, Color.yellow, Mathf.PingPong(Time.time / .5f, 1));
         }
