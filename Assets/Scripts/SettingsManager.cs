@@ -86,7 +86,7 @@ public class SettingsManager : MonoBehaviour
                     obstacleTimeBetweenSpawn: .28f,
                     obstacleSpeed: 25f,
                     playerSpeed: 21f,
-                    scoreIncrementMultiplier: 14f,
+                    scoreIncrementMultiplier: 15f,
                     coinBonusScore: 70f
                 ) // Hard
             };

@@ -24,6 +24,9 @@ public class ScoreManager : MonoBehaviour
 
     private WaitForSeconds cachedWaitForSecondsBeforeIncrement;
 
+    private LevelLoader levelLoader;
+    private bool isLevelLoaded;
+
     private void Start()
     {
         cachedWaitForSecondsBeforeIncrement = new WaitForSeconds(1f);
@@ -35,12 +38,21 @@ public class ScoreManager : MonoBehaviour
 
         ResetIncrementMultiplier();
         SetTextValue();
-        StartCoroutine(ScoreIncrementTimer());
+
+        levelLoader = FindObjectOfType<LevelLoader>();
+        levelLoader.OnLevelLoad += OnLevelLoadHandler;
     }
 
     protected void OnDestroy()
     {
+        levelLoader.OnLevelLoad -= OnLevelLoadHandler;
         gameManager.OnGameOver -= OnGameOverHandler;
+    }
+
+    private void OnLevelLoadHandler()
+    {
+        isLevelLoaded = true;
+        StartCoroutine(ScoreIncrementTimer());
     }
 
     private void OnGameOverHandler()
@@ -112,7 +124,7 @@ public class ScoreManager : MonoBehaviour
 
     private bool CanIncreaseScore()
     {
-        return !(GameManager.isGameOver || PauseMenu.GameIsPaused);
+        return isLevelLoaded && !(GameManager.isGameOver || PauseMenu.GameIsPaused);
     }
 
     public void IncreaseTargetScore(float value = 1f)
