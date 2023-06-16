@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Levels_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f6a2d795deb5b204f838b3e54bd1805c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 29267357696
+    m_Localized: Unknown Roflan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12895529758720
+    m_Localized: Champion at the start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13372396957696
+    m_Localized: Dobry pochantok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13601456287744
+    m_Localized: Well started - half done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3022818341580800
+    m_Localized: Worm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3023056624185344
+    m_Localized: Ah, get on up!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3027650225926144
+    m_Localized: Micro guy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3027905768091648
+    m_Localized: There is room to grow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3028776497213440
+    m_Localized: A guy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3028983507087360
+    m_Localized: You
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

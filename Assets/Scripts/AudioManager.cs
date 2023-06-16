@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip soundCash;
     public AudioClip soundCoin;
     public AudioClip soundVoiceLetter;
+    public AudioClip soundFanfare;
 
     public AudioSource musicSource;
     public AudioSource soundSource;
@@ -71,6 +72,14 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void StopMusic()
+    {
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+    }
+
     public void PauseMusic()
     {
         if(musicSource.isPlaying)
@@ -83,7 +92,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!musicSource.isPlaying)
         {
-            musicSource.Play();
+            musicSource.UnPause();
         }
     }
 
@@ -110,6 +119,11 @@ public class AudioManager : MonoBehaviour
     public void PlayVoiceLetterSound()
     {
         PlaySound(soundVoiceLetter);
+    }
+
+    public void PlayFanfareSound()
+    {
+        PlaySound(soundFanfare);
     }
 
     public void PlaySound(AudioClip clip)

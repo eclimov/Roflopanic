@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
         isGameOver = status;
         gameOverPanel.SetActive(true);
 
+        AudioManager.instance.StopMusic();
+
         if (OnGameOver != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
             OnGameOver();

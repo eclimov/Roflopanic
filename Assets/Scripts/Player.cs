@@ -36,8 +36,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // directionY = Input.GetAxisRaw("Vertical");
         directionY = 0f;
+
+#if UNITY_EDITOR
+        directionY = Input.GetAxisRaw("Vertical");
+#endif
+
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);

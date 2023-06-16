@@ -71,12 +71,25 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3754920813031424
-    m_Localized: The more points, the higher the chance to meet a coin and become
-      even richer.
+    m_Localized: The chance of a coin appearing can be increased for points.
     m_Metadata:
       m_Items: []
   - m_Id: 3755604711075840
     m_Localized: Not enough for food, but maybe enough for something else...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18223769876721664
+    m_Localized: 'Someday you will ask yourself the question: "Stop, what have I
+      achieved?"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18225475880513536
+    m_Localized: Here is a list of the levels you have reached, as well as the levels
+      you have not yet reached
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18225980518199296
+    m_Localized: Come back here from time to time
     m_Metadata:
       m_Items: []
   references:

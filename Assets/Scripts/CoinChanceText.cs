@@ -20,23 +20,16 @@ public class CoinChanceText : MonoBehaviour
     private void Start()
     {
         SetCoinChanceText();
-
-        SettingsManager.instance.OnTotalScoreChange += SetCoinChanceText;
     }
 
-    protected void OnDestroy()
+    private void SetCoinChanceText()
     {
-        SettingsManager.instance.OnTotalScoreChange -= SetCoinChanceText;
+        localStringHighscore.Arguments[0] = SettingsManager.GetCoinChance();
+        localStringHighscore.RefreshString();
     }
 
     private void UpdateText(string value)
     {
         textComp.text = value;
-    }
-
-    private void SetCoinChanceText()
-    {
-        localStringHighscore.Arguments[0] = (SettingsManager.GetCoinChance() * 100).ToString("F2");
-        localStringHighscore.RefreshString();
     }
 }

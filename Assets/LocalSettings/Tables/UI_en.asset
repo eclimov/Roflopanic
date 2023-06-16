@@ -59,30 +59,16 @@ MonoBehaviour:
     m_Localized: About
     m_Metadata:
       m_Items: []
-  - m_Id: 2905937026772992
-    m_Localized: 'Highscore: {0}'
-    m_Metadata:
-      m_Items:
-      - rid: 3768503849124626434
   - m_Id: 2906407992586240
-    m_Localized: 'Total score: {0}'
+    m_Localized: Total score
     m_Metadata:
-      m_Items:
-      - rid: 3768503849124626434
+      m_Items: []
   - m_Id: 2923425135357952
     m_Localized: Wasted
     m_Metadata:
       m_Items: []
   - m_Id: 2923461227343872
     m_Localized: Highscore
-    m_Metadata:
-      m_Items: []
-  - m_Id: 3187495252029440
-    m_Localized: 'Watch an ad
-
-      Support the author
-
-      Get 300 points'
     m_Metadata:
       m_Items: []
   - m_Id: 4579535646912512
@@ -97,11 +83,6 @@ MonoBehaviour:
     m_Localized: RofloPanic
     m_Metadata:
       m_Items: []
-  - m_Id: 7947339087507456
-    m_Localized: "Points\xD7{0}"
-    m_Metadata:
-      m_Items:
-      - rid: 3768503849124626434
   - m_Id: 8632423792799744
     m_Localized: Rate
     m_Metadata:
@@ -128,17 +109,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25644767156662272
-    m_Localized: Do you really want to delete your data (points, highscores)?
+    m_Localized: Do you really want to delete your data (points, experience, highscores)?
     m_Metadata:
       m_Items: []
   - m_Id: 26651956507865088
     m_Localized: Delete data
     m_Metadata:
       m_Items: []
+  - m_Id: 34630282090409984
+    m_Localized: Level {0}
+    m_Metadata:
+      m_Items:
+      - rid: 3768503849124626434
   references:
     version: 2
     RefIds:
     - rid: 3768503849124626434
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00703830ef520a000070f8d75c530a0000703813103c1c00007038555a8f4a00
+        m_Entries: 00703830ef520a0000703813103c1c00007038555a8f4a00007078de0e087b00

@@ -53,7 +53,7 @@ public class ObstacleSpawner : MonoBehaviour
         coin.SetActive(false);
         cachedWaitForSecondsBeforeCoinSpawn = new WaitForSeconds(timeBetweenSpawn / 2);
 
-        coinSpawnChance = SettingsManager.GetCoinChance();
+        coinSpawnChance = SettingsManager.GetCoinChance() / 100f;
     }
 
     protected void OnDestroy()

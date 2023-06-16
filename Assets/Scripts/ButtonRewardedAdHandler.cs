@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,9 +7,13 @@ using GoogleMobileAds.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 public class ButtonRewardedAdHandler : MonoBehaviour
 {
+    [SerializeField] 
+    private TextMeshProUGUI textObject;
+
     [SerializeField]
     private GameObject PlayAdSprite;
 
@@ -28,6 +32,16 @@ public class ButtonRewardedAdHandler : MonoBehaviour
         rewardedAdManager = FindObjectOfType<RewardedAdManager>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
+
+        switch(SceneManager.GetActiveScene().name)
+        {
+            case "Menu":
+                textObject.text = "+" + SettingsManager.rewardScore;
+                break;
+            default: // Gameplay
+                textObject.text = "×" + SettingsManager.rewardPointsMultiplier;
+                break;
+        }
 
         SetInteractible(rewardedAdManager.IsAdReady);
         rewardedAdManager.OnIsAdReadyChange += SetInteractible;

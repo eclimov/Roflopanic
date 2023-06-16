@@ -153,16 +153,21 @@ public class RewardedAdManager : MonoBehaviour
             {
                 IsAdReady = false; // Disable button right after ad was watched, to prevent double watch
 
-                if (sceneName == "Menu")
+                int scoreToAdd;
+                switch (sceneName)
                 {
-                    SettingsManager.instance.AddScore(SettingsManager.rewardScore);
+                    case "Menu":
+                        scoreToAdd = SettingsManager.rewardScore;
+                        break;
+                    case "Gameplay":
+                        scoreToAdd = FindObjectOfType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1); // Add the gathered score (multiplier - 1) times
+                        break;
+                    default:
+                        scoreToAdd = 0;
+                        break;
                 }
-                else if (sceneName == "Gameplay")
-                {
-                    SettingsManager.instance.AddScore(
-                        FindObjectOfType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1) // Add the gathered score (multiplier - 1) times
-                    );
-                }
+                SettingsManager.instance.AddScore(scoreToAdd);
+                SettingsManager.instance.AddExperience(scoreToAdd);
 
                 AudioManager.instance.PlayCashSound();
             });

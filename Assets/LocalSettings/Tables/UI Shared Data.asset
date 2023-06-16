@@ -19,10 +19,6 @@ MonoBehaviour:
     m_Key: about
     m_Metadata:
       m_Items: []
-  - m_Id: 3187495252029440
-    m_Key: ad-button-get-points
-    m_Metadata:
-      m_Items: []
   - m_Id: 32074479726592
     m_Key: back
     m_Metadata:
@@ -35,12 +31,8 @@ MonoBehaviour:
     m_Key: developer
     m_Metadata:
       m_Items: []
-  - m_Id: 2905937026772992
-    m_Key: dynamic-highscore
-    m_Metadata:
-      m_Items: []
   - m_Id: 2906407992586240
-    m_Key: dynamic-total-score
+    m_Key: total-score
     m_Metadata:
       m_Items: []
   - m_Id: 2923425135357952
@@ -87,10 +79,6 @@ MonoBehaviour:
     m_Key: vibration
     m_Metadata:
       m_Items: []
-  - m_Id: 7947339087507456
-    m_Key: multiply-points
-    m_Metadata:
-      m_Items: []
   - m_Id: 8632423792799744
     m_Key: rate
     m_Metadata:
@@ -121,6 +109,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 26651956507865088
     m_Key: delete-data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34630282090409984
+    m_Key: level-number
     m_Metadata:
       m_Items: []
   m_Metadata:

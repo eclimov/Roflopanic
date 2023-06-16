@@ -67,6 +67,18 @@ MonoBehaviour:
     m_Key: coin-chance-4
     m_Metadata:
       m_Items: []
+  - m_Id: 18223769876721664
+    m_Key: guide-levels-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18225475880513536
+    m_Key: guide-levels-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18225980518199296
+    m_Key: guide-levels-3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

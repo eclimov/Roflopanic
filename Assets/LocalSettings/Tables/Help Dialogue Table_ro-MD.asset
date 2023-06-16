@@ -69,12 +69,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3754920813031424
-    m_Localized: "Cu c\xE2t sunt mai multe puncte, cu at\xE2t este mai mare \u0219ansa
-      de a \xEEnt\xE2lni o moned\u0103 \u0219i de a deveni \u0219i mai bogat."
+    m_Localized: "\u0218ansa ca o moned\u0103 s\u0103 apar\u0103 poate fi m\u0103rit\u0103
+      cu puncte."
     m_Metadata:
       m_Items: []
   - m_Id: 3755604711075840
     m_Localized: "Nu suficient pentru m\xE2ncare, dar poate suficient pentru altceva..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18223769876721664
+    m_Localized: "\xCEntr-o zi \xEE\u021Bi vei pune \xEEntrebarea: \"Stop, ce am
+      realizat?\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18225475880513536
+    m_Localized: "Iat\u0103 o list\u0103 a nivelurilor pe care le-a\u021Bi atins,
+      precum \u0219i a nivelurilor pe care nu le-a\u021Bi atins \xEEnc\u0103"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18225980518199296
+    m_Localized: "\xCEntoarce-te aici din c\xE2nd \xEEn c\xE2nd"
     m_Metadata:
       m_Items: []
   references:

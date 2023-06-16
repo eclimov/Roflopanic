@@ -69,7 +69,9 @@ public class ScoreManager : MonoBehaviour
             SettingsManager.instance.SetHighscore(GetScore());
         }
 
-        SettingsManager.instance.AddScore(GetScore());
+        int scoreToAdd = GetScore();
+        SettingsManager.instance.AddScore(scoreToAdd);
+        SettingsManager.instance.AddExperience(scoreToAdd);
     }
 
     public bool IsHighscore()

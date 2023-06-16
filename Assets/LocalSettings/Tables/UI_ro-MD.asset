@@ -59,26 +59,16 @@ MonoBehaviour:
     m_Localized: Despre joc
     m_Metadata:
       m_Items: []
-  - m_Id: 2905937026772992
-    m_Localized: 'Recordul: {0}'
-    m_Metadata:
-      m_Items:
-      - rid: 3768503962982940672
   - m_Id: 2906407992586240
-    m_Localized: 'Total puncte: {0}'
+    m_Localized: Total puncte
     m_Metadata:
-      m_Items:
-      - rid: 3768503962982940672
+      m_Items: []
   - m_Id: 2923425135357952
     m_Localized: Pierdut
     m_Metadata:
       m_Items: []
   - m_Id: 2923461227343872
     m_Localized: Recordul
-    m_Metadata:
-      m_Items: []
-  - m_Id: 3187495252029440
-    m_Localized: "Vezi reclam\u0103\nSus\u021Bine autorul\nPrime\u0219te 300 de puncte"
     m_Metadata:
       m_Items: []
   - m_Id: 4579535646912512
@@ -93,11 +83,6 @@ MonoBehaviour:
     m_Localized: RofloPanic
     m_Metadata:
       m_Items: []
-  - m_Id: 7947339087507456
-    m_Localized: "Puncte\xD7{0}"
-    m_Metadata:
-      m_Items:
-      - rid: 3768503962982940672
   - m_Id: 8632423792799744
     m_Localized: "Rat\u0103"
     m_Metadata:
@@ -124,17 +109,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25644767156662272
-    m_Localized: "Chiar dori\u021Bi s\u0103 \u0219terge\u021Bi datele (puncte, recorduri)?"
+    m_Localized: "Chiar dori\u021Bi s\u0103 \u0219terge\u021Bi datele (puncte, experien\u0163\u0103,
+      recorduri)?"
     m_Metadata:
       m_Items: []
   - m_Id: 26651956507865088
     m_Localized: "\u0218terge\u021Bi datele"
     m_Metadata:
       m_Items: []
+  - m_Id: 34630282090409984
+    m_Localized: Nivel {0}
+    m_Metadata:
+      m_Items:
+      - rid: 3768503962982940672
   references:
     version: 2
     RefIds:
     - rid: 3768503962982940672
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00703830ef520a000070f8d75c530a0000703813103c1c00007038555a8f4a00
+        m_Entries: 00703830ef520a0000703813103c1c00007038555a8f4a00007078de0e087b00

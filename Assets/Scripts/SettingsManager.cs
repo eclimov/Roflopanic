@@ -11,6 +11,8 @@ using GoogleMobileAds.Api;
 
 public class SettingsManager : MonoBehaviour
 {
+    public Level[] levels;
+
     public static SettingsManager instance;
 
     public static bool isMobileAdsSDKInitialized;
@@ -23,7 +25,10 @@ public class SettingsManager : MonoBehaviour
     public static SaveData.CloudSaveData SaveData;
 
     public static int targetTotalScore = 50_000;
-    public static int maxCoinRateTotalScore = 1_000_000;
+
+    /***************************/
+    public static int experiencePerLevel = 10_000;
+    /***************************/
 
     public static ushort rewardScore = 300;
     public static byte rewardPointsMultiplier = 3;
@@ -33,11 +38,14 @@ public class SettingsManager : MonoBehaviour
     public static int difficultyId;
     private DifficultyMap[] difficultyMaps;
 
-    public delegate void OnTotalScoreChangedDelegate();
+    public delegate void OnTotalScoreChangedDelegate(int newScore);
     public event OnTotalScoreChangedDelegate OnTotalScoreChange;
 
-    public delegate void OnHighscoreChangedDelegate();
+    public delegate void OnHighscoreChangedDelegate(int newScore);
     public event OnHighscoreChangedDelegate OnHighscoreChange;
+
+    public delegate void OnExperienceChangeDelegate(int newVal);
+    public event OnExperienceChangeDelegate OnExperienceChange;
 
     private void Awake()
     {
@@ -54,7 +62,8 @@ public class SettingsManager : MonoBehaviour
             SaveData = new SaveData.CloudSaveData()
             {
                 highscore = PlayerPrefs.GetInt("highscore", 0),
-                totalScore = GetTotalScore()
+                totalScore = GetTotalScore(),
+                experience = GetExperience()
             };
 
             /*
@@ -133,15 +142,9 @@ public class SettingsManager : MonoBehaviour
         return PlayerPrefs.GetInt("totalScore", 0);
     }
 
-    public static float GetCoinChance()
+    public static int GetCoinChance()
     {
-        int totalScore = GetTotalScore();
-        if(totalScore >= maxCoinRateTotalScore)
-        {
-            return 1f;
-        }
-
-        return (float)totalScore / (float)maxCoinRateTotalScore;
+        return 1;
     }
 
     public bool IsTargetTotalScoreAchieved()
@@ -229,7 +232,7 @@ public class SettingsManager : MonoBehaviour
 
         if (OnHighscoreChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
-            OnHighscoreChange();
+            OnHighscoreChange(newHighscore);
         }
 
         CloudSaveManager.Instance.Save();
@@ -242,7 +245,7 @@ public class SettingsManager : MonoBehaviour
 
         if (OnTotalScoreChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
-            OnTotalScoreChange();
+            OnTotalScoreChange(newTotalScore);
         }
 
         CloudSaveManager.Instance.Save();
@@ -253,15 +256,58 @@ public class SettingsManager : MonoBehaviour
         SetTotalScore(SaveData.totalScore + scoreToAdd);
     }
 
+    public static int GetPlayerLevelNumber()
+    {
+        return (GetExperience() / experiencePerLevel) + 1;
+    }
+
+    public Level GetPlayerLevelByNumber(int number)
+    {
+        return levels[number - 1];
+    }
+
+    public static int GetExperience()
+    {
+        return PlayerPrefs.GetInt("experience", 0);
+    }
+
+    private void SetExperience(int newExperience)
+    {
+        SaveData.experience = newExperience;
+        PlayerPrefs.SetInt("experience", newExperience);
+
+        if (OnExperienceChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnExperienceChange(newExperience);
+        }
+
+        CloudSaveManager.Instance.Save();
+    }
+
+    public void AddExperience(int experienceToAdd)
+    {
+        int experienceCap = experiencePerLevel * (levels.Length - 1);
+
+        if ((SaveData.experience + experienceToAdd) > experienceCap)
+        {
+            SetExperience(experienceCap);
+        } else
+        {
+            SetExperience(SaveData.experience + experienceToAdd);
+        }
+    }
+
     public void DeleteData()
     {
         SetHighscore(0);
         SetTotalScore(0);
+        SetExperience(0);
     }
 
     public void SaveSaveData(SaveData.CloudSaveData data)
     {
         SetHighscore(data.highscore);
         SetTotalScore(data.totalScore);
+        SetExperience(data.experience);
     }
 }

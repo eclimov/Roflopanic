@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Assets/LocalSettings/Tables/Help Dialogue Table Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: f6a2d795deb5b204f838b3e54bd1805c
+    m_Address: Assets/LocalSettings/Tables/Levels Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f052540650eee4549ab221779bd59ea3, type: 2}
   m_SchemaSet:
