@@ -58,6 +58,14 @@ MonoBehaviour:
     m_Localized: Tu
     m_Metadata:
       m_Items: []
+  - m_Id: 13886695405023232
+    m_Localized: Omul-Crab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13887111517728768
+    m_Localized: "Poate face mai mult dec\xE2t s\u0103 roteasc\u0103 ro\u021Bile"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

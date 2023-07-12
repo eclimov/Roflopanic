@@ -10,10 +10,13 @@ public class ExperienceBar : MonoBehaviour
     public Slider slider;
     public TMP_Text experienceText;
     public Animator GlintAnimator;
+    public AudioSource audioSource;
 
-    private int currentExperience;
+    private float currentExperience;
+    private float targetExperience;
+    private float maxDeltaMultiplier;
 
-    private int remainingExperienceToFill = 0;
+    private int experienceMovementSign = 1;
 
     private SettingsManager settingsManager;
 
@@ -25,6 +28,9 @@ public class ExperienceBar : MonoBehaviour
         settingsManager = SettingsManager.instance;
         
         currentExperience = SettingsManager.SaveData.experience;
+        targetExperience = currentExperience;
+        maxDeltaMultiplier = 1;
+
         SetExperienceBarValue();
 
         settingsManager.OnExperienceChange += OnExperienceChangeHandler;
@@ -38,32 +44,32 @@ public class ExperienceBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(remainingExperienceToFill != 0 
-            && Time.timeScale > 0 // Do not increase experience bar when game is paused (or a panel is displayed)
+        if(
+            Time.timeScale > 0 // Do not do anything when game is paused (or a panel is displayed)
         )
         {
-            int remainingExperienceToFillSign = Math.Sign(remainingExperienceToFill);
-
-            currentExperience += remainingExperienceToFillSign;
-
-            float sliderValueBeforeUpdate = slider.value;
-            SetExperienceBarValue();
-            if(sliderValueBeforeUpdate > slider.value && remainingExperienceToFillSign > 0
-                || sliderValueBeforeUpdate < slider.value && remainingExperienceToFillSign < 0
-            ) // Level has changed
+            if (currentExperience != targetExperience)
             {
-                if (OnExperienceBarLevelChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+                currentExperience = Mathf.MoveTowards(currentExperience, targetExperience, Time.deltaTime * maxDeltaMultiplier);
+
+                float sliderValueBeforeUpdate = slider.value;
+                SetExperienceBarValue();
+                if (sliderValueBeforeUpdate > slider.value && experienceMovementSign > 0
+                    || sliderValueBeforeUpdate < slider.value && experienceMovementSign < 0
+                ) // Level has changed
                 {
-                    OnExperienceBarLevelChange(remainingExperienceToFillSign);
+                    if (OnExperienceBarLevelChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+                    {
+                        OnExperienceBarLevelChange(experienceMovementSign);
+                    }
                 }
             }
-
-            remainingExperienceToFill -= remainingExperienceToFillSign;
-        } else
-        {
-            if (GlintAnimator.GetBool("IsMoving"))
+            else
             {
-                GlintAnimator.SetBool("IsMoving", false);
+                if (GlintAnimator.GetBool("IsMoving"))
+                {
+                    GlintAnimator.SetBool("IsMoving", false);
+                }
             }
         }
     }
@@ -73,21 +79,52 @@ public class ExperienceBar : MonoBehaviour
         StartCoroutine(AnimateExperienceBarWithADelay(newExperience, 1f));
     }
 
-    IEnumerator AnimateExperienceBarWithADelay(int targetExperience, float delay)
+    IEnumerator AnimateExperienceBarWithADelay(int newExperience, float delay)
     {
         yield return new WaitForSeconds(delay);
-        AnimateExperience(targetExperience);
+
+        GlintAnimator.SetBool("IsMoving", true);
+        targetExperience = newExperience;
+
+        float differenceExperience = Math.Abs(targetExperience - currentExperience);
+        maxDeltaMultiplier = differenceExperience > 10 ? differenceExperience : 10; // The transition speed should not be too slow, when the difference is small
+
+        experienceMovementSign = Math.Sign(targetExperience - currentExperience);
+        StartCoroutine(PlayExperienceSound(experienceMovementSign));
     }
 
-    public void AnimateExperience(int targetExperience)
+    protected IEnumerator PlayExperienceSound(int sign)
     {
-        GlintAnimator.SetBool("IsMoving", true);
-        remainingExperienceToFill = targetExperience - currentExperience;
+        float pitch = 1f;
+        float minPitch = .5f;
+        float maxPitch = 1.5f;
+        WaitForSecondsRealtime cachedIntervalBetweenSoundTicks = new WaitForSecondsRealtime(.05f);
+
+        while (currentExperience != targetExperience)
+        {
+            if (Time.timeScale > 0) // Do not do anything when game is paused (or a panel is displayed)
+            {
+                if(SettingsManager.isSoundEnabled)
+                {
+                    audioSource.pitch = pitch;
+                    audioSource.PlayOneShot(audioSource.clip);
+                    if (pitch >= minPitch && pitch <= maxPitch)
+                    {
+                        pitch += .02f * sign;
+                    }
+                }
+            }
+
+            yield return cachedIntervalBetweenSoundTicks;
+        }
+
+        yield return new WaitForSecondsRealtime(.5f);
+        audioSource.pitch = 1f;
     }
 
     private void SetExperienceBarValue()
     {
-        int currentExperienceBarValue = currentExperience % SettingsManager.experiencePerLevel;
+        int currentExperienceBarValue = (int)currentExperience % SettingsManager.experiencePerLevel;
         slider.value = Mathf.Floor(
             ((float)currentExperienceBarValue / SettingsManager.experiencePerLevel) * 100f
         ) / 100f;
