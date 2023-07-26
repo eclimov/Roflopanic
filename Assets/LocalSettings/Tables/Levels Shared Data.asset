@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: crab-man-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 16678033087295488
+    m_Key: villager-with-spear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16678352198332416
+    m_Key: villager-with-spear-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -87,7 +87,15 @@ public class ExperienceBar : MonoBehaviour
         targetExperience = newExperience;
 
         float differenceExperience = Math.Abs(targetExperience - currentExperience);
-        maxDeltaMultiplier = differenceExperience > 10 ? differenceExperience : 10; // The transition speed should not be too slow, when the difference is small
+        maxDeltaMultiplier = differenceExperience / 2;
+        // The transition speed should not be too slow or too fast
+        if (maxDeltaMultiplier < 10)
+        {
+            maxDeltaMultiplier = 10; // Minimum multiplier
+        } else if(maxDeltaMultiplier > 10000)
+        {
+            maxDeltaMultiplier = 10000; // Maximum multiplier
+        }
 
         experienceMovementSign = Math.Sign(targetExperience - currentExperience);
         StartCoroutine(PlayExperienceSound(experienceMovementSign));
@@ -110,7 +118,7 @@ public class ExperienceBar : MonoBehaviour
                     audioSource.PlayOneShot(audioSource.clip);
                     if (pitch >= minPitch && pitch <= maxPitch)
                     {
-                        pitch += .02f * sign;
+                        pitch += .01f * sign;
                     }
                 }
             }

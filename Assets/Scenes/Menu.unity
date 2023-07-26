@@ -3310,6 +3310,35 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     sprite: {fileID: 21300000, guid: bd9cc5b5efd7a804d92114632fb8d770, type: 3}
+  - number: 7
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:f6a2d795deb5b204f838b3e54bd1805c
+      m_TableEntryReference:
+        m_KeyId: 16678033087295488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    slogan:
+      m_TableReference:
+        m_TableCollectionName: GUID:f6a2d795deb5b204f838b3e54bd1805c
+      m_TableEntryReference:
+        m_KeyId: 16678352198332416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    perks:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sprite: {fileID: 21300000, guid: 8b682afb695a3cf4d8e5c6c1d7982058, type: 3}
   references:
     version: 2
     RefIds: []
