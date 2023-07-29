@@ -2753,6 +2753,7 @@ MonoBehaviour:
   experienceBar: {fileID: 4318141583769349929}
   experienceText: {fileID: 4318141582948404363}
   newLevelPanelPrefab: {fileID: 7955383887766943933, guid: 823acd6501f82ef4a82d991fa6bb8d39, type: 3}
+  confettiPrefab: {fileID: 5602554417777089173, guid: e1fc70683f879ea4f93bd66ba60465d8, type: 3}
   levelNameText: {fileID: 4318141582700670737}
   levelSloganText: {fileID: 4318141583744485510}
   levelImage: {fileID: 4318141582520203905}

@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip soundCoin;
     public AudioClip soundVoiceLetter;
     public AudioClip soundFanfare;
+    public AudioClip soundPartyHorn;
 
     public AudioSource musicSource;
     public AudioSource soundSource;
@@ -124,6 +125,11 @@ public class AudioManager : MonoBehaviour
     public void PlayFanfareSound()
     {
         PlaySound(soundFanfare);
+    }
+
+    public void PlayPartyHornSound()
+    {
+        PlaySound(soundPartyHorn);
     }
 
     public void PlaySound(AudioClip clip)

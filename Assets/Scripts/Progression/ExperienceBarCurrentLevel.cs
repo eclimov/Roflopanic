@@ -13,6 +13,7 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
     public GameObject experienceText;
 
     public GameObject newLevelPanelPrefab;
+    public GameObject confettiPrefab;
 
     public TMP_Text levelNameText;
     public TMP_Text levelSloganText;
@@ -43,6 +44,8 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
             AudioManager.instance.PlayFanfareSound();
 
             InitializeNewLevelPanel();
+
+            StartCoroutine(InitializeConfettiWithADelay(.5f));
         }
 
         SetCurrentLevel();
@@ -56,6 +59,12 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
 
         NewLevelPanelHandler newLevelPanelHandler = newLevelPanelGameObject.GetComponent<NewLevelPanelHandler>();
         newLevelPanelHandler.InitializeLevel(level);
+    }
+
+    IEnumerator InitializeConfettiWithADelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        Instantiate(confettiPrefab, GameObject.Find("Canvas").transform, false); // Spawn "Confetti" panel
     }
 
     private Level GetCurrentLevel()

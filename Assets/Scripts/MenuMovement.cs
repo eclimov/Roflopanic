@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MenuMovement : MonoBehaviour
 {
-    //Rotational Speed
-    public float speed = 0f;
+    public float movementSpeed = 0f;
+    public float rotationSpeed = 0f;
 
     void Update()
     {
-        transform.Rotate(0, 0, -Time.deltaTime * speed, Space.Self);
-        transform.position -= new Vector3(speed * 3 * Time.deltaTime, 0, 0);
+        transform.position -= new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+        transform.Rotate(0, 0, -Time.deltaTime * rotationSpeed, Space.Self);
     }
 }
