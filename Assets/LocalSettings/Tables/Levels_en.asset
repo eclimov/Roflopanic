@@ -74,6 +74,22 @@ MonoBehaviour:
     m_Localized: The most dangerous warrior
     m_Metadata:
       m_Items: []
+  - m_Id: 20290131629469696
+    m_Localized: Hard worker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20290435469045760
+    m_Localized: Straight from the factory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20298189415936000
+    m_Localized: Uncle Bogdan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20298213076004864
+    m_Localized: You can't blame the wrench for not tightening the nut well.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

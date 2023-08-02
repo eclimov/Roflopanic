@@ -71,6 +71,22 @@ MonoBehaviour:
     m_Key: villager-with-spear-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 20290131629469696
+    m_Key: hard-worker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20290435469045760
+    m_Key: hard-worker-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20298189415936000
+    m_Key: uncle-bogdan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20298213076004864
+    m_Key: uncle-bogdan-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private ScoreManager scoreManager;
 
     private float playerSpeed;
+    private float rotationSpeed;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
 
         playerSpeed = SettingsManager.instance.GetDifficultyMap().playerSpeed;
+        rotationSpeed = playerSpeed * 25;
     }
 
     // Update is called once per frame
@@ -62,6 +64,26 @@ public class Player : MonoBehaviour
                 scoreManager.IncreaseTargetScore();
             }
         }
+
+        // Rotation
+        if ((directionY == 0 || isCollidingBorder) 
+            && transform.rotation.z != 0f // Do not remove this condition from here, because it creats funny "panic rotation" effect when moving towards border while in colision
+        )
+        {
+            rotatePlayer(0f);
+        } else
+        {
+            rotatePlayer(directionY * 15f);
+        }
+    }
+
+    private void rotatePlayer(float angle)
+    {
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            Quaternion.AngleAxis(angle, Vector3.forward),
+            Time.deltaTime * rotationSpeed
+        );
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
