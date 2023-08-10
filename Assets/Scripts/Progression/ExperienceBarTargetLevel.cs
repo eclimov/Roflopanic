@@ -34,7 +34,7 @@ public class ExperienceBarTargetLevel : MonoBehaviour
 
     private void SetTargetLevel()
     {
-        gameObject.SetActive(targetPlayerLevel <= SettingsManager.instance.levels.Length);
+        gameObject.SetActive(targetPlayerLevel <= ProgressionManager.instance.levels.Length);
         targetLevelText.text = targetPlayerLevel.ToString();
     }
 }

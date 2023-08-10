@@ -91,6 +91,14 @@ MonoBehaviour:
       piuli\u021Ba."
     m_Metadata:
       m_Items: []
+  - m_Id: 24378451623964672
+    m_Localized: "Este o ma\u0219in\u0103 sau o piatr\u0103? Cum le po\u021Bi deosebi?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24378383361667072
+    m_Localized: "Piatr\u0103"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

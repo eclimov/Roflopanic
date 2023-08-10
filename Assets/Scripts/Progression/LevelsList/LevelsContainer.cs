@@ -11,10 +11,10 @@ public class LevelsContainer : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		for(int i = 0; i < SettingsManager.instance.levels.Length; i++)
+		for(int i = 0; i < ProgressionManager.instance.levels.Length; i++)
         {
 			levelGameObject = Instantiate(levelPrefab, GameObject.Find("LevelsContainer").transform, false);
-			levelGameObject.GetComponent<LevelHandler>().InitializeLevel(SettingsManager.instance.levels[i]);
+			levelGameObject.GetComponent<LevelHandler>().InitializeLevel(ProgressionManager.instance.levels[i]);
 		}
 	}
 }

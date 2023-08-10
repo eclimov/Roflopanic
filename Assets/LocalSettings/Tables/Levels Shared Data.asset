@@ -87,6 +87,14 @@ MonoBehaviour:
     m_Key: uncle-bogdan-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 24378383361667072
+    m_Key: stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24378451623964672
+    m_Key: stone-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -16,7 +16,6 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
     public GameObject confettiPrefab;
 
     public TMP_Text levelNameText;
-    public TMP_Text levelSloganText;
     public Image levelImage;
 
     private int playerLevelNumber;
@@ -41,11 +40,7 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
 
         if (Math.Sign(sign) > 0) // If the level is incrementing, spawn new level panel
         {
-            AudioManager.instance.PlayFanfareSound();
-
-            InitializeNewLevelPanel();
-
-            StartCoroutine(InitializeConfettiWithADelay(.5f));
+            ProgressionManager.instance.OnPlayerLevelChange(GetCurrentLevel());
         }
 
         SetCurrentLevel();
@@ -53,18 +48,7 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
 
     public void InitializeNewLevelPanel() // This method should not have parameters, because it's being called from UI
     {
-        Level level = GetCurrentLevel();
-
-        GameObject newLevelPanelGameObject = Instantiate(newLevelPanelPrefab, GameObject.Find("Canvas").transform, false); // Spawn "New Level" panel
-
-        NewLevelPanelHandler newLevelPanelHandler = newLevelPanelGameObject.GetComponent<NewLevelPanelHandler>();
-        newLevelPanelHandler.InitializeLevel(level);
-    }
-
-    IEnumerator InitializeConfettiWithADelay(float delay)
-    {
-        yield return new WaitForSecondsRealtime(delay);
-        Instantiate(confettiPrefab, GameObject.Find("Canvas").transform, false); // Spawn "Confetti" panel
+        ProgressionManager.instance.InitializeNewLevelPanel(GetCurrentLevel());
     }
 
     private Level GetCurrentLevel()
@@ -75,14 +59,13 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
 
     private void SetCurrentLevel()
     {
-        bool isLevelCap = playerLevelNumber == SettingsManager.instance.levels.Length;
+        bool isLevelCap = playerLevelNumber == ProgressionManager.instance.levels.Length;
         experienceText.SetActive(!isLevelCap);
 
         playerLevelNumberText.text = playerLevelNumber.ToString();
 
         Level currentLevel = GetCurrentLevel();
         levelNameText.text = currentLevel.GetName();
-        levelSloganText.text = currentLevel.GetSlogan();
         levelImage.sprite = currentLevel.GetSprite();
     }
 }

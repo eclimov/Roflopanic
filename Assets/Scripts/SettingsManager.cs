@@ -11,8 +11,6 @@ using GoogleMobileAds.Api;
 
 public class SettingsManager : MonoBehaviour
 {
-    public Level[] levels;
-
     public static SettingsManager instance;
 
     public static bool isMobileAdsSDKInitialized;
@@ -263,7 +261,7 @@ public class SettingsManager : MonoBehaviour
 
     public Level GetPlayerLevelByNumber(int number)
     {
-        return levels[number - 1];
+        return ProgressionManager.instance.levels[number - 1];
     }
 
     public static int GetExperience()
@@ -286,7 +284,7 @@ public class SettingsManager : MonoBehaviour
 
     public void AddExperience(int experienceToAdd)
     {
-        int experienceCap = experiencePerLevel * (levels.Length - 1);
+        int experienceCap = experiencePerLevel * (ProgressionManager.instance.levels.Length - 1);
 
         if ((SaveData.experience + experienceToAdd) > experienceCap)
         {

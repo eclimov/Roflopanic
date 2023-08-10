@@ -13,6 +13,8 @@ public abstract class AbstractScorePanelManager : MonoBehaviour
     protected float increaseScore;
     protected bool isSmoothIncrement;
 
+    private float maxDeltaMultiplier;
+
     protected void UpdateScoreText(int value)
     {
         textComp.text = value.ToString();
@@ -24,7 +26,7 @@ public abstract class AbstractScorePanelManager : MonoBehaviour
         {
             if (targetScore != score)
             {
-                increaseScore = Mathf.MoveTowards(increaseScore, targetScore, Time.deltaTime * SettingsManager.rewardScore);
+                increaseScore = Mathf.MoveTowards(increaseScore, targetScore, Time.deltaTime * maxDeltaMultiplier);
                 score = (int)increaseScore;
                 UpdateScoreText(score);
             }
@@ -39,5 +41,7 @@ public abstract class AbstractScorePanelManager : MonoBehaviour
     {
         targetScore = newScore;
         isSmoothIncrement = true;
+
+        maxDeltaMultiplier = Mathf.Abs(targetScore - score);
     }
 }

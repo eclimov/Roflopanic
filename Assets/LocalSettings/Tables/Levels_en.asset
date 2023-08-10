@@ -90,6 +90,14 @@ MonoBehaviour:
     m_Localized: You can't blame the wrench for not tightening the nut well.
     m_Metadata:
       m_Items: []
+  - m_Id: 24378383361667072
+    m_Localized: Stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24378451623964672
+    m_Localized: Is it a car or a stone? How can you tell them apart?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
