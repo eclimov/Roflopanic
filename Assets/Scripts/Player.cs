@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     public GameObject CrownSprite;
 
+    public RectTransform controlDown;
+    public RectTransform controlUp;
+
     private Rigidbody2D rb;
     private Vector3 mousePos;
     private Camera mainCam;
@@ -46,23 +49,21 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButton(0)) // Same as touching the screen https://www.youtube.com/watch?v=0M-9EtUArhw
         {
+            // the dimensions represent FOV: https://forum.unity.com/threads/screentoworldpoint-always-the-same.337105/
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            if (
-                mousePos.x > 1
-                && mousePos.y < 3.4f // Non-interactive area for Pause button (the dimensions represent FOV: https://forum.unity.com/threads/screentoworldpoint-always-the-same.337105/)
-            )
+            if (RectTransformUtility.RectangleContainsScreenPoint(controlUp, mousePos))
             {
                 directionY = 1f;
-            }
-            else if (mousePos.x < -1)
+            } else if(RectTransformUtility.RectangleContainsScreenPoint(controlDown, mousePos))
             {
                 directionY = -1f;
             }
+        }
 
-            if(!isCollidingBorder) // Do not allow sticking to the wall and gaining points
-            {
-                scoreManager.IncreaseTargetScore();
-            }
+        // Score increase
+        if (directionY != 0 && !isCollidingBorder && scoreManager != null) // Do not allow sticking to the wall and gaining points
+        {
+            scoreManager.IncreaseTargetScore();
         }
 
         // Rotation

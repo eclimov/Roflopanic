@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3008392650351279773}
   - component: {fileID: 5724544078266793020}
   - component: {fileID: 642040337472658015}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Level Slogan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level slogan
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6f5f26f0945df3043a00a55b4e37621e, type: 2}
+  m_sharedMaterial: {fileID: 1464923534240222580, guid: 6f5f26f0945df3043a00a55b4e37621e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 9022539826274140992}
   - component: {fileID: 1325096390123234936}
   - component: {fileID: 2135823234867139918}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Glint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 7955383887766943929}
   - component: {fileID: 7955383887766943930}
   - component: {fileID: 7955383887766943928}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: New Level Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 7955383888115306124}
   - component: {fileID: 5275650719921802730}
   - component: {fileID: 2813511976619408709}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: NewLevelBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 7955383888482895775}
   - component: {fileID: 7955383888482895773}
   - component: {fileID: 7955383888482895774}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Perks Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 7955383888956431134}
   - component: {fileID: 7955383888956431132}
   - component: {fileID: 7955383888956431133}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Current Level Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 7955383889006762092}
   - component: {fileID: 7955383889006762090}
   - component: {fileID: 7955383889006762091}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Current Level Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 7955383889159522470}
   - component: {fileID: 7955383889159522471}
   - component: {fileID: 7955383889159522488}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 7955383889160735588}
   - component: {fileID: 7955383889160735589}
   - component: {fileID: 7955383889160735590}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Current Level Image Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +977,7 @@ GameObject:
   - component: {fileID: 7955383889283929239}
   - component: {fileID: 7955383889283929237}
   - component: {fileID: 7955383889283929238}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button Close Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1053,7 +1053,7 @@ GameObject:
   - component: {fileID: 7955383889332371505}
   - component: {fileID: 7955383889332371519}
   - component: {fileID: 7955383889332371504}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Level Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,8 +1110,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6f5f26f0945df3043a00a55b4e37621e, type: 2}
+  m_sharedMaterial: {fileID: 1464923534240222580, guid: 6f5f26f0945df3043a00a55b4e37621e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1135,13 +1135,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.65
+  m_fontSize: 33.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 7955383889451016347}
   - component: {fileID: 7955383889451016345}
   - component: {fileID: 7955383889451016346}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}

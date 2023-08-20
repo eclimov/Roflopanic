@@ -91,6 +91,19 @@ MonoBehaviour:
     m_Localized: "\xCEntoarce-te aici din c\xE2nd \xEEn c\xE2nd"
     m_Metadata:
       m_Items: []
+  - m_Id: 42489979921264640
+    m_Localized: Bun venit la magazin!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42490179331059712
+    m_Localized: "Aici pute\u021Bi cump\u0103ra valut\u0103, upgrade-uri \u0219i
+      diverse modific\u0103ri..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42490608232198144
+    m_Localized: "\xCEntoarce-te din c\xE2nd \xEEn c\xE2nd!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

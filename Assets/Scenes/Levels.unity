@@ -172,6 +172,8 @@ MonoBehaviour:
   eyes: {fileID: 1971718971}
   movementDistance: 0.1
   lookAtTarget: {fileID: 1347185847}
+  lookTargets:
+  - {fileID: 1347185847}
 --- !u!212 &85238749
 SpriteRenderer:
   m_ObjectHideFlags: 0

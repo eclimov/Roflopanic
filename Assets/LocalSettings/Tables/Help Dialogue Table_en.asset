@@ -92,6 +92,18 @@ MonoBehaviour:
     m_Localized: Come back here from time to time
     m_Metadata:
       m_Items: []
+  - m_Id: 42489979921264640
+    m_Localized: Welcome to the shop!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42490179331059712
+    m_Localized: Here you can buy currency, upgrades and various modifications...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42490608232198144
+    m_Localized: Come back from time to time!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

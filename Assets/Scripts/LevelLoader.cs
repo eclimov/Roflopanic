@@ -70,6 +70,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(4));
     }
 
+    public void LoadShop()
+    {
+        StartCoroutine(LoadLevel(5, () => audioManager.PlayMusic("music-shop")));
+    }
+
     IEnumerator LoadLevel(int levelIndex, Action whenDone = null)
     {
         // Play Animation

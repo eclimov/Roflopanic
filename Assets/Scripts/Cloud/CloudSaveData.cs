@@ -10,5 +10,6 @@ namespace SaveData
         public int highscore = 0;
         public int totalScore = 0;
         public int experience = 0;
+        public int coinChance = 0;
     }
 }

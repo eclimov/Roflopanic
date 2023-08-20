@@ -12,8 +12,8 @@ public class ExperienceBarCurrentLevel : MonoBehaviour
 
     public GameObject experienceText;
 
-    public GameObject newLevelPanelPrefab;
-    public GameObject confettiPrefab;
+    public GameObject newLevelPanelPrefab; // TODO: remove?
+    public GameObject confettiPrefab; // TODO: remove?
 
     public TMP_Text levelNameText;
     public Image levelImage;

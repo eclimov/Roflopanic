@@ -19,12 +19,14 @@ public class CoinChanceText : MonoBehaviour
 
     private void Start()
     {
-        SetCoinChanceText();
+        SetCoinChanceText(SettingsManager.GetCoinChance());
+
+        SettingsManager.instance.OnCoinChanceChange += SetCoinChanceText;
     }
 
-    private void SetCoinChanceText()
+    private void SetCoinChanceText(int coinChance)
     {
-        localStringHighscore.Arguments[0] = SettingsManager.GetCoinChance();
+        localStringHighscore.Arguments[0] = coinChance;
         localStringHighscore.RefreshString();
     }
 

@@ -31,10 +31,6 @@ MonoBehaviour:
     m_Key: developer
     m_Metadata:
       m_Items: []
-  - m_Id: 2906407992586240
-    m_Key: total-score
-    m_Metadata:
-      m_Items: []
   - m_Id: 2923425135357952
     m_Key: game-over
     m_Metadata:
@@ -113,6 +109,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 34630282090409984
     m_Key: level-number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59737453345927168
+    m_Key: confirm-purchase
     m_Metadata:
       m_Items: []
   m_Metadata:

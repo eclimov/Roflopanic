@@ -79,6 +79,18 @@ MonoBehaviour:
     m_Key: guide-levels-3
     m_Metadata:
       m_Items: []
+  - m_Id: 42489979921264640
+    m_Key: guide-shop-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42490179331059712
+    m_Key: guide-shop-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42490608232198144
+    m_Key: guide-shop-3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

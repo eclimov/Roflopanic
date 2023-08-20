@@ -36,6 +36,9 @@ public class SettingsManager : MonoBehaviour
     public static int difficultyId;
     private DifficultyMap[] difficultyMaps;
 
+    public delegate void OnCoinChanceChangedDelegate(int newCoinChance);
+    public event OnCoinChanceChangedDelegate OnCoinChanceChange;
+
     public delegate void OnTotalScoreChangedDelegate(int newScore);
     public event OnTotalScoreChangedDelegate OnTotalScoreChange;
 
@@ -61,7 +64,8 @@ public class SettingsManager : MonoBehaviour
             {
                 highscore = PlayerPrefs.GetInt("highscore", 0),
                 totalScore = GetTotalScore(),
-                experience = GetExperience()
+                experience = GetExperience(),
+                coinChance = GetCoinChance()
             };
 
             /*
@@ -142,7 +146,7 @@ public class SettingsManager : MonoBehaviour
 
     public static int GetCoinChance()
     {
-        return 1;
+        return PlayerPrefs.GetInt("coinChance", 0);
     }
 
     public bool IsTargetTotalScoreAchieved()
@@ -254,6 +258,41 @@ public class SettingsManager : MonoBehaviour
         SetTotalScore(SaveData.totalScore + scoreToAdd);
     }
 
+    public bool SubtractScore(int scoreToSubtract) // Return true if successfull
+    {
+        int newScore = SaveData.totalScore - scoreToSubtract;
+        if(newScore < 0)
+        {
+            return false;
+        }
+
+        SetTotalScore(newScore);
+        return true;
+    }
+
+    private void SetCoinChance(int newCoinChance)
+    {
+        if(newCoinChance > 100) // Prevent having chance value higher than 100
+        {
+            newCoinChance = 100;
+        }
+
+        SaveData.coinChance = newCoinChance;
+        PlayerPrefs.SetInt("coinChance", newCoinChance);
+
+        if (OnCoinChanceChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnCoinChanceChange(newCoinChance);
+        }
+
+        CloudSaveManager.Instance.Save();
+    }
+
+    public void AddCoinChance(int coinChanceToAdd)
+    {
+        SetCoinChance(SaveData.coinChance + coinChanceToAdd);
+    }
+
     public static int GetPlayerLevelNumber()
     {
         return (GetExperience() / experiencePerLevel) + 1;
@@ -300,6 +339,7 @@ public class SettingsManager : MonoBehaviour
         SetHighscore(0);
         SetTotalScore(0);
         SetExperience(0);
+        SetCoinChance(0);
     }
 
     public void SaveSaveData(SaveData.CloudSaveData data)
@@ -307,5 +347,6 @@ public class SettingsManager : MonoBehaviour
         SetHighscore(data.highscore);
         SetTotalScore(data.totalScore);
         SetExperience(data.experience);
+        SetCoinChance(data.coinChance);
     }
 }

@@ -59,10 +59,6 @@ MonoBehaviour:
     m_Localized: About
     m_Metadata:
       m_Items: []
-  - m_Id: 2906407992586240
-    m_Localized: Total score
-    m_Metadata:
-      m_Items: []
   - m_Id: 2923425135357952
     m_Localized: Wasted
     m_Metadata:
@@ -121,6 +117,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 3768503849124626434
+  - m_Id: 59737453345927168
+    m_Localized: Confirm purchase
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
