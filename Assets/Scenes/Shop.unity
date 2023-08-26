@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -635,11 +635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 470.40002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -659,11 +659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388298, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388402, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: itemData.itemId
-      value: pointsAndXp
+      value: points_and_xp
       objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388402, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: itemData.itemPrice
@@ -697,6 +697,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d20b082c87cc948ada45004ff9d03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPriceContainer: {fileID: 194140412}
+  loadingSprite: {fileID: 194140411}
+--- !u!1 &194140411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518997071693953978, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+  m_PrefabInstance: {fileID: 194140407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &194140412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4619082535134281407, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+  m_PrefabInstance: {fileID: 194140407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &259478214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,6 +2137,10 @@ PrefabInstance:
     - target: {fileID: 4619082535434388300, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619082535434388402, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: itemData.itemId
+      value: coin_chance_upgrade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class CoinChanceUpgrade : AbstractShopItem
 {
-    protected override bool CanBePurchased()
-    {
-        return !IsPurchased() && SettingsManager.GetTotalScore() >= shopItemContainerData.itemData.itemPrice;
-    }
-
     protected override bool IsPurchased()
     {
         return SettingsManager.GetCoinChance() >= 100;
@@ -23,7 +18,7 @@ public class CoinChanceUpgrade : AbstractShopItem
             SettingsManager.instance.AddCoinChance(1);
             AudioManager.instance.PlayCoinSound();
 
-            InitializeStyles();
+            CheckIfCanBePurchased();
         }
     }
 

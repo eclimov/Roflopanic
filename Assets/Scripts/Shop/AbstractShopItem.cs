@@ -10,27 +10,45 @@ public abstract class AbstractShopItem : MonoBehaviour
     protected ShopItemContainerData shopItemContainerData;
     protected Button button;
 
+    private bool canBePurchased;
+    protected virtual bool CanBePurchased
+    {
+        get
+        {
+            return canBePurchased;
+        }
+
+        set
+        {
+            canBePurchased = value;
+            InitializeStyles();
+        }
+    }
+
     private WaitForSecondsRealtime cachedWaitForSecondsRealtimeGlintInterval;
 
     private GameObject confirmPurchasePanel;
     private ConfirmPurchasePanelManager confirmPurchasePanelManager;
+
+    protected virtual void Awake()
+    {
+        shopItemContainerData = GetComponent<ShopItemContainerData>();
+        button = GetComponent<Button>();
+        button.onClick.AddListener(OnClick);
+
+        CheckIfCanBePurchased();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         cachedWaitForSecondsRealtimeGlintInterval = new WaitForSecondsRealtime(Random.Range(5f, 8f));
 
-        shopItemContainerData = GetComponent<ShopItemContainerData>();
-        button = GetComponent<Button>();
-        button.onClick.AddListener(OnClick);
-
         shopItemContainerData.itemData.SetItemSprite(shopItemContainerData.itemImage.sprite);
         shopItemContainerData.itemData.SetItemName(shopItemContainerData.itemNameText.text);
 
         shopItemContainerData.itemData.SetItemCurrencySprite(shopItemContainerData.itemCurrencyImage.sprite);
         shopItemContainerData.itemData.SetItemPriceValueText(shopItemContainerData.itemPriceValueText.text);
-
-        InitializeStyles();
 
         // Start glint animation loop
         StartCoroutine(InfiniteGlintAnimation());
@@ -42,7 +60,7 @@ public abstract class AbstractShopItem : MonoBehaviour
     {
         while (true)
         {
-            if(CanBePurchased() && Random.Range(0, 5) == 0)
+            if(CanBePurchased && Random.Range(0, 5) == 0)
             {
                 shopItemContainerData.glintAnimator.SetTrigger("Move");
             }
@@ -53,7 +71,12 @@ public abstract class AbstractShopItem : MonoBehaviour
 
     private void OnTotalScoreChange(int newScore)
     {
-        InitializeStyles();
+        CheckIfCanBePurchased();
+    }
+
+    protected virtual void CheckIfCanBePurchased() // Has a different implementation for paid product(s)
+    {
+        CanBePurchased = !IsPurchased() && SettingsManager.GetTotalScore() >= shopItemContainerData.itemData.itemPrice;
     }
 
     protected void InitializeStyles()
@@ -78,7 +101,7 @@ public abstract class AbstractShopItem : MonoBehaviour
             }
         } else // Is not purchased
         {
-            if(CanBePurchased())
+            if(CanBePurchased)
             {
                 shopItemContainerData.itemContainerImage.color = new Color32(255, 152, 23, 255);
             } else
@@ -87,12 +110,12 @@ public abstract class AbstractShopItem : MonoBehaviour
             }
         }
 
-        shopItemContainerData.itemContainerButton.interactable = CanBePurchased() || CanBeEquipped();
+        shopItemContainerData.itemContainerButton.interactable = CanBePurchased || CanBeEquipped();
     }
 
     public void OnClick()
     {
-        if (CanBePurchased())
+        if (CanBePurchased)
         {
             SpawnConfirmPurchasePanel();
         } else if(CanBeEquipped())
@@ -131,8 +154,6 @@ public abstract class AbstractShopItem : MonoBehaviour
     }
 
     protected abstract void PurchaseItem();
-
-    protected abstract bool CanBePurchased();
 
     protected abstract bool IsPurchased();
 
