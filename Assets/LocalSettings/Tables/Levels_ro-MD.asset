@@ -99,6 +99,15 @@ MonoBehaviour:
     m_Localized: "Piatr\u0103"
     m_Metadata:
       m_Items: []
+  - m_Id: 30432539285417984
+    m_Localized: Cartograf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30432713504223232
+    m_Localized: "Trebuie s\u0103-mi amintesc cum arat\u0103 planeta P\u0103m\xE2nt,
+      sau ce?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

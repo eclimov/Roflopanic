@@ -95,6 +95,14 @@ MonoBehaviour:
     m_Key: stone-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 30432539285417984
+    m_Key: mapmaker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30432713504223232
+    m_Key: mapmaker-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
