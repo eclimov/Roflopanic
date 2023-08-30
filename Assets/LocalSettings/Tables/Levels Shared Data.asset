@@ -103,6 +103,22 @@ MonoBehaviour:
     m_Key: mapmaker-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 31131590184169472
+    m_Key: diver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31131887044423680
+    m_Key: diver-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31134767814045696
+    m_Key: ascetic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31134790857551872
+    m_Key: ascetic-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

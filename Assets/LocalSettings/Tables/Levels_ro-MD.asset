@@ -108,6 +108,22 @@ MonoBehaviour:
       sau ce?"
     m_Metadata:
       m_Items: []
+  - m_Id: 31131590184169472
+    m_Localized: Scufundator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31131887044423680
+    m_Localized: "Ce se \xEEnt\xE2mpl\u0103 dac\u0103 \xEEncerc s\u0103 \xEEnot?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31134767814045696
+    m_Localized: "Ascet din Vene\u021Bia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31134790857551872
+    m_Localized: Ascet din secolul XXI
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
