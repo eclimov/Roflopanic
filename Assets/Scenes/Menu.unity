@@ -730,6 +730,64 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     sprite: {fileID: 21300000, guid: 909b0be7bb1568d4aa83cbac46dbd182, type: 3}
+  - number: 14
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:f6a2d795deb5b204f838b3e54bd1805c
+      m_TableEntryReference:
+        m_KeyId: 31491098488107008
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    slogan:
+      m_TableReference:
+        m_TableCollectionName: GUID:f6a2d795deb5b204f838b3e54bd1805c
+      m_TableEntryReference:
+        m_KeyId: 31491474545209344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    perks:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sprite: {fileID: 21300000, guid: b19b84145d3580840be294f2b19a3509, type: 3}
+  - number: 15
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:f6a2d795deb5b204f838b3e54bd1805c
+      m_TableEntryReference:
+        m_KeyId: 31492051807268864
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    slogan:
+      m_TableReference:
+        m_TableCollectionName: GUID:f6a2d795deb5b204f838b3e54bd1805c
+      m_TableEntryReference:
+        m_KeyId: 31492201602641920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    perks:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sprite: {fileID: 21300000, guid: 9738aef20eaa83a439072e3124c9fcdc, type: 3}
   newLevelPanelPrefab: {fileID: 7955383887766943933, guid: 823acd6501f82ef4a82d991fa6bb8d39, type: 3}
   confettiPrefab: {fileID: 5602554417777089173, guid: e1fc70683f879ea4f93bd66ba60465d8, type: 3}
   references:
