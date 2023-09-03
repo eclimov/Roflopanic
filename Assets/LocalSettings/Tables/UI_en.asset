@@ -105,7 +105,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25644767156662272
-    m_Localized: Do you really want to delete your data (points, experience, highscores)?
+    m_Localized: Do you really want to delete your data (points, experience, highscores,
+      purchases)?
     m_Metadata:
       m_Items: []
   - m_Id: 26651956507865088

@@ -22,8 +22,6 @@ public class SettingsManager : MonoBehaviour
     // data that should be stored in cloud
     public static SaveData.CloudSaveData SaveData;
 
-    public static int targetTotalScore = 50_000;
-
     /***************************/
     public static int experiencePerLevel = 10_000;
     /***************************/
@@ -48,6 +46,9 @@ public class SettingsManager : MonoBehaviour
     public delegate void OnExperienceChangeDelegate(int newVal);
     public event OnExperienceChangeDelegate OnExperienceChange;
 
+    public delegate void OnEquippedAbilitiesChangeDelegate();
+    public event OnEquippedAbilitiesChangeDelegate OnEquippedAbilitiesChange;
+
     private void Awake()
     {
         if (instance == null)
@@ -65,7 +66,8 @@ public class SettingsManager : MonoBehaviour
                 highscore = PlayerPrefs.GetInt("highscore", 0),
                 totalScore = GetTotalScore(),
                 experience = GetExperience(),
-                coinChance = GetCoinChance()
+                coinChance = GetCoinChance(),
+                purchasedAbilitiesList = String.Join(",", GetPurchasedAbilitiesList().ToArray())
             };
 
             /*
@@ -149,9 +151,89 @@ public class SettingsManager : MonoBehaviour
         return PlayerPrefs.GetInt("coinChance", 0);
     }
 
-    public bool IsTargetTotalScoreAchieved()
+    private static List<string> GetPurchasedAbilitiesList()
     {
-        return GetTotalScore() >= targetTotalScore;
+        List<string> list = new List<string>();
+
+        string purchasedAbilitiesPref = PlayerPrefs.GetString("purchasedAbilities", "");
+        if (purchasedAbilitiesPref != "") // Otherwise, it will fill add an empty item to the list
+        {
+            list.AddRange(purchasedAbilitiesPref.Split(","));
+        }
+
+        return list;
+    }
+
+    public static bool IsAbilityPurchased(string itemId)
+    {
+        return GetPurchasedAbilitiesList().Contains(itemId);
+    }
+
+    private static void SetPurchasedAbilities(string abilitiesList)
+    {
+        SaveData.purchasedAbilitiesList = abilitiesList;
+        PlayerPrefs.SetString("purchasedAbilities", abilitiesList);
+
+        CloudSaveManager.Instance.Save();
+    }
+
+    public static void PurchaseAbility(string itemId)
+    {
+        if (!IsAbilityPurchased(itemId))
+        {
+            List<string> list = GetPurchasedAbilitiesList();
+            list.Add(itemId);
+
+            SetPurchasedAbilities(String.Join(",", list.ToArray()));
+        }
+    }
+
+    private static List<string> GetEquippedAbilitiesList()
+    {
+        List<string> list = new List<string>();
+
+        string equippedAbilitiesPref = PlayerPrefs.GetString("equippedAbilities", "");
+        if (equippedAbilitiesPref != "") // Otherwise, it will fill add an empty item to the list
+        {
+            list.AddRange(equippedAbilitiesPref.Split(","));
+        }
+
+        return list;
+    }
+
+    public static bool IsAbilityEquipped(string itemId)
+    {
+        return GetEquippedAbilitiesList().Contains(itemId);
+    }
+
+    public void UnequipAllAbilities()
+    {
+        PlayerPrefs.SetString("equippedAbilities", "");
+
+        if (OnEquippedAbilitiesChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnEquippedAbilitiesChange();
+        }
+    }
+
+    public void ToggleEquipAbility(string itemId)
+    {
+        List<string> list = GetEquippedAbilitiesList();
+
+        if (!IsAbilityEquipped(itemId))
+        {
+            list.Add(itemId);
+        } else
+        {
+            list.Remove(itemId);
+        }
+
+        PlayerPrefs.SetString("equippedAbilities", String.Join(",", list.ToArray()));
+
+        if (OnEquippedAbilitiesChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnEquippedAbilitiesChange();
+        }
     }
 
     private static List<string> GetSeenGuideScenesList()
@@ -340,6 +422,9 @@ public class SettingsManager : MonoBehaviour
         SetTotalScore(0);
         SetExperience(0);
         SetCoinChance(0);
+
+        SetPurchasedAbilities("");
+        UnequipAllAbilities();
     }
 
     public void SaveSaveData(SaveData.CloudSaveData data)
@@ -348,5 +433,6 @@ public class SettingsManager : MonoBehaviour
         SetTotalScore(data.totalScore);
         SetExperience(data.experience);
         SetCoinChance(data.coinChance);
+        SetPurchasedAbilities(data.purchasedAbilitiesList);
     }
 }

@@ -15,7 +15,7 @@ public class ObstacleSpawner : MonoBehaviour
     private float spawnTime;
 
     // There should be a delay before emit, to wait until loading animation finishes
-    private bool isReadyToEmit = false;
+    public bool isReadyToEmit = false;
 
     private LevelLoader levelLoader;
     private byte poolSize = 5; 
@@ -103,7 +103,10 @@ public class ObstacleSpawner : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
 
-        coin.SetActive(true);
-        coin.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
+        if(isReadyToEmit) // This check fixes bug when a coin is spawned during reincarnation flow
+        {
+            coin.SetActive(true);
+            coin.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
+        }
     }
 }

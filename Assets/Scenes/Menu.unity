@@ -2145,6 +2145,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 05121cad6957eac4c86c2b4a8c789926, type: 3}
   - {fileID: 8300000, guid: 947118da202f040459958770ef557227, type: 3}
   - {fileID: 8300000, guid: 81313dfad9071544d9f229d1a4e7e978, type: 3}
+  - {fileID: 8300000, guid: 970cd8813f4541b4a8e95ed08aaf1475, type: 3}
   soundButton: {fileID: 8300000, guid: 3d5b0cb00c8e3974e960118073f5b058, type: 3}
   soundDeath: {fileID: 8300000, guid: 8244b32da28bc3a439b768e276466b22, type: 3}
   soundCash: {fileID: 8300000, guid: 4fcd5ff65ad8bbe4791f5ffd6949cf61, type: 3}
@@ -2152,6 +2153,8 @@ MonoBehaviour:
   soundVoiceLetter: {fileID: 8300000, guid: d93289565fd256444822e432560e4b0a, type: 3}
   soundFanfare: {fileID: 8300000, guid: c15f05cf9ad51df45ab0180b5000dcf4, type: 3}
   soundPartyHorn: {fileID: 8300000, guid: 4fc9d32fd055dad4094982cdf13bbb95, type: 3}
+  soundButtonLips: {fileID: 8300000, guid: ad05ee08e34cdfa4d8d62b98cc661131, type: 3}
+  soundOpenBag: {fileID: 8300000, guid: 7f5eb2d760c0a124f8f1e69ca88ec307, type: 3}
   musicSource: {fileID: 1265929554}
   soundSource: {fileID: 1265929553}
 --- !u!4 &1265929552

@@ -144,11 +144,6 @@ public class PointsAndXp : AbstractShopItem, IDetailedStoreListener
         return false;
     }
 
-    protected override void Equip()
-    {
-        throw new System.NotImplementedException();
-    }
-
     protected override bool IsEquipped()
     {
         return false;
@@ -165,5 +160,10 @@ public class PointsAndXp : AbstractShopItem, IDetailedStoreListener
 
         CanBePurchased = false; // Prevent accidental double click
         StoreController.InitiatePurchase(shopItemContainerData.itemData.itemId);
+    }
+
+    protected override void Equip()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -2,35 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public abstract class AbstractSpawnable : MonoBehaviour
 {
-    private Vector3 speedVector;
+    public Vector3 speedVector;
+    public Transform myTransform;
 
-    private Transform myTransform;
-
-    private void Awake()
+    protected virtual void Awake()
     {
         // For Optimization purposes
         myTransform = transform;
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         speedVector = new Vector3(SettingsManager.instance.GetDifficultyMap().obstacleSpeed, 0, 0);
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         myTransform.position -= speedVector * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void NegateMovement()
     {
-        if (collision.tag == "Border")
-        {
-            gameObject.SetActive(false);
-        }
+        speedVector *= -1;
     }
 }

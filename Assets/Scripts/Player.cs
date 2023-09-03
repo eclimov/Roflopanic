@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject CrownSprite;
-
     public RectTransform controlDown;
     public RectTransform controlUp;
+
+    public GameObject crownSpriteGameObject;
 
     private Rigidbody2D rb;
     private Vector3 mousePos;
@@ -27,15 +27,28 @@ public class Player : MonoBehaviour
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
 
-        if(SettingsManager.instance.IsTargetTotalScoreAchieved())
-        {
-            CrownSprite.SetActive(true);
-        }
-
         scoreManager = FindObjectOfType<ScoreManager>();
 
         playerSpeed = SettingsManager.instance.GetDifficultyMap().playerSpeed;
         rotationSpeed = playerSpeed * 25;
+
+        SettingsManager.instance.OnEquippedAbilitiesChange += LoadPlayerUI;
+        LoadPlayerUI();
+    }
+
+    protected void OnDestroy()
+    {
+        SettingsManager.instance.OnEquippedAbilitiesChange -= LoadPlayerUI;
+    }
+
+    private void LoadPlayerUI()
+    {
+        crownSpriteGameObject.SetActive(SettingsManager.IsAbilityEquipped("reincarnation"));
+    }
+
+    public void OnReincarnate()
+    {
+        crownSpriteGameObject.SetActive(false);
     }
 
     // Update is called once per frame

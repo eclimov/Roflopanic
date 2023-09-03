@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80c2c0544702fe41a65ceca944f8950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrownSprite: {fileID: 5849086739184015720}
   controlDown: {fileID: 0}
   controlUp: {fileID: 0}
+  crownSpriteGameObject: {fileID: 5849086739184015720}
 --- !u!70 &5849086738428672952
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

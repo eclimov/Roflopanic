@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip soundVoiceLetter;
     public AudioClip soundFanfare;
     public AudioClip soundPartyHorn;
+    public AudioClip soundButtonLips;
+    public AudioClip soundOpenBag;
 
     public AudioSource musicSource;
     public AudioSource soundSource;
@@ -130,6 +132,16 @@ public class AudioManager : MonoBehaviour
     public void PlayPartyHornSound()
     {
         PlaySound(soundPartyHorn);
+    }
+
+    public void PlayButtonLipsSound()
+    {
+        PlaySound(soundButtonLips);
+    }
+
+    public void PlayOpenBagSound()
+    {
+        PlaySound(soundOpenBag);
     }
 
     public void PlaySound(AudioClip clip)

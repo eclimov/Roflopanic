@@ -119,8 +119,11 @@ public abstract class AbstractShopItem : MonoBehaviour
         {
             SpawnConfirmPurchasePanel();
         } else if(CanBeEquipped())
-        {
-            // TODO: equip
+        { // Equip/unequip
+            Equip();
+            AudioManager.instance.PlayOpenBagSound();
+
+            InitializeStyles();
         }
     }
 

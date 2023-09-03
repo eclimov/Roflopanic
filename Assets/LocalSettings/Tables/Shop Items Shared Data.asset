@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: shop-item-points-and-xp
     m_Metadata:
       m_Items: []
+  - m_Id: 5377881076690944
+    m_Key: shop-item-reincarnation
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

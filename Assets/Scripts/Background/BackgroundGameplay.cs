@@ -8,4 +8,9 @@ public class BackgroundGameplay : AbstrctBackground
     {
         scrolling = new Vector2(SettingsManager.instance.GetDifficultyMap().backgroundSpeed, 0f);
     }
+
+    public void NegateScrolling()
+    {
+        scrolling = -scrolling;
+    }
 }

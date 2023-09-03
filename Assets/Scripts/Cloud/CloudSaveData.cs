@@ -11,5 +11,6 @@ namespace SaveData
         public int totalScore = 0;
         public int experience = 0;
         public int coinChance = 0;
+        public string purchasedAbilitiesList = "";
     }
 }
