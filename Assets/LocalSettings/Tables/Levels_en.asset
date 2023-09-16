@@ -138,6 +138,30 @@ MonoBehaviour:
     m_Localized: Who is meowing?!
     m_Metadata:
       m_Items: []
+  - m_Id: 37765436518461440
+    m_Localized: Berserk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37765610284281856
+    m_Localized: Got special training
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37765999440195584
+    m_Localized: Stepan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37766108580179968
+    m_Localized: Don't get used to him because he won't be with us for long
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37768247243206656
+    m_Localized: Biomind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37768350053986304
+    m_Localized: Because I'm smart! I'm doing everything right. Not a single mistake.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -135,6 +135,30 @@ MonoBehaviour:
     m_Key: meow-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 37765436518461440
+    m_Key: berserk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37765610284281856
+    m_Key: berserk-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37765999440195584
+    m_Key: stepan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37766108580179968
+    m_Key: stepan-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37768247243206656
+    m_Key: biomind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37768350053986304
+    m_Key: biomind-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

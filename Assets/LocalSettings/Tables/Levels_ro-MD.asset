@@ -140,6 +140,31 @@ MonoBehaviour:
     m_Localized: Cine miauna?!
     m_Metadata:
       m_Items: []
+  - m_Id: 37765436518461440
+    m_Localized: Berserk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37765610284281856
+    m_Localized: "Am o preg\u0103tire special\u0103"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37765999440195584
+    m_Localized: Stepan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37766108580179968
+    m_Localized: "Nu te obi\u0219nui cu el pentru c\u0103 nu va fi mult timp cu noi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37768247243206656
+    m_Localized: Biominte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37768350053986304
+    m_Localized: "Pentru c\u0103 sunt de\u0219tept! Fac totul bine. Nici o singur\u0103
+      gre\u0219eal\u0103."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
