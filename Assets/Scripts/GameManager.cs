@@ -20,7 +20,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         isGameOver = false; // Leave it here, to reset the value on restart
-        playerGameObject = GameObject.FindGameObjectWithTag("Player").gameObject;
+    }
+
+    private void Start()
+    {
+        playerGameObject = GameObject.FindGameObjectWithTag("Player").gameObject; // Make sure Player object is instantiated by this time
         canReincarnate = SettingsManager.IsAbilityEquipped("reincarnation");
     }
 

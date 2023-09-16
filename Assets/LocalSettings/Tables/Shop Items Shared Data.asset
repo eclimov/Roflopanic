@@ -27,6 +27,14 @@ MonoBehaviour:
     m_Key: shop-item-reincarnation
     m_Metadata:
       m_Items: []
+  - m_Id: 10482961903808512
+    m_Key: shop-item-skin-roflan-wtf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10483154925678592
+    m_Key: shop-item-skin-roflan-bogdan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

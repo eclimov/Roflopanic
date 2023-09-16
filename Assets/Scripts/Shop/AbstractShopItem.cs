@@ -54,6 +54,8 @@ public abstract class AbstractShopItem : MonoBehaviour
         StartCoroutine(InfiniteGlintAnimation());
 
         SettingsManager.instance.OnTotalScoreChange += OnTotalScoreChange;
+        SettingsManager.instance.OnEquippedItemsChange += InitializeStyles;
+        SettingsManager.instance.OnPlayerSkinChange += InitializeStyles;
     }
 
     private IEnumerator InfiniteGlintAnimation()
@@ -122,8 +124,6 @@ public abstract class AbstractShopItem : MonoBehaviour
         { // Equip/unequip
             Equip();
             AudioManager.instance.PlayOpenBagSound();
-
-            InitializeStyles();
         }
     }
 
@@ -149,6 +149,8 @@ public abstract class AbstractShopItem : MonoBehaviour
         }
 
         SettingsManager.instance.OnTotalScoreChange -= OnTotalScoreChange;
+        SettingsManager.instance.OnEquippedItemsChange -= InitializeStyles;
+        SettingsManager.instance.OnPlayerSkinChange -= InitializeStyles;
     }
 
     protected void DestroyConfirmPurchasePanel()

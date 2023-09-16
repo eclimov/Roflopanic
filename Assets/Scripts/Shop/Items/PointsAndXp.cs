@@ -60,7 +60,7 @@ public class PointsAndXp : AbstractShopItem, IDetailedStoreListener
         ProductCatalog catalog = JsonUtility.FromJson<ProductCatalog>((request.asset as TextAsset).text);
         Debug.Log($"Loaded catalog with {catalog.allProducts.Count} items");
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         StandardPurchasingModule.Instance().useFakeStoreUIMode = FakeStoreUIMode.StandardUser;
         StandardPurchasingModule.Instance().useFakeStoreAlways = true;
 #endif

@@ -7,14 +7,18 @@ public class EyeMover : MonoBehaviour
     [SerializeField]
     private Transform eyes;
 
+    public float maxMovementDistanceLeft = .1f;
+    public float maxMovementDistanceUp = .1f;
+    public float maxMovementDistanceRight = .1f;
+    public float maxMovementDistanceDown = .1f;
+
     [Tooltip("Objects the eyes are looking at. Optional")]
     [SerializeField]
     private Transform[] lookTargets = new Transform[0]; // Optional
 
     private Transform lookAtTarget;
 
-    [Tooltip("The default distance the pupil is alowed to travel from the center of the eye.")]
-    private float movementDistance = .1f;
+    private Vector3 movementDistance;
 
     private Vector3 direction;
     private Vector3 offset;
@@ -26,6 +30,7 @@ public class EyeMover : MonoBehaviour
     private void Awake()
     {
         direction = Vector3.zero;
+        movementDistance = Vector3.zero;
 
         // For Optimization purposes
         myTransform = transform;
@@ -34,7 +39,7 @@ public class EyeMover : MonoBehaviour
         cachedWaitForSecondsRealtime = new WaitForSecondsRealtime(2f);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         if (lookAtTarget == null)
         {
@@ -42,23 +47,27 @@ public class EyeMover : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     void Update()
     {
         if(lookAtTarget == null)
         {
             direction = Vector3.zero;
+            movementDistance = Vector3.zero; // Reset eyes movement
         } else
         {
             direction = lookAtTarget.position - myTransform.position;
 
-            // If the target is positioned bottom (relatively to the eyes) - move pupils nearer
-            if (direction.normalized.y < 0)
-            {
-                movementDistance = .08f;
-            }
+            // https://docs.unity3d.com/ScriptReference/Vector3.Index_operator.html
+            movementDistance[0] = direction.normalized.x < 0 ? maxMovementDistanceLeft : maxMovementDistanceRight; // If the target is positioned left (relatively to the eyes)
+            movementDistance[1] = direction.normalized.y < 0 ? maxMovementDistanceDown : maxMovementDistanceUp; // If the target is positioned bottom (relatively to the eyes)
         }
 
-        offset = direction.normalized * movementDistance;
+        offset = Vector3.Scale(direction.normalized, movementDistance);
         eyesTransform.localPosition = Vector3.Lerp(eyesTransform.localPosition, new Vector3(0f, 0f) + offset, Time.unscaledDeltaTime * 20f); // Smooth translate
     }
 

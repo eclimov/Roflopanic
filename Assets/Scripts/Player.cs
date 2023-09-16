@@ -32,13 +32,13 @@ public class Player : MonoBehaviour
         playerSpeed = SettingsManager.instance.GetDifficultyMap().playerSpeed;
         rotationSpeed = playerSpeed * 25;
 
-        SettingsManager.instance.OnEquippedAbilitiesChange += LoadPlayerUI;
+        SettingsManager.instance.OnEquippedItemsChange += LoadPlayerUI;
         LoadPlayerUI();
     }
 
     protected void OnDestroy()
     {
-        SettingsManager.instance.OnEquippedAbilitiesChange -= LoadPlayerUI;
+        SettingsManager.instance.OnEquippedItemsChange -= LoadPlayerUI;
     }
 
     private void LoadPlayerUI()

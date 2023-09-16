@@ -46,8 +46,11 @@ public class SettingsManager : MonoBehaviour
     public delegate void OnExperienceChangeDelegate(int newVal);
     public event OnExperienceChangeDelegate OnExperienceChange;
 
-    public delegate void OnEquippedAbilitiesChangeDelegate();
-    public event OnEquippedAbilitiesChangeDelegate OnEquippedAbilitiesChange;
+    public delegate void OnEquippedItemsChangeDelegate();
+    public event OnEquippedItemsChangeDelegate OnEquippedItemsChange;
+
+    public delegate void OnPlayerSkinChangeDelegate();
+    public event OnPlayerSkinChangeDelegate OnPlayerSkinChange;
 
     private void Awake()
     {
@@ -188,6 +191,58 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
+    private static List<string> GetPurchasedSkinsList()
+    {
+        List<string> list = new List<string>();
+
+        string purchasedSkinsPref = PlayerPrefs.GetString("purchasedSkins", "");
+        if (purchasedSkinsPref != "") // Otherwise, it will fill add an empty item to the list
+        {
+            list.AddRange(purchasedSkinsPref.Split(","));
+        }
+
+        return list;
+    }
+
+    public static bool IsSkinPurchased(string itemId)
+    {
+        return itemId == "skin_roflan_wtf" || GetPurchasedSkinsList().Contains(itemId);
+    }
+
+    private static void SetPurchasedSkins(string skinsList)
+    {
+        SaveData.purchasedSkinsList = skinsList;
+        PlayerPrefs.SetString("purchasedSkins", skinsList);
+
+        CloudSaveManager.Instance.Save();
+    }
+
+    public static void PurchaseSkin(string itemId)
+    {
+        if (!IsSkinPurchased(itemId))
+        {
+            List<string> list = GetPurchasedSkinsList();
+            list.Add(itemId);
+
+            SetPurchasedSkins(String.Join(",", list.ToArray()));
+        }
+    }
+
+    public static string GetPlayerSkin()
+    {
+        return PlayerPrefs.GetString("playerSkin", "skin_roflan_wtf");
+    }
+
+    public void SetPlayerSkin(string itemId)
+    {
+        PlayerPrefs.SetString("playerSkin", itemId);
+
+        if (OnPlayerSkinChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnPlayerSkinChange();
+        }
+    }
+
     private static List<string> GetEquippedAbilitiesList()
     {
         List<string> list = new List<string>();
@@ -210,9 +265,9 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetString("equippedAbilities", "");
 
-        if (OnEquippedAbilitiesChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        if (OnEquippedItemsChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
-            OnEquippedAbilitiesChange();
+            OnEquippedItemsChange();
         }
     }
 
@@ -230,9 +285,9 @@ public class SettingsManager : MonoBehaviour
 
         PlayerPrefs.SetString("equippedAbilities", String.Join(",", list.ToArray()));
 
-        if (OnEquippedAbilitiesChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        if (OnEquippedItemsChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
-            OnEquippedAbilitiesChange();
+            OnEquippedItemsChange();
         }
     }
 
@@ -425,6 +480,9 @@ public class SettingsManager : MonoBehaviour
 
         SetPurchasedAbilities("");
         UnequipAllAbilities();
+
+        SetPurchasedSkins("");
+        SetPlayerSkin("skin_roflan_wtf"); // Default skin
     }
 
     public void SaveSaveData(SaveData.CloudSaveData data)
@@ -434,5 +492,6 @@ public class SettingsManager : MonoBehaviour
         SetExperience(data.experience);
         SetCoinChance(data.coinChance);
         SetPurchasedAbilities(data.purchasedAbilitiesList);
+        SetPurchasedSkins(data.purchasedSkinsList);
     }
 }
