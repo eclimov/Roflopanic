@@ -35,6 +35,18 @@ MonoBehaviour:
     m_Key: shop-item-skin-roflan-bogdan
     m_Metadata:
       m_Items: []
+  - m_Id: 11105153196781568
+    m_Key: shop-item-skin-roflan-old
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11112986189524992
+    m_Key: shop-item-skin-roflan-rabotyaga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12692650460737536
+    m_Key: shop-item-skin-roflan-dovolen
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

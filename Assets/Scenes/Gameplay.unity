@@ -456,6 +456,12 @@ MonoBehaviour:
     playerSkinPrefab: {fileID: 5849086738428672950, guid: 3ed1442f5bf8cf943bb57842cc1a6ba3, type: 3}
   - id: skin_roflan_bogdan
     playerSkinPrefab: {fileID: 5849086738428672950, guid: 1d1a05ed07a03004fb75e859c0d47b3b, type: 3}
+  - id: skin_roflan_old
+    playerSkinPrefab: {fileID: 5849086738428672950, guid: 92ef00b420b55a14f8163ee1d01f0491, type: 3}
+  - id: skin_roflan_rabotyaga
+    playerSkinPrefab: {fileID: 5849086738428672950, guid: a77a9a1f4efd0844094a3d14af77d0e3, type: 3}
+  - id: skin_roflan_dovolen
+    playerSkinPrefab: {fileID: 5849086738428672950, guid: 3216e66a15a7e6a488f6b4bf5ed0e00a, type: 3}
   positionX: -7.2
   scale: 1.5
   controlDown: {fileID: 858420471}

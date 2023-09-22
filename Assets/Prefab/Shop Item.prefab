@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 4619082535434388301}
   - component: {fileID: 4619082535434388300}
   - component: {fileID: 4619082535434388403}
+  - component: {fileID: 783662270826825935}
   m_Layer: 5
   m_Name: Shop Item
   m_TagString: Untagged
@@ -787,6 +788,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &783662270826825935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619082535434388298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 900
+  m_PreferredHeight: 60
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &4619082535573492580
 GameObject:
   m_ObjectHideFlags: 0
