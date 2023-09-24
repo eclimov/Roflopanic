@@ -162,6 +162,22 @@ MonoBehaviour:
     m_Localized: Because I'm smart! I'm doing everything right. Not a single mistake.
     m_Metadata:
       m_Items: []
+  - m_Id: 40705514622447616
+    m_Localized: Pickpocket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40705809951780864
+    m_Localized: What's in our pockets?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40707567570677760
+    m_Localized: Wolf 80 kg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40707599204118528
+    m_Localized: The largest on the planet
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

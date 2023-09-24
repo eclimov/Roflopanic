@@ -165,6 +165,22 @@ MonoBehaviour:
       gre\u0219eal\u0103."
     m_Metadata:
       m_Items: []
+  - m_Id: 40705514622447616
+    m_Localized: "Ho\u0163 de buzunare"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40705809951780864
+    m_Localized: "Ce avem \xEEn buzunare?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40707567570677760
+    m_Localized: Lupul 80 kg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40707599204118528
+    m_Localized: "Cel mai mare de pe planet\u0103"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

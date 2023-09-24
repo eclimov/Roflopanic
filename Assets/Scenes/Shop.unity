@@ -2554,7 +2554,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1001 &1292071599
 PrefabInstance:
@@ -2824,6 +2824,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1903017442}
     m_Modifications:
+    - target: {fileID: 4619082535131969543, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: m_text
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388297, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2927,6 +2931,10 @@ PrefabInstance:
     - target: {fileID: 4619082535434388402, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: itemData.itemId
       value: coin_chance_upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619082535434388402, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: itemData.itemPrice
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}

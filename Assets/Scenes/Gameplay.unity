@@ -936,6 +936,7 @@ MonoBehaviour:
   scoreText: {fileID: 548593092}
   scoreTextAnimator: {fileID: 548593094}
   score: 0
+  floatingScoreTextPrefab: {fileID: 3987010612420389133, guid: f87dfbfe6b34a9b40990d93aa3f8e77b, type: 3}
 --- !u!114 &548593092
 MonoBehaviour:
   m_ObjectHideFlags: 0

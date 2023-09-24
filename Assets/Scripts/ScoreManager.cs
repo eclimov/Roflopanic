@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour
     public float score = 0f;
     private float targetScore = 0;
 
+    public GameObject floatingScoreTextPrefab;
+
     private bool isTransitioning;
 
     private float coinBonusScore;
@@ -138,12 +140,16 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void OnCoinCollected()
+    public void OnCoinCollected(GameObject playerGameObject)
     {
         targetScore += coinBonusScore;
         isTransitioning = true;
         incrementMultiplier = 70;
 
         scoreTextAnimator.SetBool("IsBonus", true);
+
+        // Show floating text animation
+        GameObject floatingScoreText = Instantiate(floatingScoreTextPrefab, playerGameObject.transform.position + Vector3.up, Quaternion.identity);
+        floatingScoreText.GetComponentInChildren<TextMesh>().text = "+" + coinBonusScore.ToString();
     }
 }

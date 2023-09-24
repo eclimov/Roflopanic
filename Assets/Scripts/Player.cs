@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         if(collision.tag == "Coin")
         {
             collision.gameObject.SetActive(false);
-            scoreManager.OnCoinCollected();
+            scoreManager.OnCoinCollected(gameObject);
             AudioManager.instance.PlayCoinSound();
         }
     }

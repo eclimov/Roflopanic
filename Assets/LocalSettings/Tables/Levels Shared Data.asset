@@ -159,6 +159,22 @@ MonoBehaviour:
     m_Key: biomind-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 40705514622447616
+    m_Key: pickpocket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40705809951780864
+    m_Key: pickpocket-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40707567570677760
+    m_Key: wolf-80-kg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40707599204118528
+    m_Key: wolf-80-kg-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
