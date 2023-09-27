@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: shop-item-skin-roflan-dovolen
     m_Metadata:
       m_Items: []
+  - m_Id: 14092565317447680
+    m_Key: shop-item-magnet
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

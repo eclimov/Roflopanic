@@ -175,6 +175,30 @@ MonoBehaviour:
     m_Key: wolf-80-kg-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 41779921637896192
+    m_Key: film-critic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41779970400874496
+    m_Key: film-critic-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41780931022319616
+    m_Key: future-man
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41780939591282688
+    m_Key: future-man-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41781928578805760
+    m_Key: chocolate-bar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41781956609339392
+    m_Key: chocolate-bar-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

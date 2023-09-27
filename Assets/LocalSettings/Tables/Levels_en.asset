@@ -178,6 +178,30 @@ MonoBehaviour:
     m_Localized: The largest on the planet
     m_Metadata:
       m_Items: []
+  - m_Id: 41779921637896192
+    m_Localized: Film critic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41779970400874496
+    m_Localized: Twilight - 10/10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41780931022319616
+    m_Localized: Future Man
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41780939591282688
+    m_Localized: Hello from 2045
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41781928578805760
+    m_Localized: Chocolate Bar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41781956609339392
+    m_Localized: Cold, loaded with nuts
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

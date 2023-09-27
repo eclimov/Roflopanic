@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Localized: "\u0421\u043A\u0438\u043D Roflan Dovolen"
     m_Metadata:
       m_Items: []
+  - m_Id: 14092565317447680
+    m_Localized: "\u041C\u0430\u0433\u043D\u0456\u0442"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

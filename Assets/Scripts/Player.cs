@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public RectTransform controlUp;
 
     public GameObject crownSpriteGameObject;
+    public GameObject magnetColliderGameObject;
 
     private Rigidbody2D rb;
     private Vector3 mousePos;
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
     private void LoadPlayerUI()
     {
         crownSpriteGameObject.SetActive(SettingsManager.IsAbilityEquipped("reincarnation"));
+        magnetColliderGameObject.SetActive(SettingsManager.IsAbilityEquipped("magnet"));
     }
 
     public void OnReincarnate()
@@ -100,14 +102,9 @@ public class Player : MonoBehaviour
         );
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnCoinCollected()
     {
-        if(collision.tag == "Coin")
-        {
-            collision.gameObject.SetActive(false);
-            scoreManager.OnCoinCollected(gameObject);
-            AudioManager.instance.PlayCoinSound();
-        }
+        scoreManager.OnCoinCollected(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
