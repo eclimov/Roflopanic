@@ -14,7 +14,7 @@ public class DeleteDataHandler : MonoBehaviour
 
     public void SpawnDialogue()
     {
-        confirmPanel = Instantiate(confirmPanelPrefab, GameObject.Find("Canvas").transform, false);
+        confirmPanel = Instantiate(confirmPanelPrefab, GameObject.Find("Canvas UI").transform, false);
         confirmPanelManager = confirmPanel.GetComponent<ConfirmPanelManager>();
         confirmPanelManager.StartDialogue(dialogue);
 

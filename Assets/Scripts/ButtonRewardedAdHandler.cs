@@ -45,11 +45,35 @@ public class ButtonRewardedAdHandler : MonoBehaviour
 
         SetInteractible(rewardedAdManager.IsAdReady);
         rewardedAdManager.OnIsAdReadyChange += SetInteractible;
+        rewardedAdManager.OnAdRewardGranted += OnAdRewardGrantedHandler;
     }
 
     protected void OnDestroy()
     {
         rewardedAdManager.OnIsAdReadyChange -= SetInteractible; // Unsubscribe to avoid nullpointerexception
+        rewardedAdManager.OnAdRewardGranted -= OnAdRewardGrantedHandler;
+    }
+
+    private void OnAdRewardGrantedHandler()
+    {
+        int scoreToAdd;
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Menu":
+                scoreToAdd = SettingsManager.rewardScore;
+                break;
+            case "Gameplay":
+                scoreToAdd = FindObjectOfType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1); // Add the gathered score (multiplier - 1) times
+                break;
+            default:
+                scoreToAdd = 0;
+                break;
+        }
+
+        SettingsManager.instance.AddScore(scoreToAdd);
+        SettingsManager.instance.AddExperience(scoreToAdd);
+
+        AudioManager.instance.PlayCashSound();
     }
 
     private void OnClick()

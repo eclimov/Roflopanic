@@ -27,7 +27,7 @@ public class LevelHandler : MonoBehaviour
 
     public void SpawnLevelPanel() // This method should not have parameters, because it's being called from UI
     {
-        GameObject newLevelPanelGameObject = Instantiate(newLevelPanelPrefab, GameObject.Find("Canvas").transform, false); // Spawn "New Level" panel
+        GameObject newLevelPanelGameObject = Instantiate(newLevelPanelPrefab, GameObject.Find("Canvas UI").transform, false); // Spawn "New Level" panel
 
         NewLevelPanelHandler newLevelPanelHandler = newLevelPanelGameObject.GetComponent<NewLevelPanelHandler>();
         newLevelPanelHandler.InitializeLevel(myLevel);

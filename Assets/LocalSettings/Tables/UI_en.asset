@@ -122,6 +122,22 @@ MonoBehaviour:
     m_Localized: Confirm purchase
     m_Metadata:
       m_Items: []
+  - m_Id: 76808552550264832
+    m_Localized: '{0} Destroyed'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575799883034624
+    m_Localized: Fight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575830111383552
+    m_Localized: Double Down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575852961951744
+    m_Localized: Escape
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

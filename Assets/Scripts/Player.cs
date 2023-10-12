@@ -82,9 +82,7 @@ public class Player : MonoBehaviour
         }
 
         // Rotation
-        if ((directionY == 0 || isCollidingBorder) 
-            && transform.rotation.z != 0f // Do not remove this condition from here, because it creats funny "panic rotation" effect when moving towards border while in colision
-        )
+        if (directionY == 0 || isCollidingBorder) 
         {
             rotatePlayer(0f);
         } else
@@ -104,10 +102,11 @@ public class Player : MonoBehaviour
 
     public void OnCoinCollected()
     {
-        scoreManager.OnCoinCollected(gameObject);
+        scoreManager.OnCoinCollected();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // It's called on each frame
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Border")
         {

@@ -122,6 +122,22 @@ MonoBehaviour:
     m_Localized: "Confirma\u021Bi achizi\u021Bia"
     m_Metadata:
       m_Items: []
+  - m_Id: 76808552550264832
+    m_Localized: "{0} \xCEnvins"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575799883034624
+    m_Localized: "lupt\u0103"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575830111383552
+    m_Localized: "Dubla\u021Bi-v\u0103 Recompensa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575852961951744
+    m_Localized: "Sc\u0103pa"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
