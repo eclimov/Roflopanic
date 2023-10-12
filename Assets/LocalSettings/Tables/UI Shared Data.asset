@@ -115,6 +115,22 @@ MonoBehaviour:
     m_Key: confirm-purchase
     m_Metadata:
       m_Items: []
+  - m_Id: 76808552550264832
+    m_Key: boss-victory-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575799883034624
+    m_Key: fight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575830111383552
+    m_Key: double-down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78575852961951744
+    m_Key: escape
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

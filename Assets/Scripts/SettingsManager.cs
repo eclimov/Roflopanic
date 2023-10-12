@@ -70,7 +70,10 @@ public class SettingsManager : MonoBehaviour
                 totalScore = GetTotalScore(),
                 experience = GetExperience(),
                 coinChance = GetCoinChance(),
-                purchasedAbilitiesList = String.Join(",", GetPurchasedAbilitiesList().ToArray())
+                purchasedAbilitiesList = String.Join(",", GetPurchasedAbilitiesList().ToArray()),
+
+                // Boss fights stats
+                bossFightsWonCountClownich = GetBossFightsWonCount(ClownichBossGameManager.bossFightsWonCountKey)
             };
 
             /*
@@ -152,6 +155,23 @@ public class SettingsManager : MonoBehaviour
     public static int GetCoinChance()
     {
         return PlayerPrefs.GetInt("coinChance", 0);
+    }
+
+    public static int GetBossFightsWonCount(string keyId)
+    {
+        return PlayerPrefs.GetInt(keyId, 0);
+    }
+
+    private static void SetBossFightsWonCount(string keyId, int value)
+    {
+        PlayerPrefs.SetInt(keyId, value);
+        CloudSaveManager.Instance.Save();
+    }
+
+    public static void IncrementBossFightsWonCount(string keyId)
+    {
+        int newValue = GetBossFightsWonCount(keyId) + 1;
+        SetBossFightsWonCount(keyId, newValue);
     }
 
     private static List<string> GetPurchasedAbilitiesList()
@@ -483,6 +503,9 @@ public class SettingsManager : MonoBehaviour
 
         SetPurchasedSkins("");
         SetPlayerSkin("skin_roflan_wtf"); // Default skin
+
+        // Boss fights stats
+        SetBossFightsWonCount(ClownichBossGameManager.bossFightsWonCountKey, 0);
     }
 
     public void SaveSaveData(SaveData.CloudSaveData data)
@@ -493,5 +516,8 @@ public class SettingsManager : MonoBehaviour
         SetCoinChance(data.coinChance);
         SetPurchasedAbilities(data.purchasedAbilitiesList);
         SetPurchasedSkins(data.purchasedSkinsList);
+
+        // Boss fights stats
+        SetBossFightsWonCount(ClownichBossGameManager.bossFightsWonCountKey, data.bossFightsWonCountClownich);
     }
 }

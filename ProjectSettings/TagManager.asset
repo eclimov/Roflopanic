@@ -7,6 +7,8 @@ TagManager:
   - Border
   - Coin
   - Language Button
+  - Boss
+  - Projectile
   layers:
   - Default
   - TransparentFX

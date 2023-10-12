@@ -6,6 +6,16 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class BossFightConfig
+    {
+        public int rewardScore;
+        public Sprite characterImage;
+        public float triggerScore;
+        public Dialogue dialogue;
+        public AbstractBossGameManager bossGameManager;
+    }
+
     public Text scoreText;
 
     public Animator scoreTextAnimator;
@@ -14,6 +24,9 @@ public class ScoreManager : MonoBehaviour
     private float targetScore = 0;
 
     public GameObject floatingScoreTextPrefab;
+
+    public List<BossFightConfig> bossFightConfigs;
+    public GameObject bossFightConfirmPanelPrefab;
 
     private bool isTransitioning;
 
@@ -29,11 +42,25 @@ public class ScoreManager : MonoBehaviour
     private LevelLoader levelLoader;
     private bool isLevelLoaded;
 
+    private GameObject playerGameObject;
+
+    private Queue<BossFightConfig> bossFightConfigsQueue = new Queue<BossFightConfig>();
+    private BossFightConfig nearestBossFightTriggerConfig;
+    private float oldScore;
+
+    private bool is—ontinuousScoreIncreaseAllowed = true;
+
     private void Start()
     {
         cachedWaitForSecondsBeforeIncrement = new WaitForSeconds(1f);
         defaultIncrementMultiplier = SettingsManager.instance.GetDifficultyMap().scoreIncrementMultiplier;
         coinBonusScore = SettingsManager.instance.GetDifficultyMap().coinBonusScore;
+        playerGameObject = FindObjectOfType<Player>().gameObject;
+
+        foreach (BossFightConfig bossFightConfig in bossFightConfigs) { // Filling Queue for a more optimal work in Update
+            bossFightConfigsQueue.Enqueue(bossFightConfig);
+        }
+        nearestBossFightTriggerConfig = bossFightConfigsQueue.Dequeue(); // Initialize the 1st one
 
         gameManager = FindObjectOfType<GameManager>();
         gameManager.OnGameOver += OnGameOverHandler;
@@ -101,7 +128,24 @@ public class ScoreManager : MonoBehaviour
         {
             if (score < targetScore)
             {
+                if(score > nearestBossFightTriggerConfig.triggerScore && bossFightConfigsQueue.Count > 0)
+                {
+                    nearestBossFightTriggerConfig = bossFightConfigsQueue.Dequeue();
+                }
+                oldScore = score;
+
                 score += incrementMultiplier * Time.deltaTime;
+
+                if(oldScore < nearestBossFightTriggerConfig.triggerScore && score >= nearestBossFightTriggerConfig.triggerScore)
+                {
+                    BossFightConfirmManager bossFightConfirmManager = Instantiate(bossFightConfirmPanelPrefab, GameObject.Find("Canvas UI").transform, false)
+                        .GetComponent<BossFightConfirmManager>();
+                    bossFightConfirmManager.SetBossImage(nearestBossFightTriggerConfig.characterImage);
+                    bossFightConfirmManager.StartDialogue(nearestBossFightTriggerConfig.dialogue);
+                    bossFightConfirmManager.SetRewardValue(nearestBossFightTriggerConfig.rewardScore);
+                    bossFightConfirmManager.SetBossGameManager(nearestBossFightTriggerConfig.bossGameManager);
+                }
+
                 SetTextValue();
             } else if(isTransitioning)
             {
@@ -131,18 +175,23 @@ public class ScoreManager : MonoBehaviour
         return isLevelLoaded && !(GameManager.isGameOver || PauseMenu.GameIsPaused);
     }
 
+    public void AllowContinuousIncrease(bool status)
+    {
+        is—ontinuousScoreIncreaseAllowed = status;
+    }
+
     public void IncreaseTargetScore(float value = 1f)
     {
-        if (CanIncreaseScore() && !isTransitioning)
+        if (CanIncreaseScore() && !isTransitioning && is—ontinuousScoreIncreaseAllowed)
         {
             targetScore += value;
             isTransitioning = true;
         }
     }
 
-    public void OnCoinCollected(GameObject playerGameObject)
+    public void AddBonusScore(float bonusScore)
     {
-        targetScore += coinBonusScore;
+        targetScore += bonusScore;
         isTransitioning = true;
         incrementMultiplier = 70;
 
@@ -150,6 +199,11 @@ public class ScoreManager : MonoBehaviour
 
         // Show floating text animation
         GameObject floatingScoreText = Instantiate(floatingScoreTextPrefab, playerGameObject.transform.position + Vector3.up, Quaternion.identity);
-        floatingScoreText.GetComponentInChildren<TextMesh>().text = "+" + coinBonusScore.ToString();
+        floatingScoreText.GetComponentInChildren<TextMesh>().text = "+" + bonusScore.ToString();
+    }
+
+    public void OnCoinCollected()
+    {
+        AddBonusScore(coinBonusScore);
     }
 }

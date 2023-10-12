@@ -7,8 +7,6 @@ using UnityEngine.Events;
 
 public class SceneGuideManager : MonoBehaviour
 {
-    public GameObject infoButton; // Button that can spawn the guide
-
     private LevelLoader levelLoader;
     private string currentSceneName;
 
@@ -32,9 +30,13 @@ public class SceneGuideManager : MonoBehaviour
             return;
         }
 
-        GameObject helpPanel = infoButton.GetComponent<InfoButtonHandler>().SpawnDialogue();
-        helpPanel.GetComponent<HelpPanelHandler>().OnPanelClose += (() => {
-            SettingsManager.SetSceneGuideSeen(currentSceneName);
-        });
+        GameObject sceneGuideButtonGameObject = GameObject.Find("Scene Guide Button");
+        if (sceneGuideButtonGameObject != null && sceneGuideButtonGameObject.TryGetComponent<InfoButtonHandler>(out InfoButtonHandler sceneGuideButton))
+        {
+            GameObject helpPanel = sceneGuideButton.SpawnDialogue();
+            helpPanel.GetComponent<HelpPanelHandler>().OnPanelClose += (() => {
+                SettingsManager.SetSceneGuideSeen(currentSceneName);
+            });
+        }
     }
 }

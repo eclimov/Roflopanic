@@ -130,7 +130,7 @@ public abstract class AbstractShopItem : MonoBehaviour
     private void SpawnConfirmPurchasePanel()
     {
         ShopManager shopManager = FindObjectOfType<ShopManager>();
-        confirmPurchasePanel = Instantiate(shopManager.confirmPurchasePanelPrefab, GameObject.Find("Canvas").transform, false);
+        confirmPurchasePanel = Instantiate(shopManager.confirmPurchasePanelPrefab, GameObject.Find("Canvas UI").transform, false);
         confirmPurchasePanelManager = confirmPurchasePanel.GetComponent<ConfirmPurchasePanelManager>();
         confirmPurchasePanelManager.SetData(shopItemContainerData.itemData);
 

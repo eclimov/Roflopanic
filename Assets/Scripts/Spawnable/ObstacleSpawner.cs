@@ -10,12 +10,14 @@ public class ObstacleSpawner : MonoBehaviour
     public float minX;
     public float maxY;
     public float minY;
+
     private  float timeBetweenSpawn;
 
     private float spawnTime;
 
     // There should be a delay before emit, to wait until loading animation finishes
-    public bool isReadyToEmit = false;
+    private bool canSpawnObstacle;
+    private bool canSpawnCoin;
 
     private LevelLoader levelLoader;
     private byte poolSize = 5; 
@@ -37,7 +39,7 @@ public class ObstacleSpawner : MonoBehaviour
     private void Start()
     {
         levelLoader = FindObjectOfType<LevelLoader>();
-        levelLoader.OnLevelLoad += SetEmitterReady;
+        levelLoader.OnLevelLoad += StartSpawn;
 
         timeBetweenSpawn = SettingsManager.instance.GetDifficultyMap().obstacleTimeBetweenSpawn;
 
@@ -58,25 +60,55 @@ public class ObstacleSpawner : MonoBehaviour
 
     protected void OnDestroy()
     {
-        levelLoader.OnLevelLoad -= SetEmitterReady;
+        levelLoader.OnLevelLoad -= StartSpawn;
     }
 
-    private void SetEmitterReady()
+    public void StartSpawn()
     {
-        isReadyToEmit = true;
+        canSpawnObstacle = true;
+        canSpawnCoin = true;
+    }
+
+    public void StopSpawn()
+    {
+        canSpawnObstacle = false;
+        canSpawnCoin = false;
+    }
+
+    public void StopSpawnObstacles()
+    {
+        canSpawnObstacle = false;
+    }
+
+    public void StartSpawnCoin()
+    {
+        canSpawnCoin = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isReadyToEmit && Time.time > spawnTime)
+        if (Time.time > spawnTime)
         {
-            Spawn();
+            if(canSpawnObstacle)
+            {
+                SpawnObstacle();
+            }
+
             spawnTime = Time.time + timeBetweenSpawn;
+
+            if (
+                canSpawnCoin
+                && Random.value <= coinSpawnChance // Chance of spawning a coin
+                && !coin.activeSelf
+            )
+            {
+                StartCoroutine(SpawnCoinDelayed());
+            }
         }
     }
 
-    void Spawn()
+    private void SpawnObstacle()
     {
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
@@ -86,14 +118,6 @@ public class ObstacleSpawner : MonoBehaviour
         objectToSpawn.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
 
         pool.Enqueue(objectToSpawn);
-
-        if(
-            Random.value <= coinSpawnChance // Chance of spawning a coin
-            && !coin.activeInHierarchy
-        )
-        {
-            StartCoroutine(SpawnCoinDelayed());
-        }
     }
 
     IEnumerator SpawnCoinDelayed()
@@ -103,7 +127,7 @@ public class ObstacleSpawner : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
 
-        if(isReadyToEmit) // This check fixes bug when a coin is spawned during reincarnation flow
+        if(canSpawnCoin) // This check fixes bug when a coin is spawned during reincarnation flow
         {
             coin.SetActive(true);
             coin.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);

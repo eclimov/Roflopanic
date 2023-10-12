@@ -52,5 +52,10 @@ public class Obstacle : AbstractSpawnable
             GameManager gameManager = FindObjectOfType<GameManager>();
             gameManager.GameOver();
         }
+
+        if(collision.tag == "Border")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

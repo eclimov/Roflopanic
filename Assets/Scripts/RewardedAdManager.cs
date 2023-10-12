@@ -27,10 +27,12 @@ public class RewardedAdManager : MonoBehaviour
     public delegate void OnIsAdReadyChangeDelegate(bool newVal);
     public event OnIsAdReadyChangeDelegate OnIsAdReadyChange;
 
+    public delegate void OnAdRewardGrantedDelegate();
+    public event OnAdRewardGrantedDelegate OnAdRewardGranted;
+
     private RewardedAd rewardedAd;
 
     private WaitForSecondsRealtime cachedWaitForSecondsRealtime;
-    private string sceneName;
 
     private void Awake()
     {
@@ -45,16 +47,6 @@ public class RewardedAdManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
-    {
-        sceneName = scene.name;
     }
 
     private void Start()
@@ -72,7 +64,6 @@ public class RewardedAdManager : MonoBehaviour
             }
 
             IsAdReady = rewardedAd != null
-                && (sceneName == "Menu" || sceneName == "Gameplay")
                 && !(Application.internetReachability == NetworkReachability.NotReachable)
                 && rewardedAd.CanShowAd();
 
@@ -153,23 +144,10 @@ public class RewardedAdManager : MonoBehaviour
             {
                 IsAdReady = false; // Disable button right after ad was watched, to prevent double watch
 
-                int scoreToAdd;
-                switch (sceneName)
+                if (OnAdRewardGranted != null) // It is a MUST to check this, because the event is null if it has no subscribers
                 {
-                    case "Menu":
-                        scoreToAdd = SettingsManager.rewardScore;
-                        break;
-                    case "Gameplay":
-                        scoreToAdd = FindObjectOfType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1); // Add the gathered score (multiplier - 1) times
-                        break;
-                    default:
-                        scoreToAdd = 0;
-                        break;
+                    OnAdRewardGranted();
                 }
-                SettingsManager.instance.AddScore(scoreToAdd);
-                SettingsManager.instance.AddExperience(scoreToAdd);
-
-                AudioManager.instance.PlayCashSound();
             });
         }
         else

@@ -32,7 +32,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void InitializeNewLevelPanel(Level level)
     {
-        GameObject newLevelPanelGameObject = Instantiate(newLevelPanelPrefab, GameObject.Find("Canvas").transform, false); // Spawn "New Level" panel
+        GameObject newLevelPanelGameObject = Instantiate(newLevelPanelPrefab, GameObject.Find("Canvas UI").transform, false); // Spawn "New Level" panel
 
         NewLevelPanelHandler newLevelPanelHandler = newLevelPanelGameObject.GetComponent<NewLevelPanelHandler>();
         newLevelPanelHandler.InitializeLevel(level);
@@ -41,6 +41,6 @@ public class ProgressionManager : MonoBehaviour
     IEnumerator InitializeConfettiWithADelay(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
-        Instantiate(confettiPrefab, GameObject.Find("Canvas").transform, false); // Spawn "Confetti" panel
+        Instantiate(confettiPrefab, GameObject.Find("Canvas UI").transform, false); // Spawn "Confetti" particles
     }
 }

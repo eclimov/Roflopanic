@@ -18,6 +18,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip soundPartyHorn;
     public AudioClip soundButtonLips;
     public AudioClip soundOpenBag;
+    public AudioClip soundBallBounce;
+    public AudioClip soundAxeHitWoodAttempt;
+    public AudioClip soundAxeHitWoodSuccessful;
+    public AudioClip soundSwoosh;
 
     public AudioSource musicSource;
     public AudioSource soundSource;
@@ -56,10 +60,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic (string clipName)
     {
-        if(
-            !SettingsManager.isMusicEnabled || // If music disabled OR
-            musicSource.clip?.name == clipName && musicSource.isPlaying // If the same music is playing already
-        )
+        if(musicSource.clip?.name == clipName && musicSource.isPlaying) // If the same music is playing already
         {
             return;
         }
@@ -68,6 +69,16 @@ public class AudioManager : MonoBehaviour
         if(clip == null)
         {
             Debug.LogWarning("Music: " + clipName + " not found!");
+            return;
+        }
+
+        PlayMusic(clip);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        if (!SettingsManager.isMusicEnabled) // If music disabled
+        {
             return;
         }
 
@@ -144,6 +155,26 @@ public class AudioManager : MonoBehaviour
         PlaySound(soundOpenBag);
     }
 
+    public void AxeHitWoodAttemptSound()
+    {
+        PlaySound(soundAxeHitWoodAttempt);
+    }
+
+    public void AxeHitWoodSuccessfulSound()
+    {
+        PlaySound(soundAxeHitWoodSuccessful);
+    }
+
+    public void PlayBallBounceSound()
+    {
+        PlaySound(soundBallBounce);
+    }
+
+    public void PlaySwooshSound()
+    {
+        PlaySound(soundSwoosh);
+    }
+
     public void PlaySound(AudioClip clip)
     {
         if(!SettingsManager.isSoundEnabled)
@@ -153,6 +184,26 @@ public class AudioManager : MonoBehaviour
 
         soundSource.PlayOneShot(clip);
     }
+
+    public void StopPlayingSounds()
+    {
+        soundSource.Stop();
+    }
+
+    /*
+     * TODO: try the following
+    public void EnableMusicSlow()
+    {
+        musicSource.pitch = .6f;
+        musicSource.volume = .6f;
+    }
+
+    public void DisableMusicSlow()
+    {
+        musicSource.pitch = 1f;
+        musicSource.volume = 1f;
+    }
+    */
 
     void Update()
     {

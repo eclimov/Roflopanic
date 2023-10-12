@@ -16,7 +16,7 @@ public class InfoButtonHandler : MonoBehaviour
     // NOTE: do not modify signature of this method, because it is referenced in GuideManager gameobject GUI
     public GameObject SpawnDialogue()
     {
-        GameObject obj = Instantiate(helpPanelPrefab, GameObject.Find("Canvas").transform, false);
+        GameObject obj = Instantiate(helpPanelPrefab, GameObject.Find("Canvas UI").transform, false);
 
         TriggerDialogue();
 
