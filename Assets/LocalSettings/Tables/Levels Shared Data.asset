@@ -199,6 +199,30 @@ MonoBehaviour:
     m_Key: chocolate-bar-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 47928588870643712
+    m_Key: leshina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47928613499596800
+    m_Key: leshina-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47930261827514368
+    m_Key: old
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47930276587270144
+    m_Key: old-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47932907732889600
+    m_Key: papyrus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47932916129886208
+    m_Key: papyrus-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

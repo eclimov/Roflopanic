@@ -8,6 +8,7 @@ public class HelpDialogueManager : AbstractDialogueManager
 {
     public GameObject characterAltMouthSprite;
     public GameObject buttonNext;
+    public GameObject buttonClose;
 
     public override void StartDialogue(Dialogue dialogue)
     {
@@ -20,6 +21,7 @@ public class HelpDialogueManager : AbstractDialogueManager
         }
 
         buttonNext.SetActive(sentences.Count > 1); // Do not show the button if there is only one sentence
+        buttonClose.SetActive(false);
     }
 
     protected override void DisplayNextSentence()
@@ -27,6 +29,7 @@ public class HelpDialogueManager : AbstractDialogueManager
         if(sentences.Count == 1)
         {
             buttonNext.SetActive(false);
+            buttonClose.SetActive(true);
             characterAltMouthSprite.SetActive(true);
         }
 

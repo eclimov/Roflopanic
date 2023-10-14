@@ -131,6 +131,7 @@ MonoBehaviour:
   dialogueCharacterAnimator: {fileID: 8179988735271533598}
   characterAltMouthSprite: {fileID: 2876221413004136208}
   buttonNext: {fileID: 6890661994765907474}
+  buttonClose: {fileID: 5497703965807878984}
 --- !u!1 &2876221413004136208
 GameObject:
   m_ObjectHideFlags: 0

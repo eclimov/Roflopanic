@@ -205,6 +205,30 @@ MonoBehaviour:
     m_Localized: "Rece, \xEEnc\u0103rcat cu nuci"
     m_Metadata:
       m_Items: []
+  - m_Id: 47928588870643712
+    m_Localized: "Le\u0219ina"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47928613499596800
+    m_Localized: Nu vor mai fi Nuts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47930261827514368
+    m_Localized: Old
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47930276587270144
+    m_Localized: "O, salut. Ace\u0219tia suntem noi - olds"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47932907732889600
+    m_Localized: Papirus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47932916129886208
+    m_Localized: "Folosit \xEEn Egiptul antic \xEEn loc de h\xE2rtie"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
