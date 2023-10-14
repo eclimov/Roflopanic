@@ -202,6 +202,30 @@ MonoBehaviour:
     m_Localized: Cold, loaded with nuts
     m_Metadata:
       m_Items: []
+  - m_Id: 47928588870643712
+    m_Localized: Leshina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47928613499596800
+    m_Localized: There will be no more Nuts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47930261827514368
+    m_Localized: Old
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47930276587270144
+    m_Localized: Oh, hi. This is us - olds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47932916129886208
+    m_Localized: Used in ancient Egypt instead of paper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47932907732889600
+    m_Localized: Papyrus
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
