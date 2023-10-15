@@ -87,6 +87,7 @@ public class SettingsManager : MonoBehaviour
                     backgroundSpeed: .25f,
                     obstacleTimeBetweenSpawn: .8f,
                     obstacleSpeed: 9f,
+                    coinSpawnCooldownSeconds: 6,
                     playerSpeed: 8f,
                     scoreIncrementMultiplier: 4f,
                     coinBonusScore: 20f
@@ -95,6 +96,7 @@ public class SettingsManager : MonoBehaviour
                     backgroundSpeed: .6f,
                     obstacleTimeBetweenSpawn: .4f,
                     obstacleSpeed: 15f,
+                    coinSpawnCooldownSeconds: 5,
                     playerSpeed: 12f,
                     scoreIncrementMultiplier: 10f,
                     coinBonusScore: 50f
@@ -104,6 +106,7 @@ public class SettingsManager : MonoBehaviour
                     backgroundSpeed: 1f,
                     obstacleTimeBetweenSpawn: .28f,
                     obstacleSpeed: 25f,
+                    coinSpawnCooldownSeconds: 4,
                     playerSpeed: 21f,
                     scoreIncrementMultiplier: 17f,
                     coinBonusScore: 70f

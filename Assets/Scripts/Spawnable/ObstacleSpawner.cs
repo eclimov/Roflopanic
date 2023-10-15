@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObstacleSpawner : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class ObstacleSpawner : MonoBehaviour
     private float spawnTime;
 
     // There should be a delay before emit, to wait until loading animation finishes
-    private bool canSpawnObstacle;
-    private bool canSpawnCoin;
+    private bool isObstacleSpawnEnabled;
+    private bool isCoinSpawnEnabled;
 
     private LevelLoader levelLoader;
     private byte poolSize = 5; 
@@ -28,6 +29,7 @@ public class ObstacleSpawner : MonoBehaviour
     private Transform myTransform;
 
     private float coinSpawnChance;
+    private bool isCoinSpawnReady;
 
     private void Awake()
     {
@@ -56,6 +58,7 @@ public class ObstacleSpawner : MonoBehaviour
         cachedWaitForSecondsBeforeCoinSpawn = new WaitForSeconds(timeBetweenSpawn / 2);
 
         coinSpawnChance = SettingsManager.GetCoinChance() / 100f;
+        StartCoroutine(CoinSpawnCooldown(SettingsManager.instance.GetDifficultyMap().coinSpawnCooldownSeconds));
     }
 
     protected void OnDestroy()
@@ -65,24 +68,24 @@ public class ObstacleSpawner : MonoBehaviour
 
     public void StartSpawn()
     {
-        canSpawnObstacle = true;
-        canSpawnCoin = true;
+        isObstacleSpawnEnabled = true;
+        isCoinSpawnEnabled = true;
     }
 
     public void StopSpawn()
     {
-        canSpawnObstacle = false;
-        canSpawnCoin = false;
+        isObstacleSpawnEnabled = false;
+        isCoinSpawnEnabled = false;
     }
 
     public void StopSpawnObstacles()
     {
-        canSpawnObstacle = false;
+        isObstacleSpawnEnabled = false;
     }
 
     public void StartSpawnCoin()
     {
-        canSpawnCoin = true;
+        isCoinSpawnEnabled = true;
     }
 
     // Update is called once per frame
@@ -90,18 +93,13 @@ public class ObstacleSpawner : MonoBehaviour
     {
         if (Time.time > spawnTime)
         {
-            if(canSpawnObstacle)
+            if(isObstacleSpawnEnabled)
             {
                 SpawnObstacle();
             }
-
             spawnTime = Time.time + timeBetweenSpawn;
 
-            if (
-                canSpawnCoin
-                && Random.value <= coinSpawnChance // Chance of spawning a coin
-                && !coin.activeSelf
-            )
+            if(isCoinSpawnEnabled && isCoinSpawnReady)
             {
                 StartCoroutine(SpawnCoinDelayed());
             }
@@ -120,6 +118,22 @@ public class ObstacleSpawner : MonoBehaviour
         pool.Enqueue(objectToSpawn);
     }
 
+    private void ResetCoinSpawnTimeCooldown() {
+        isCoinSpawnReady = false;
+    }
+
+    private IEnumerator CoinSpawnCooldown(int seconds) // To make sure a coin is not spawned too often
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(seconds);
+            if (Random.value <= coinSpawnChance && !coin.activeSelf) // Keep this condition here
+            {
+                isCoinSpawnReady = true;
+            }
+        }
+    }
+
     IEnumerator SpawnCoinDelayed()
     {
         yield return cachedWaitForSecondsBeforeCoinSpawn;
@@ -127,10 +141,12 @@ public class ObstacleSpawner : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
 
-        if(canSpawnCoin) // This check fixes bug when a coin is spawned during reincarnation flow
+        if(isCoinSpawnEnabled) // This check fixes bug when a coin is spawned during reincarnation flow
         {
             coin.SetActive(true);
             coin.transform.position = myTransform.position + new Vector3(randomX, randomY, 0);
+
+            ResetCoinSpawnTimeCooldown();
         }
     }
 }
