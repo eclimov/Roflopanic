@@ -4,31 +4,37 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool isGamePaused;
 
     public GameObject pauseMenuUI;
     public GameObject timeFreezeOverlayPanel;
 
     // Reset state before destroying the object
-    void OnDestroy()
+    private void OnDestroy()
     {
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+        FreezeTime(false);
+    }
+
+    private void FreezeTime(bool status)
+    {
+        timeFreezeOverlayPanel.SetActive(status);
+        pauseMenuUI.SetActive(status);
+
+        float timeScale = status ? 0f : 1f;
+        Time.timeScale = timeScale; // FYI: how to animate during pause - https://www.youtube.com/watch?v=82MgDp8b_ms
+
+        isGamePaused = status;
+
+        AudioManager.instance.SetSlowMotion(status);
     }
 
     public void Resume ()
     {
-        timeFreezeOverlayPanel.SetActive(false);
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+        FreezeTime(false);
     }
 
     public void Pause ()
     {
-        timeFreezeOverlayPanel.SetActive(true);
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f; // FYI: how to animate during pause - https://www.youtube.com/watch?v=82MgDp8b_ms
-        GameIsPaused = true;
+        FreezeTime(true);
     }
 }

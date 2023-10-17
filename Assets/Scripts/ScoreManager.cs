@@ -50,12 +50,16 @@ public class ScoreManager : MonoBehaviour
 
     private bool is—ontinuousScoreIncreaseAllowed = true;
 
+    private PauseMenu pauseMenu;
+
     private void Start()
     {
-        cachedWaitForSecondsBeforeIncrement = new WaitForSeconds(1f);
+        cachedWaitForSecondsBeforeIncrement = new WaitForSeconds(1f); // Use scaled time here, to avoid incrementing score during pause
         defaultIncrementMultiplier = SettingsManager.instance.GetDifficultyMap().scoreIncrementMultiplier;
         coinBonusScore = SettingsManager.instance.GetDifficultyMap().coinBonusScore;
         playerGameObject = FindObjectOfType<Player>().gameObject;
+
+        pauseMenu = FindObjectOfType<PauseMenu>();
 
         foreach (BossFightConfig bossFightConfig in bossFightConfigs) { // Filling Queue for a more optimal work in Update
             bossFightConfigsQueue.Enqueue(bossFightConfig);
@@ -169,7 +173,8 @@ public class ScoreManager : MonoBehaviour
 
     private bool CanIncreaseScore()
     {
-        return isLevelLoaded && !(GameManager.isGameOver || PauseMenu.GameIsPaused);
+        return isLevelLoaded 
+            && !(GameManager.isGameOver || pauseMenu.isGamePaused);
     }
 
     public void AllowContinuousIncrease(bool status)
