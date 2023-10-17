@@ -190,32 +190,11 @@ public class AudioManager : MonoBehaviour
         soundSource.Stop();
     }
 
-    /*
-     * TODO: try the following
-    public void EnableMusicSlow()
+    public void SetSlowMotion(bool status)
     {
-        musicSource.pitch = .6f;
-        musicSource.volume = .6f;
-    }
+        float value = status ? .6f : 1f;
 
-    public void DisableMusicSlow()
-    {
-        musicSource.pitch = 1f;
-        musicSource.volume = 1f;
-    }
-    */
-
-    void Update()
-    {
-        // TODO: rework this to avoid checking the condition each frame
-        if (PauseMenu.GameIsPaused)
-        {
-            musicSource.pitch = .6f;
-            musicSource.volume = .6f;
-        } else
-        {
-            musicSource.pitch = 1f;
-            musicSource.volume = 1f;
-        }
+        musicSource.pitch = value;
+        musicSource.volume = value;
     }
 }
