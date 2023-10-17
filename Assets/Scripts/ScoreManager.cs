@@ -124,38 +124,35 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        if (CanIncreaseScore())
+        if (score < targetScore)
         {
-            if (score < targetScore)
+            if(score > nearestBossFightTriggerConfig.triggerScore && bossFightConfigsQueue.Count > 0)
             {
-                if(score > nearestBossFightTriggerConfig.triggerScore && bossFightConfigsQueue.Count > 0)
-                {
-                    nearestBossFightTriggerConfig = bossFightConfigsQueue.Dequeue();
-                }
-                oldScore = score;
+                nearestBossFightTriggerConfig = bossFightConfigsQueue.Dequeue();
+            }
+            oldScore = score;
 
-                score += incrementMultiplier * Time.deltaTime;
+            score += incrementMultiplier * Time.deltaTime;
 
-                if(oldScore < nearestBossFightTriggerConfig.triggerScore && score >= nearestBossFightTriggerConfig.triggerScore)
-                {
-                    BossFightConfirmManager bossFightConfirmManager = Instantiate(bossFightConfirmPanelPrefab, GameObject.Find("Canvas UI").transform, false)
-                        .GetComponent<BossFightConfirmManager>();
-                    bossFightConfirmManager.SetBossImage(nearestBossFightTriggerConfig.characterImage);
-                    bossFightConfirmManager.StartDialogue(nearestBossFightTriggerConfig.dialogue);
-                    bossFightConfirmManager.SetRewardValue(nearestBossFightTriggerConfig.rewardScore);
-                    bossFightConfirmManager.SetBossGameManager(nearestBossFightTriggerConfig.bossGameManager);
-                }
-
-                SetTextValue();
-            } else if(isTransitioning)
+            if (oldScore < nearestBossFightTriggerConfig.triggerScore && score >= nearestBossFightTriggerConfig.triggerScore)
             {
-                isTransitioning = false;
-                ResetIncrementMultiplier();
+                BossFightConfirmManager bossFightConfirmManager = Instantiate(bossFightConfirmPanelPrefab, GameObject.Find("Canvas UI").transform, false)
+                    .GetComponent<BossFightConfirmManager>();
+                bossFightConfirmManager.SetBossImage(nearestBossFightTriggerConfig.characterImage);
+                bossFightConfirmManager.StartDialogue(nearestBossFightTriggerConfig.dialogue);
+                bossFightConfirmManager.SetRewardValue(nearestBossFightTriggerConfig.rewardScore);
+                bossFightConfirmManager.SetBossGameManager(nearestBossFightTriggerConfig.bossGameManager);
+            }
 
-                if (scoreTextAnimator.GetCurrentAnimatorStateInfo(0).IsName("ScoreText_Bonus"))
-                {
-                    scoreTextAnimator.SetBool("IsBonus", false);
-                }
+            SetTextValue();
+        } else if(isTransitioning)
+        {
+            isTransitioning = false;
+            ResetIncrementMultiplier();
+
+            if (scoreTextAnimator.GetCurrentAnimatorStateInfo(0).IsName("ScoreText_Bonus"))
+            {
+                scoreTextAnimator.SetBool("IsBonus", false);
             }
         }
     }

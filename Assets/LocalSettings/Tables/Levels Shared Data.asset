@@ -223,6 +223,30 @@ MonoBehaviour:
     m_Key: papyrus-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 48929835551584256
+    m_Key: komarovo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48929854535004160
+    m_Key: komarovo-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48931153376735232
+    m_Key: roman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48931171085086720
+    m_Key: roman-slogan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48932569247936512
+    m_Key: philosopher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48932582615183360
+    m_Key: philosopher-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

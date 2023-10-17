@@ -226,6 +226,30 @@ MonoBehaviour:
     m_Localized: Papyrus
     m_Metadata:
       m_Items: []
+  - m_Id: 48929835551584256
+    m_Localized: Komarovo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48929854535004160
+    m_Localized: For a week, until the second...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48931153376735232
+    m_Localized: Roman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48931171085086720
+    m_Localized: Well, fighters. On site? I'm throwing!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48932569247936512
+    m_Localized: Philosopher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48932582615183360
+    m_Localized: Everything is based on reality. How many of you actually exist?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

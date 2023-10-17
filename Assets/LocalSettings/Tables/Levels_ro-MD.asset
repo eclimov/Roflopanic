@@ -229,6 +229,31 @@ MonoBehaviour:
     m_Localized: "Folosit \xEEn Egiptul antic \xEEn loc de h\xE2rtie"
     m_Metadata:
       m_Items: []
+  - m_Id: 48929835551584256
+    m_Localized: Komarovo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48929854535004160
+    m_Localized: "Timp de o s\u0103pt\u0103m\xE2n\u0103, p\xE2n\u0103 la a doua..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48931153376735232
+    m_Localized: Roman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48931171085086720
+    m_Localized: "Ei bine, lupt\u0103tori. Pe site-ul? Arunc!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48932569247936512
+    m_Localized: Filozof
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48932582615183360
+    m_Localized: "Totul se bazeaz\u0103 pe realitate. C\xE2\u021Bi dintre voi exist\u0103
+      de fapt?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
