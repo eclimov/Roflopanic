@@ -48,7 +48,7 @@ public class ScoreManager : MonoBehaviour
     private BossFightConfig nearestBossFightTriggerConfig;
     private float oldScore;
 
-    private bool is—ontinuousScoreIncreaseAllowed = true;
+    private bool isContinuousScoreIncreaseAllowed = true;
 
     private PauseMenu pauseMenu;
 
@@ -179,12 +179,12 @@ public class ScoreManager : MonoBehaviour
 
     public void AllowContinuousIncrease(bool status)
     {
-        is—ontinuousScoreIncreaseAllowed = status;
+        isContinuousScoreIncreaseAllowed = status;
     }
 
     public void IncreaseTargetScore(float value = 1f)
     {
-        if (CanIncreaseScore() && !isTransitioning && is—ontinuousScoreIncreaseAllowed)
+        if (CanIncreaseScore() && !isTransitioning && isContinuousScoreIncreaseAllowed)
         {
             targetScore += value;
             isTransitioning = true;
