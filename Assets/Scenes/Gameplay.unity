@@ -2837,7 +2837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749989352}
   - component: {fileID: 1749989353}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: Bottom Border
   m_TagString: Border
   m_Icon: {fileID: 0}

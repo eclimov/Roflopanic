@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public GameObject crownSpriteGameObject;
     public GameObject magnetColliderGameObject;
+    public GameObject hapHapychGameObject;
 
     private Rigidbody2D rb;
     private Vector3 mousePos;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
     {
         crownSpriteGameObject.SetActive(SettingsManager.IsAbilityEquipped("reincarnation"));
         magnetColliderGameObject.SetActive(SettingsManager.IsAbilityEquipped("magnet"));
+        hapHapychGameObject.SetActive(SettingsManager.IsAbilityEquipped("haphapych"));
     }
 
     public void OnReincarnate()

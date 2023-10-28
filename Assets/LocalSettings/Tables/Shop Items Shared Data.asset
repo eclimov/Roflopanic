@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: shop-item-magnet
     m_Metadata:
       m_Items: []
+  - m_Id: 25998800753029120
+    m_Key: shop-item-haphapych
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

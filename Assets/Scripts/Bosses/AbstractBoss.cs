@@ -21,7 +21,7 @@ public abstract class Boss : MonoBehaviour
         AudioManager.instance.PlaySound(screamSound);
     }
 
-    protected void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (OnDamageTaken != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
