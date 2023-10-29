@@ -52,6 +52,9 @@ public class SettingsManager : MonoBehaviour
     public delegate void OnPlayerSkinChangeDelegate();
     public event OnPlayerSkinChangeDelegate OnPlayerSkinChange;
 
+    public delegate void OnSceneGuideSeenDelegate();
+    public event OnSceneGuideSeenDelegate OnSceneGuideSeen;
+
     private void Awake()
     {
         if (instance == null)
@@ -332,7 +335,7 @@ public class SettingsManager : MonoBehaviour
         return GetSeenGuideScenesList().Contains(sceneName);
     }
 
-    public static void SetSceneGuideSeen(string sceneName)
+    public void SetSceneGuideSeen(string sceneName)
     {
         if(!IsSceneGuideSeen(sceneName))
         {
@@ -340,6 +343,11 @@ public class SettingsManager : MonoBehaviour
             list.Add(sceneName);
 
             PlayerPrefs.SetString("isGuideSeenScenes", String.Join(",", list.ToArray()));
+
+            if (OnSceneGuideSeen != null) // It is a MUST to check this, because the event is null if it has no subscribers
+            {
+                OnSceneGuideSeen();
+            }
         }
     }
 

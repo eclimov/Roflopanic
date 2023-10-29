@@ -35,7 +35,7 @@ public class SceneGuideManager : MonoBehaviour
         {
             GameObject helpPanel = sceneGuideButton.SpawnDialogue();
             helpPanel.GetComponent<HelpPanelHandler>().OnPanelClose += (() => {
-                SettingsManager.SetSceneGuideSeen(currentSceneName);
+                SettingsManager.instance.SetSceneGuideSeen(currentSceneName);
             });
         }
     }

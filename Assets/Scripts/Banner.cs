@@ -2,6 +2,7 @@ using GoogleMobileAds.Api;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Banner : MonoBehaviour
@@ -14,9 +15,22 @@ public class Banner : MonoBehaviour
 
     BannerView _bannerView;
 
+    private void Start()
+    {
+        SettingsManager.instance.OnSceneGuideSeen += LoadAd;
+    }
+
+    private void OnDestroy()
+    {
+        SettingsManager.instance.OnSceneGuideSeen -= LoadAd;
+    }
+
     private void OnEnable()
     {
-        LoadAd();
+        if(SettingsManager.IsSceneGuideSeen(SceneManager.GetActiveScene().name))
+        {
+            LoadAd();
+        } 
     }
 
     private void OnDisable()
