@@ -9,6 +9,7 @@ TagManager:
   - Language Button
   - Boss
   - Projectile
+  - Ally Gate
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class BackgroundMenu : AbstrctBackground
 
         if(difficultyManager != null) // If it's the main menu
         {
-            difficultyManager.OnIsDifficultyChange += SetScrolling;
+            difficultyManager.OnIsDifficultyChange += SetScrollingSpeed;
         }
     }
 
@@ -21,26 +21,23 @@ public class BackgroundMenu : AbstrctBackground
     {
         if (difficultyManager != null) // If it's the main menu
         {
-            difficultyManager.OnIsDifficultyChange -= SetScrolling;
+            difficultyManager.OnIsDifficultyChange -= SetScrollingSpeed;
         }
     }
 
-    protected override void SetScrolling()
+    protected override void SetScrollingSpeed()
     {
         float backgroundSpeed;
 
         switch (SettingsManager.difficultyId)
         {
-            case 0:
-                backgroundSpeed = .01f;
+            case 1: // Medium
+                backgroundSpeed = .07f;
                 break;
-            case 1:
-                backgroundSpeed = .05f;
+            case 2: // Hardcore
+                backgroundSpeed = .14f;
                 break;
-            case 2:
-                backgroundSpeed = .12f;
-                break;
-            default:
+            default: // Easy
                 backgroundSpeed = .01f;
                 break;
         }

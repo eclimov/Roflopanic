@@ -3,7 +3,10 @@ guid: 23e187ce69793954aaa8d532b774be2c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bossHealthManagerPrefab: {fileID: 2964119413610179817, guid: 9ac59907dde21e544a35c33deda33cf7, type: 3}
+  - bossVictoryTextPrefab: {fileID: 3753835043623511385, guid: 0f00b04eb3a27dc4c93c45ac935e4543, type: 3}
+  - music: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

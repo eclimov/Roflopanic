@@ -9,7 +9,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
     
     public AudioClip music;
 
-    protected Boss boss;
+    public Boss boss;
 
     protected GameManager gameManager;
     protected BossHealthManager bossHealthManager;
@@ -19,12 +19,13 @@ public abstract class AbstractBossGameManager : MonoBehaviour
     protected string bossName = "boss name";
     protected float bossRewardScore = 1f;
 
+    protected Player player;
+
     protected virtual void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
-
-        boss = FindObjectOfType<Boss>();
+        player = FindObjectOfType<Player>();
 
         bossHealthManager = Instantiate(bossHealthManagerPrefab, GameObject.Find("Canvas").transform).GetComponent<BossHealthManager>();
 
@@ -35,7 +36,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
         boss.OnDamageTaken += OnDamageTakenHandler;
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         gameManager.OnGameOver -= OnGameOverHandler;
         gameManager.OnReincarnationStarted -= OnReincarnationStartedHandler;
@@ -44,8 +45,10 @@ public abstract class AbstractBossGameManager : MonoBehaviour
         boss.OnDamageTaken -= OnDamageTakenHandler;
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
+        // Make player invulnerable temporary, to prevent from colliding with obstacles
+        StartCoroutine(player.EnableTemporaryInvulnerability(2f)); // TODO: think on "WaitUntil" logic, if explicit wait is not enough for all difficulties
         AudioManager.instance.PlayMusic(music);
     }
 
@@ -53,7 +56,30 @@ public abstract class AbstractBossGameManager : MonoBehaviour
     protected abstract void OnReincarnationStartedHandler();
     protected abstract void OnReincarnationEndedHandler();
 
-    protected abstract IEnumerator BossFightWon();
+    protected virtual IEnumerator BossFightWon()
+    {
+        boss.Die();
+
+        yield return new WaitForSecondsRealtime(1f); // A delay between death animation and victory text
+
+        AudioManager.instance.PauseMusic();
+
+        BossVictoryText bossVictoryText = Instantiate(bossVictoryTextPrefab, GameObject.Find("Canvas").transform).GetComponent<BossVictoryText>();
+        bossVictoryText.SetBossName(bossName);
+        bossVictoryText.FadeIn();
+
+        yield return new WaitForSecondsRealtime(3f); // Wait for fadeIn to finish and a little bit more
+
+        Destroy(bossHealthManager.gameObject); // Destroy boss health bar (because it's not a child of the current gameobject)
+
+        bossVictoryText.FadeOut();
+        yield return new WaitForSecondsRealtime(1f); // Wait for fadeOut to finish
+
+        AudioManager.instance.PlayCashSound();
+        scoreManager.AddBonusScore(bossRewardScore);
+
+        gameManager.EndBossFight(gameObject); // This should go the last, because boss game manager is destroyed there
+    }
 
     protected abstract void IncrementBossFightWinCount();
 
@@ -65,6 +91,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
 
     protected void OnDamageTakenHandler(int damage)
     {
+        boss.PlayDamageAnimation();
         bossHealthManager.TakeDamage(damage);
     }
 
@@ -74,7 +101,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
         bossHealthManager.SetBossName(bossName);
     }
 
-    protected void BossFightLost()
+    public void BossFightLost()
     {
         gameManager.GameOver();
     }
@@ -82,6 +109,12 @@ public abstract class AbstractBossGameManager : MonoBehaviour
     public void SetRewardScore(int reward)
     {
         bossRewardScore = reward;
+    }
+
+    public virtual void MakeBossInvulnerable()
+    {
+        boss.MakeInvulnerable();
+        bossHealthManager.EnableShieldLayer();
     }
 
     public virtual void MakeBossVulnerable()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization;
 
 public class BossHealthManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class BossHealthManager : MonoBehaviour
 
     public TMP_Text nameText;
     public TMP_Text damageValueText;
+
+    public LocalizedString shieldDisabledString;
+    public LocalizedString shieldEnabledString;
 
     private bool delayedHealthUpdate;
 
@@ -30,9 +34,16 @@ public class BossHealthManager : MonoBehaviour
         nameText.text = name;
     }
 
+    public void EnableShieldLayer()
+    {
+        shieldLayer.SetActive(true);
+        StartCoroutine(ShowInfoText(shieldEnabledString.GetLocalizedString()));
+    }
+
     public void DisableShieldLayer()
     {
         shieldLayer.SetActive(false);
+        StartCoroutine(ShowInfoText(shieldDisabledString.GetLocalizedString()));
     }
 
     public void TakeDamage(float damage)
@@ -48,21 +59,21 @@ public class BossHealthManager : MonoBehaviour
 
         healthBar.fillAmount = healthAmount / 100;
 
-        StartCoroutine(ShowDamageText(damage));
+        StartCoroutine(ShowInfoText(damage.ToString()));
         StartCoroutine(DelayedHealthAnimation());
     }
 
-    private IEnumerator ShowDamageText(float damage)
+    private IEnumerator ShowInfoText(string infoText)
     {
-        damageValueText.text = damage.ToString();
+        damageValueText.text = infoText;
         damageValueText.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSeconds(2f);
         damageValueText.gameObject.SetActive(false);
     }
 
     private IEnumerator DelayedHealthAnimation()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         delayedHealthUpdate = true;
     }
 

@@ -16,8 +16,6 @@ public class Clownich : Boss
     private WaitForSecondsRealtime cachedWaitForSecondsRealtimeBetweenAttacks;
     private WaitForSecondsRealtime cachedWaitForSecondsRealtimeBetweenLaughs;
 
-    private bool isVulnerable;
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -104,12 +102,13 @@ public class Clownich : Boss
         {
             if(clownichProjectile.IsReady())
             {
-                if(isVulnerable)
+                AudioManager.instance.AxeHitWoodSuccessfulSound();
+                if (isVulnerable)
                 {
-                    AudioManager.instance.AxeHitWoodSuccessfulSound();
-
-                    animator.SetTrigger("Damage");
-                    TakeDamage(Random.Range(5, 11));
+                    TakeDamage(Random.Range(8, 14));
+                } else
+                {
+                    TakeDamage(1);
                 }
 
                 clownichProjectile.DestroyWithExplosion();
@@ -137,5 +136,10 @@ public class Clownich : Boss
         {
             rb.velocity = new Vector2(0, directionY * speed);
         }
+    }
+
+    public override void PlayDamageAnimation()
+    {
+        animator.SetTrigger("Damage");
     }
 }

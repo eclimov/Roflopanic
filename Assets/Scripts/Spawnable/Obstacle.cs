@@ -41,16 +41,9 @@ public class Obstacle : AbstractSpawnable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && collision.TryGetComponent<Player>(out Player player))
         {
-            AudioManager.instance.PlayDeathSound();
-            if (SettingsManager.isVibrationEnabled)
-            {
-                Vibration.Vibrate(100);
-            }
-
-            GameManager gameManager = FindObjectOfType<GameManager>();
-            gameManager.GameOver();
+            player.Die();
         }
 
         if(collision.tag == "Border")

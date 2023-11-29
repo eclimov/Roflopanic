@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4266654778899160737}
   - component: {fileID: 7352465266121653725}
   - component: {fileID: 3830368766506528085}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MagnetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6188726132406783031}
   - component: {fileID: 6002174625947557340}
   - component: {fileID: 8604472057148963568}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CollectorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 588127899615120395}
   - component: {fileID: 3843139235035858681}
   - component: {fileID: 2474561967576757547}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HapHapych
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 5849086738428672953}
   - component: {fileID: 5757344759189948718}
   - component: {fileID: 5849086738428672952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoflanWtf
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086738753495362}
   - component: {fileID: 5849086738753495363}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,8 +428,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739148261199}
   - component: {fileID: 5849086739148261200}
-  m_Layer: 0
-  m_Name: Player Face
+  m_Layer: 2
+  m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,7 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739184015721}
   - component: {fileID: 5849086739184015722}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crown Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 8135278545845993133}
   - component: {fileID: 7031754838816992413}
   - component: {fileID: 7058262099933840830}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

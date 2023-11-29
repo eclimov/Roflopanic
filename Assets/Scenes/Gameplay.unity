@@ -453,6 +453,8 @@ MonoBehaviour:
   scale: 1.5
   controlDown: {fileID: 858420471}
   controlUp: {fileID: 1975784626}
+  teleportSound: {fileID: 8300000, guid: 986a7442ee857264eb8cf6aa2f23415b, type: 3}
+  teleportParticlePrefab: {fileID: 729521630462250411, guid: cfeb90ed974bc34429b5ba2349f3808d, type: 3}
 --- !u!1 &313393762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1095,32 @@ MonoBehaviour:
         m_FallbackState: 0
         m_WaitForCompletion: 0
         m_LocalVariables: []
+    bossVoiceLetterSound: {fileID: 8300000, guid: 0f5927e053893534297ca4322b5fd27d, type: 3}
     bossGameManager: {fileID: 2380524048701246473, guid: 9ab6a79413bac7542b31384b64e55e67, type: 3}
+  - rewardScore: 400
+    characterImage: {fileID: 21300000, guid: b2d10e05c3fdd5b45858ee9dc3428df5, type: 3}
+    triggerScore: 400
+    dialogue:
+      characterName:
+        m_TableReference:
+          m_TableCollectionName: GUID:86a6cc72c63211c4ca7b60f8977fa46d
+        m_TableEntryReference:
+          m_KeyId: 8013414764408832
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      sentences:
+      - m_TableReference:
+          m_TableCollectionName: GUID:86a6cc72c63211c4ca7b60f8977fa46d
+        m_TableEntryReference:
+          m_KeyId: 8013472356397056
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    bossVoiceLetterSound: {fileID: 8300000, guid: 60220656c4da6a34e9b364a2945f5faa, type: 3}
+    bossGameManager: {fileID: 2951562744910293683, guid: bc34930294c3e9e48a0cdd4c4f88c3b7, type: 3}
   bossFightConfirmPanelPrefab: {fileID: 4730027823901071156, guid: a04d79d3448638d4e976c64a75a17666, type: 3}
   references:
     version: 2

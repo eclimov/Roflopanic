@@ -30,6 +30,10 @@ public class HapHapychProjectile : MonoBehaviour
         {
             boss.TakeDamage(Random.Range(1, 3));
             DisableWithExplosion(bloodSplashSmallPrefab);
+        } else if(collision.TryGetComponent<MiniBuldiga>(out MiniBuldiga miniBuldiga))
+        {
+            miniBuldiga.TriggerDeath();
+            DisableWithExplosion(bloodSplashSmallPrefab);
         }
     }
 

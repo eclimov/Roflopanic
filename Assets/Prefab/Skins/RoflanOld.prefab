@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5904194236790112639}
   - component: {fileID: 4409150568636212908}
   - component: {fileID: 8236996573014267122}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 7019698468243424705}
   - component: {fileID: 3302885911102707560}
   - component: {fileID: 3342656769747154527}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CollectorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 3954775499245128919}
   - component: {fileID: 2043205164306527678}
   - component: {fileID: 2451280472631941177}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HapHapych
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4983,7 +4983,7 @@ GameObject:
   - component: {fileID: 6553188973895448617}
   - component: {fileID: 6625568139932918421}
   - component: {fileID: 4695704524574985310}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MagnetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5046,7 +5046,7 @@ GameObject:
   - component: {fileID: 5849086738428672954}
   - component: {fileID: 5849086738428672953}
   - component: {fileID: 5849086738428672952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoflanOld
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5137,8 +5137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739148261199}
   - component: {fileID: 5849086739148261200}
-  m_Layer: 0
-  m_Name: Player Face
+  m_Layer: 2
+  m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5221,7 +5221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739184015721}
   - component: {fileID: 5849086739184015722}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crown Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

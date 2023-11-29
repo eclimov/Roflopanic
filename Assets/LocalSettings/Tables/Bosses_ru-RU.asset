@@ -27,6 +27,14 @@ MonoBehaviour:
       \u043E\u0442\u0441\u0442\u043E\u0439..."
     m_Metadata:
       m_Items: []
+  - m_Id: 8013414764408832
+    m_Localized: Buldiga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8013472356397056
+    m_Localized: "\u042B\u044B\u044B...\u042B\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B...\u042B..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

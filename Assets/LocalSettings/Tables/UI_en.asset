@@ -138,6 +138,14 @@ MonoBehaviour:
     m_Localized: Escape
     m_Metadata:
       m_Items: []
+  - m_Id: 97128940723269632
+    m_Localized: Shield disabled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97129340885037056
+    m_Localized: Shield enabled
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

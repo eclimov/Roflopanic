@@ -12,7 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float maxY;
     public float minY;
 
-    private  float timeBetweenSpawn;
+    private float timeBetweenSpawn;
 
     private float spawnTime;
 
@@ -76,16 +76,6 @@ public class ObstacleSpawner : MonoBehaviour
     {
         isObstacleSpawnEnabled = false;
         isCoinSpawnEnabled = false;
-    }
-
-    public void StopSpawnObstacles()
-    {
-        isObstacleSpawnEnabled = false;
-    }
-
-    public void StartSpawnCoin()
-    {
-        isCoinSpawnEnabled = true;
     }
 
     // Update is called once per frame

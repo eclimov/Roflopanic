@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4367013795602617016}
   - component: {fileID: 5096834645346349581}
   - component: {fileID: 8919777370385022353}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HapHapych
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2636136656887110}
   - component: {fileID: 8496616285702082468}
   - component: {fileID: 7223082063923708530}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4922,7 +4922,7 @@ GameObject:
   - component: {fileID: 728035084829547850}
   - component: {fileID: 7245018315178653872}
   - component: {fileID: 4983471826130071514}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CollectorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4982,7 +4982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9161004974152384963}
   - component: {fileID: 6256594106059556183}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player Face Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5069,7 +5069,7 @@ GameObject:
   - component: {fileID: 5849086738428672953}
   - component: {fileID: 5757344759189948718}
   - component: {fileID: 5849086738428672952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoflanDovolen
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5178,7 +5178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086738753495362}
   - component: {fileID: 5849086738753495363}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5262,8 +5262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739148261199}
   - component: {fileID: 5849086739148261200}
-  m_Layer: 0
-  m_Name: Player Face
+  m_Layer: 2
+  m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5348,7 +5348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739184015721}
   - component: {fileID: 5849086739184015722}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crown Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5433,7 +5433,7 @@ GameObject:
   - component: {fileID: 3345488676811371153}
   - component: {fileID: 4734467178772851690}
   - component: {fileID: 6138069271782512437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MagnetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,8 +13,8 @@ public class BossFightConfirmManager : MonoBehaviour
     public Animator bossCharacterAnimator;
     public Image bossImage;
     public NumberController bossRewardNumberController;
-    public AudioClip bossVoiceLetterSound;
 
+    private AudioClip bossVoiceLetterSound;
     private bool isTextTyped;
     private WaitForSecondsRealtime cachedWaitForSecondsRealtime;
 
@@ -54,6 +54,11 @@ public class BossFightConfirmManager : MonoBehaviour
     public void SetBossGameManager(AbstractBossGameManager gm)
     {
         bossGameManagerPrefab = gm;
+    }
+
+    public void SetBossVoiceLetterSound(AudioClip sound)
+    {
+        bossVoiceLetterSound = sound;
     }
 
     public void StartDialogue(Dialogue dialogue)

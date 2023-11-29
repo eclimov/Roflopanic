@@ -20,6 +20,9 @@ public class PlayerManager : MonoBehaviour
     public RectTransform controlDown;
     public RectTransform controlUp;
 
+    public AudioClip teleportSound;
+    public GameObject teleportParticlePrefab;
+
     private GameObject playerGameObject;
 
     // Start is called before the first frame update
@@ -34,6 +37,42 @@ public class PlayerManager : MonoBehaviour
         SettingsManager.instance.OnPlayerSkinChange -= LoadCurrentSkin;
     }
 
+    public void TeleportPlayerToPositionCenter()
+    {
+        AudioManager.instance.PlaySound(teleportSound);
+
+        EmitTeleportParticles(playerGameObject.transform.position);
+
+        MovePlayer(0f, 0f);
+
+        EmitTeleportParticles(playerGameObject.transform.position);
+    }
+
+    public void TeleportPlayerToPositionDefault()
+    {
+        AudioManager.instance.PlaySound(teleportSound);
+
+        EmitTeleportParticles(playerGameObject.transform.position);
+
+        MovePlayer(positionX, 0f);
+
+        EmitTeleportParticles(playerGameObject.transform.position);
+    }
+
+    private void EmitTeleportParticles(Vector3 position)
+    {
+        GameObject teleportPartclesGameObject = Instantiate(teleportParticlePrefab, GameObject.Find("Canvas UI").transform);
+        teleportPartclesGameObject.transform.position = position;
+    }
+
+    private void MovePlayer(float x, float y)
+    {
+        Vector3 tempPosition = playerGameObject.transform.localPosition;
+        tempPosition.x = x;
+        tempPosition.y = y;
+        playerGameObject.transform.localPosition = tempPosition;
+    }
+
     private void LoadCurrentSkin()
     {
         PlayerSkinModel currentSkin = playerSkins.Find(item => item.id == SettingsManager.GetPlayerSkin());
@@ -46,9 +85,7 @@ public class PlayerManager : MonoBehaviour
         playerGameObject = Instantiate(currentSkin.playerSkinPrefab, transform);
 
         // Set X position of the player
-        Vector3 tempPosition = playerGameObject.transform.localPosition;
-        tempPosition.x = positionX;
-        playerGameObject.transform.localPosition = tempPosition;
+        MovePlayer(positionX, 0f);
 
         // Set X and Y scale
         Vector3 tempScale = playerGameObject.transform.localScale;

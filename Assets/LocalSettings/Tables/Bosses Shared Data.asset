@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: clownich-dialogue
     m_Metadata:
       m_Items: []
+  - m_Id: 8013414764408832
+    m_Key: buldiga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8013472356397056
+    m_Key: buldiga-dialogue
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

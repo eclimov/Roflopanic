@@ -19,6 +19,13 @@ public class ClownichBossGameManager : AbstractBossGameManager
         clownichProjectileSpawner = FindObjectOfType<ClownichProjectileSpawner>();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        MakeBossInvulnerable(); // Call the method to make sure the shield is enabled, and display info text in the healthbar accordingly
+    }
+
     protected override void OnGameOverHandler()
     {
         clownichProjectileSpawner.AllowSpawn(false);
@@ -42,27 +49,7 @@ public class ClownichBossGameManager : AbstractBossGameManager
         DestroyAllProjectiles();
         DestroyAllGates();
 
-        boss.Die();
-
-        yield return new WaitForSecondsRealtime(1f); // A delay between death animation and victory text
-
-        AudioManager.instance.PauseMusic();
-
-        BossVictoryText bossVictoryText = Instantiate(bossVictoryTextPrefab, GameObject.Find("Canvas").transform).GetComponent<BossVictoryText>();
-        bossVictoryText.SetBossName(bossName);
-        bossVictoryText.FadeIn();
-
-        yield return new WaitForSecondsRealtime(3f); // Wait for fadeIn to finish and a little bit more
-
-        Destroy(bossHealthManager.gameObject); // Destroy boss health bar (because it's not a child of the current gameobject)
-
-        bossVictoryText.FadeOut();
-        yield return new WaitForSecondsRealtime(1f); // Wait for fadeOut to finish
-
-        AudioManager.instance.PlayCashSound();
-        scoreManager.AddBonusScore(bossRewardScore);
-
-        gameManager.EndBossFight(gameObject); // This should go the last, because boss game manager is destroyed there
+        yield return base.BossFightWon();
     }
 
     protected override void IncrementBossFightWinCount()

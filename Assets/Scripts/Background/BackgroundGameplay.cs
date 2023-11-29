@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundGameplay : AbstrctBackground
 {
-    protected override void SetScrolling()
+    protected override void SetScrollingSpeed()
     {
         scrolling = new Vector2(SettingsManager.instance.GetDifficultyMap().backgroundSpeed, 0f);
     }

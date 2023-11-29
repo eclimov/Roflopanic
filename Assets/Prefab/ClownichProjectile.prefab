@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 3763049909402709222, guid: 1d78fe9e44e484d4ab8c83ab3e44c511, type: 3}
+  bossShieldDownSound: {fileID: 8300000, guid: 0bdcf23f03b547c4a9244de33fc54658, type: 3}
 --- !u!58 &7143717392298834196
 CircleCollider2D:
   m_ObjectHideFlags: 0

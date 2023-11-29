@@ -131,6 +131,14 @@ MonoBehaviour:
     m_Key: escape
     m_Metadata:
       m_Items: []
+  - m_Id: 97128940723269632
+    m_Key: shield-disabled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97129340885037056
+    m_Key: shield-enabled
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

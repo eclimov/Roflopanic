@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: This party sucks...
     m_Metadata:
       m_Items: []
+  - m_Id: 8013414764408832
+    m_Localized: Buldiga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8013472356397056
+    m_Localized: Ooo...Ooooooooo...O...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

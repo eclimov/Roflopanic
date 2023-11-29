@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6245093921262807439}
   - component: {fileID: 5424428656752342854}
   - component: {fileID: 1564752764643689265}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MagnetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4282176792491172552}
   - component: {fileID: 1180548741486241774}
   - component: {fileID: 659285277480812153}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HapHapych
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 9141906025053760441}
   - component: {fileID: 8396629858989653805}
   - component: {fileID: 2109998645504954469}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4984,7 +4984,7 @@ GameObject:
   - component: {fileID: 6004282692398293902}
   - component: {fileID: 7524013531881941860}
   - component: {fileID: 3850483850048478937}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CollectorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5047,7 +5047,7 @@ GameObject:
   - component: {fileID: 5849086738428672953}
   - component: {fileID: 5757344759189948718}
   - component: {fileID: 5849086738428672952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoflanRabotyaga
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5156,7 +5156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086738753495362}
   - component: {fileID: 5849086738753495363}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5240,8 +5240,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739148261199}
   - component: {fileID: 5849086739148261200}
-  m_Layer: 0
-  m_Name: Player Face
+  m_Layer: 2
+  m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5325,7 +5325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849086739184015721}
   - component: {fileID: 5849086739184015722}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crown Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

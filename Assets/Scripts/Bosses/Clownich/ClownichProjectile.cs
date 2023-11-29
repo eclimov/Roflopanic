@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ClownichProjectile : MonoBehaviour
 {
     public GameObject explosionPrefab;
+    public AudioClip bossShieldDownSound;
 
     private Rigidbody2D rb;
 
@@ -92,6 +93,7 @@ public class ClownichProjectile : MonoBehaviour
 
                 if (clownichGate.IsEnemy())
                 {
+                    AudioManager.instance.PlaySound(bossShieldDownSound);
                     clownichBossGameManager.MakeBossVulnerable();
                 }
 

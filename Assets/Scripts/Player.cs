@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     private float playerSpeed;
     private float rotationSpeed;
 
+    private bool canMove = true;
+    private bool isVulnerable = true;
+
     void Awake()
     {
         mainCam = Camera.main;
@@ -53,6 +56,32 @@ public class Player : MonoBehaviour
     public void OnReincarnate()
     {
         crownSpriteGameObject.SetActive(false);
+    }
+
+    public void ToggleMovement(bool status)
+    {
+        rb.velocity *= 0; // Reset velocity
+        canMove = status;
+    }
+
+    public void ToggleVulnerability(bool status)
+    {
+        isVulnerable = status;
+
+        int alpha = status ? 255 : 100;
+
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.color = new Color32(255, 255, 255, (byte)alpha);
+        }
+    }
+
+    public IEnumerator EnableTemporaryInvulnerability(float time)
+    {
+        ToggleVulnerability(false);
+        yield return new WaitForSeconds(time);
+        ToggleVulnerability(true);
     }
 
     // Update is called once per frame
@@ -87,7 +116,7 @@ public class Player : MonoBehaviour
         if (directionY == 0 || isCollidingBorder) 
         {
             rotatePlayer(0f);
-        } else
+        } else if (canMove)
         {
             rotatePlayer(directionY * 15f);
         }
@@ -105,6 +134,20 @@ public class Player : MonoBehaviour
     public void OnCoinCollected()
     {
         scoreManager.OnCoinCollected();
+    }
+
+    public void Die()
+    {
+        if (!isVulnerable) return;
+
+        AudioManager.instance.PlayDeathSound();
+        if (SettingsManager.isVibrationEnabled)
+        {
+            Vibration.Vibrate(100);
+        }
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.GameOver();
     }
 
     // It's called on each frame
@@ -126,6 +169,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
 	{
-        rb.velocity = new Vector2(0, directionY * playerSpeed);
+        if(canMove)
+        {
+            rb.velocity = new Vector2(0, directionY * playerSpeed);
+        }
     }
 }

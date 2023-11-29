@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         scoreManager.AllowContinuousIncrease(false); // Temporary stop increasing score (except for coins)
 
         isBossFight = true;
-        StopSpawnObstacles();
+        StopSpawn();
     }
 
     public void EndBossFight(GameObject bossGameManager)
@@ -78,11 +78,6 @@ public class GameManager : MonoBehaviour
     public void ResumeSpawn()
     {
         obstacleSpawner.StartSpawn(); // Resume spawning new items
-    }
-
-    public void StopSpawnObstacles()
-    {
-        obstacleSpawner.StopSpawnObstacles(); // Stop spawning obstacles
     }
 
     private IEnumerator Reincarnate()
@@ -147,10 +142,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         canReincarnate = false; // Cannot reincarnate anymore during current game
-        if(isBossFight)
-        {
-            obstacleSpawner.StartSpawnCoin(); // allow spawning coins only
-        } else
+        if(!isBossFight)
         {
             ResumeSpawn(); // Allow spawning obstacles and coins
         }

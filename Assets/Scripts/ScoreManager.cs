@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
         public Sprite characterImage;
         public float triggerScore;
         public Dialogue dialogue;
+        public AudioClip bossVoiceLetterSound;
         public AbstractBossGameManager bossGameManager;
     }
 
@@ -146,6 +147,7 @@ public class ScoreManager : MonoBehaviour
                 bossFightConfirmManager.StartDialogue(nearestBossFightTriggerConfig.dialogue);
                 bossFightConfirmManager.SetRewardValue(nearestBossFightTriggerConfig.rewardScore);
                 bossFightConfirmManager.SetBossGameManager(nearestBossFightTriggerConfig.bossGameManager);
+                bossFightConfirmManager.SetBossVoiceLetterSound(nearestBossFightTriggerConfig.bossVoiceLetterSound);
             }
 
             SetTextValue();

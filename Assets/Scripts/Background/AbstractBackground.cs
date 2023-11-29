@@ -35,10 +35,10 @@ public abstract class AbstrctBackground : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
-        SetScrolling();
+        SetScrollingSpeed();
     }
 
-    protected abstract void SetScrolling();
+    protected abstract void SetScrollingSpeed();
 
     // Update is called once per frame
     void Update()
