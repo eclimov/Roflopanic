@@ -41,12 +41,10 @@ public class Obstacle : AbstractSpawnable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && collision.TryGetComponent<Player>(out Player player))
+        if(collision.TryGetComponent<Player>(out Player player))
         {
             player.Die();
-        }
-
-        if(collision.tag == "Border")
+        } else if(collision.name == "Left Border" || collision.name == "Right Border")
         {
             gameObject.SetActive(false);
         }
