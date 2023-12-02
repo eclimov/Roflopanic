@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames;
+using System;
 
 public class Authentication : MonoBehaviour
 {
+    public GameObject loadingOverlay; // Disabled by default
+    public GameObject adBanner; // Disabled by default
+
     public static bool Authenticated { get; private set; }
 
     public static PlayGamesPlatform Platform { get; private set; }
@@ -13,17 +17,30 @@ public class Authentication : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(!Authenticated) // Prevent re-authenticating and overwriting existing data on Menu load
+        if (!Authenticated) // Prevent re-authenticating and overwriting existing data on Menu load
         {
             Login();
+        } else
+        {
+            ShowAdBanner();
         }
     }
 
     private void Login()
     {
-        if(Platform == null)
+        ShowLoadingOverlay();
+
+        if (Platform == null)
         {
-            Platform = BuildPlatform();
+            try
+            {
+                Platform = BuildPlatform();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                HideLoadingOverlay();
+            }
         }
 
         PlayGamesPlatform.Instance.Authenticate(success =>
@@ -35,13 +52,33 @@ public class Authentication : MonoBehaviour
 
     private void OnAuthenticationSucceeded()
     {
-        if(Authenticated)
+        CloudSaveManager.Instance.OnSaveLoaded += HideLoadingOverlay;
+
+        if (Authenticated)
         {
             CloudSaveManager.Instance.Load();
         } else
         {
             CloudSaveManager.Instance.UseLocalData();
         }
+    }
+
+    private void ShowLoadingOverlay()
+    {
+        loadingOverlay.SetActive(true);
+    }
+
+    private void HideLoadingOverlay()
+    {
+        loadingOverlay.SetActive(false);
+        CloudSaveManager.Instance.OnSaveLoaded -= HideLoadingOverlay;
+
+        ShowAdBanner();
+    }
+
+    private void ShowAdBanner()
+    {
+        adBanner.SetActive(true);
     }
 
     private PlayGamesPlatform BuildPlatform()

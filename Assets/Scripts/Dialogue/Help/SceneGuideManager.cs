@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 public class SceneGuideManager : MonoBehaviour
 {
@@ -15,15 +14,15 @@ public class SceneGuideManager : MonoBehaviour
         currentSceneName = SceneManager.GetActiveScene().name;
 
         levelLoader = FindObjectOfType<LevelLoader>();
-        levelLoader.OnLevelLoad += OnLevelLoaded;
+        levelLoader.OnLevelLoad += ShowSceneGuide;
     }
 
     protected void OnDestroy()
     {
-        levelLoader.OnLevelLoad -= OnLevelLoaded;
+        levelLoader.OnLevelLoad -= ShowSceneGuide;
     }
 
-    private void OnLevelLoaded()
+    private void ShowSceneGuide()
     {
         if (SettingsManager.IsSceneGuideSeen(currentSceneName))
         {

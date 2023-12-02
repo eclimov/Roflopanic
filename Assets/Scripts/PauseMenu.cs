@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject timeFreezeOverlayPanel;
 
-    // Reset state before destroying the object
+    // Reset (unfreeze + un-slowmotion) before destroying the object
     private void OnDestroy()
     {
         FreezeTime(false);

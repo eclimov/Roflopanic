@@ -139,6 +139,10 @@ MonoBehaviour:
     m_Key: shield-enabled
     m_Metadata:
       m_Items: []
+  - m_Id: 98532334004367360
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

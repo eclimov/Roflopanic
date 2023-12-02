@@ -13,12 +13,14 @@ public class LevelLoader : MonoBehaviour
     public event OnLevelLoadedDelegate OnLevelLoad;
 
     private AudioManager audioManager;
+    private WaitForSeconds cachedWaitForSeconds;
     private WaitForSecondsRealtime cachedWaitForSecondsRealtime;
 
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
 
+        cachedWaitForSeconds = new WaitForSeconds(transitionTime);
         cachedWaitForSecondsRealtime = new WaitForSecondsRealtime(transitionTime);
     }
 
@@ -34,12 +36,27 @@ public class LevelLoader : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
     {
-        StartCoroutine(EmitSceneLoaded());
+        Time.timeScale = 1f; // Reset time scale (for cases when time-freeze panel appeared during loading)
+        switch (scene.name)
+        {
+            case "Menu":
+                audioManager.PlayMusic("music-menu");
+                break;
+            case "Gameplay":
+                audioManager.PlayMusic("music-gameplay");
+                break;
+            case "Shop":
+                audioManager.PlayMusic("music-shop");
+                break;
+        }
+
+        StartCoroutine(OnSceneLoadedCoroutine());
     }
 
-    private IEnumerator EmitSceneLoaded()
+    private IEnumerator OnSceneLoadedCoroutine()
     {
-        yield return cachedWaitForSecondsRealtime;
+        yield return cachedWaitForSeconds;
+
         if (OnLevelLoad != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
             OnLevelLoad();
@@ -48,12 +65,12 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMenu()
     {
-        StartCoroutine(LoadLevel(0, () => audioManager.PlayMusic("music-menu")));
+        StartCoroutine(LoadLevel(0));
     }
 
     public void LoadGameplay()
     {
-        StartCoroutine(LoadLevel(1, () => audioManager.PlayMusic("music-gameplay")));
+        StartCoroutine(LoadLevel(1));
     }
 
     public void LoadSettings()
@@ -72,10 +89,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadShop()
     {
-        StartCoroutine(LoadLevel(5, () => audioManager.PlayMusic("music-shop")));
+        StartCoroutine(LoadLevel(5));
     }
 
-    IEnumerator LoadLevel(int levelIndex, Action whenDone = null)
+    IEnumerator LoadLevel(int levelIndex)
     {
         // Play Animation
         transition.SetTrigger("Start");
@@ -87,8 +104,6 @@ public class LevelLoader : MonoBehaviour
 
         // Load Scene Asynchronously
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelIndex);
-
-        whenDone?.Invoke();
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

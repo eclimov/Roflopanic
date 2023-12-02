@@ -19,6 +19,9 @@ public class CloudSaveManager : MonoBehaviour
 
     private BinaryFormatter _formatter;
 
+    public delegate void OnSaveLoadedDelegate();
+    public event OnSaveLoadedDelegate OnSaveLoaded;
+
     private void Awake()
     {
         if(Instance == null)
@@ -46,6 +49,11 @@ public class CloudSaveManager : MonoBehaviour
     {
         // use local device data
         // NOTE: SettingsManager uses local data by defult anyway
+
+        if (OnSaveLoaded != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnSaveLoaded();
+        }
     }
 
     public void ApplyCloudData(SaveData.CloudSaveData data, bool dataExists)
@@ -57,6 +65,11 @@ public class CloudSaveManager : MonoBehaviour
         }
 
         SettingsManager.instance.SaveSaveData(data);
+
+        if (OnSaveLoaded != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnSaveLoaded();
+        }
     }
 
     private SaveData.CloudSaveData CollectAllData()

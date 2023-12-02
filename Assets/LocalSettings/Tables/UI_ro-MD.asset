@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: Scut activat
     m_Metadata:
       m_Items: []
+  - m_Id: 98532334004367360
+    m_Localized: "Se \xEEncarc\u0103"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -42,11 +42,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        LoadMusicSettings();
-    }
-
     public void LoadMusicSettings()
     {
         if (SettingsManager.isMusicEnabled)
