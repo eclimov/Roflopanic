@@ -351,6 +351,23 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
+    public static void SetRewardedAdSeenTime()
+    {
+        PlayerPrefs.SetString("rewardedAdSeenTime", DateTime.UtcNow.ToString());
+    }
+
+    public static int GetRewardedAdSeenTimeDifference()
+    {
+        string rewardedAdSeenTime = PlayerPrefs.GetString("rewardedAdSeenTime", "");
+        if(DateTime.TryParse(rewardedAdSeenTime, out DateTime parsedDateTime))
+        {
+            TimeSpan difference = DateTime.UtcNow.Subtract(parsedDateTime);
+            return (int)difference.TotalSeconds;
+        }
+
+        return int.MaxValue;
+    }
+
     public void setMusicEnabled(bool isEnabled)
     {
         isMusicEnabled = isEnabled;
