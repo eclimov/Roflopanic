@@ -40,7 +40,7 @@ public class LevelLoader : MonoBehaviour
         switch (scene.name)
         {
             case "Menu":
-                audioManager.PlayMusic("music-menu");
+                audioManager.PlayMusicMenu();
                 break;
             case "Gameplay":
                 audioManager.PlayMusic("music-gameplay");

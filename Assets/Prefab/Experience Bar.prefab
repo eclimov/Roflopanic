@@ -97,6 +97,82 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &3570257920436367123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8575764234026428530}
+  - component: {fileID: 4588374574680540236}
+  - component: {fileID: 7118040136975718745}
+  m_Layer: 5
+  m_Name: Santa Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8575764234026428530
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570257920436367123}
+  m_LocalRotation: {x: 0, y: 0, z: 0.04701924, w: 0.99889404}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7851737250326301904}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.39}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7.5263, y: 23.819}
+  m_SizeDelta: {x: 38.0959, y: 26.5669}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4588374574680540236
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570257920436367123}
+  m_CullTransparentMesh: 1
+--- !u!114 &7118040136975718745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570257920436367123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e4aa2996b7b58934391944b1e6dc0575, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7851737249323952833
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +322,6 @@ MonoBehaviour:
   playerLevelNumberText: {fileID: 7851737250970176454}
   experienceBar: {fileID: 7851737249811702498}
   experienceText: {fileID: 7851737250666316096}
-  newLevelPanelPrefab: {fileID: 7955383887766943933, guid: 823acd6501f82ef4a82d991fa6bb8d39, type: 3}
-  confettiPrefab: {fileID: 5602554417777089173, guid: e1fc70683f879ea4f93bd66ba60465d8, type: 3}
   levelNameText: {fileID: 7851737250880021210}
   levelImage: {fileID: 7851737250959537994}
 --- !u!114 &5356227351508005262
@@ -579,6 +653,7 @@ MonoBehaviour:
   experienceText: {fileID: 7851737250666316098}
   GlintAnimator: {fileID: 7851737249914302797}
   audioSource: {fileID: 2144407919750989959}
+  santaHat: {fileID: 3570257920436367123}
 --- !u!82 &2144407919750989959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1014,6 +1089,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7851737250970176455}
+  - {fileID: 8575764234026428530}
   m_Father: {fileID: 7851737249457934300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

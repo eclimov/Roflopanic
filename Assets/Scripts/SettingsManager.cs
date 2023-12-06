@@ -29,6 +29,8 @@ public class SettingsManager : MonoBehaviour
     public static ushort rewardScore = 300;
     public static byte rewardPointsMultiplier = 3;
 
+    public GameObject snow;
+
     private bool isLocaleCoroutineActive = false;
 
     public static int difficultyId;
@@ -61,6 +63,8 @@ public class SettingsManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(instance);
+
+            snow.SetActive(IsChristmasTime());
 
             isMusicEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isMusicEnabled", 1));
             isSoundEnabled = Convert.ToBoolean(PlayerPrefs.GetInt("isSoundEnabled", 1));
@@ -366,6 +370,11 @@ public class SettingsManager : MonoBehaviour
         }
 
         return int.MaxValue;
+    }
+
+    public static bool IsChristmasTime()
+    {
+        return DateTime.Now.Month == 12 || (DateTime.Now.Month == 1 && DateTime.Now.Day < 15);
     }
 
     public void setMusicEnabled(bool isEnabled)

@@ -46,11 +46,22 @@ public class AudioManager : MonoBehaviour
     {
         if (SettingsManager.isMusicEnabled)
         {
-            PlayMusic("music-menu"); // Play menu music by default
+            PlayMusicMenu(); // Play menu music by default
         } else if(musicSource.isPlaying) // if music is disabled, but it's currently playing, stop it
         {
             musicSource.Stop();
         }
+    }
+
+    public void PlayMusicMenu()
+    {
+        string clipName = "music-menu";
+        if(SettingsManager.IsChristmasTime())
+        {
+            clipName = UnityEngine.Random.Range(0, 2) == 0 ? "music-reed-flutes" : "music-dance-of-the-sugar-plum-fairy";
+        }
+
+        PlayMusic(clipName);
     }
 
     public void PlayMusic (string clipName)

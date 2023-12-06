@@ -11,6 +11,7 @@ public class ExperienceBar : MonoBehaviour
     public TMP_Text experienceText;
     public Animator GlintAnimator;
     public AudioSource audioSource;
+    public GameObject santaHat;
 
     private float currentExperience;
     private float targetExperience;
@@ -30,6 +31,8 @@ public class ExperienceBar : MonoBehaviour
         currentExperience = SettingsManager.SaveData.experience;
         targetExperience = currentExperience;
         maxDeltaMultiplier = 1;
+
+        santaHat.SetActive(SettingsManager.IsChristmasTime());
 
         SetExperienceBarValue();
 
