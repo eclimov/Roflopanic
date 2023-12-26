@@ -12,7 +12,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
     public Boss boss;
 
     protected GameManager gameManager;
-    protected BossHealthManager bossHealthManager;
+    protected HealthManager bossHealthManager;
 
     protected ScoreManager scoreManager;
 
@@ -27,12 +27,12 @@ public abstract class AbstractBossGameManager : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
         player = FindObjectOfType<Player>();
 
-        bossHealthManager = Instantiate(bossHealthManagerPrefab, GameObject.Find("Canvas").transform).GetComponent<BossHealthManager>();
+        bossHealthManager = Instantiate(bossHealthManagerPrefab, GameObject.Find("Canvas").transform).GetComponent<HealthManager>();
 
         gameManager.OnGameOver += OnGameOverHandler;
         gameManager.OnReincarnationStarted += OnReincarnationStartedHandler;
         gameManager.OnReincarnationEnded += OnReincarnationEndedHandler;
-        bossHealthManager.OnBossHealthZero += OnBossHealthZeroHandler;
+        bossHealthManager.OnHealthZero += OnBossHealthZeroHandler;
         boss.OnDamageTaken += OnDamageTakenHandler;
     }
 
@@ -41,7 +41,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
         gameManager.OnGameOver -= OnGameOverHandler;
         gameManager.OnReincarnationStarted -= OnReincarnationStartedHandler;
         gameManager.OnReincarnationEnded -= OnReincarnationEndedHandler;
-        bossHealthManager.OnBossHealthZero -= OnBossHealthZeroHandler;
+        bossHealthManager.OnHealthZero -= OnBossHealthZeroHandler;
         boss.OnDamageTaken -= OnDamageTakenHandler;
     }
 
@@ -64,8 +64,8 @@ public abstract class AbstractBossGameManager : MonoBehaviour
 
         AudioManager.instance.PauseMusic();
 
-        BossVictoryText bossVictoryText = Instantiate(bossVictoryTextPrefab, GameObject.Find("Canvas").transform).GetComponent<BossVictoryText>();
-        bossVictoryText.SetBossName(bossName);
+        TitleFadeText bossVictoryText = Instantiate(bossVictoryTextPrefab, GameObject.Find("Canvas").transform).GetComponent<TitleFadeText>();
+        bossVictoryText.SetText(bossName, TitleFadeText.TitleTextType.Boss);
         bossVictoryText.FadeIn();
 
         yield return new WaitForSecondsRealtime(3f); // Wait for fadeIn to finish and a little bit more
@@ -98,7 +98,7 @@ public abstract class AbstractBossGameManager : MonoBehaviour
     public void SetBossName(string name)
     {
         bossName = name;
-        bossHealthManager.SetBossName(bossName);
+        bossHealthManager.SetName(bossName);
     }
 
     public void BossFightLost()

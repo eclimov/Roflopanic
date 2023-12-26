@@ -143,6 +143,14 @@ MonoBehaviour:
     m_Key: loading
     m_Metadata:
       m_Items: []
+  - m_Id: 105453279449214976
+    m_Key: player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105456968700293120
+    m_Key: versus-victory-text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

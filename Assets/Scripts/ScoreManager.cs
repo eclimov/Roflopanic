@@ -203,6 +203,7 @@ public class ScoreManager : MonoBehaviour
 
         // Show floating text animation
         GameObject floatingScoreText = Instantiate(floatingScoreTextPrefab, playerGameObject.transform.position + Vector3.up, Quaternion.identity);
+        floatingScoreText.GetComponentInChildren<TextMesh>().color = new Color32(255, 159, 0, 255);
         floatingScoreText.GetComponentInChildren<TextMesh>().text = "+" + bonusScore.ToString();
     }
 

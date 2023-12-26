@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 2964119412210628356}
   - component: {fileID: 2964119412210628357}
   m_Layer: 5
-  m_Name: Boss Name
+  m_Name: Enemy Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boss Name
+  m_text: Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6f5f26f0945df3043a00a55b4e37621e, type: 2}
   m_sharedMaterial: {fileID: 1464923534240222580, guid: 6f5f26f0945df3043a00a55b4e37621e, type: 2}
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 2964119413610179816}
   - component: {fileID: 2964119413610179823}
   m_Layer: 5
-  m_Name: Boss Health Manager
+  m_Name: Health Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

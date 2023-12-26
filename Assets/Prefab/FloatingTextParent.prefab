@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3987010612420389170}
   - component: {fileID: 4024310252521248072}
   m_Layer: 0
-  m_Name: FloatingScoreTextParent
+  m_Name: FloatingTextParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 3
 --- !u!1 &3987010612715973145
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Clownich : Boss
     private Rigidbody2D rb;
     private float speed;
 
+    // TODO: check if I really need unscaled time here
     private WaitForSecondsRealtime cachedWaitForSecondsRealtimeBetweenAccelerations;
     private WaitForSecondsRealtime cachedWaitForSecondsRealtimeBetweenAttacks;
     private WaitForSecondsRealtime cachedWaitForSecondsRealtimeBetweenLaughs;

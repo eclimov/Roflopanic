@@ -336,6 +336,11 @@ public class SettingsManager : MonoBehaviour
 
     public static bool IsSceneGuideSeen(string sceneName)
     {
+        if(sceneName == "Versus")
+        {
+            return true;
+        }
+
         return GetSeenGuideScenesList().Contains(sceneName);
     }
 

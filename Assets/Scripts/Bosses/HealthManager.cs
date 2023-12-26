@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Localization;
 
-public class BossHealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     public Image delayedHealthBar;
@@ -21,17 +21,22 @@ public class BossHealthManager : MonoBehaviour
 
     private bool delayedHealthUpdate;
 
-    public delegate void OnBossHealthZeroDelegate();
-    public event OnBossHealthZeroDelegate OnBossHealthZero;
+    public delegate void OnHealthZeroDelegate();
+    public event OnHealthZeroDelegate OnHealthZero;
 
     private void Awake()
     {
         damageValueText.gameObject.SetActive(false); // Hide by default
     }
 
-    public void SetBossName(string name)
+    public void SetName(string name)
     {
         nameText.text = name;
+    }
+
+    public void SetNameColor(Color32 color)
+    {
+        nameText.color = color;
     }
 
     public void EnableShieldLayer()
@@ -51,9 +56,9 @@ public class BossHealthManager : MonoBehaviour
         healthAmount -= damage;
         if(healthAmount <= 0)
         {
-            if (OnBossHealthZero != null) // It is a MUST to check this, because the event is null if it has no subscribers
+            if (OnHealthZero != null) // It is a MUST to check this, because the event is null if it has no subscribers
             {
-                OnBossHealthZero();
+                OnHealthZero();
             }
         }
 
@@ -61,6 +66,18 @@ public class BossHealthManager : MonoBehaviour
 
         StartCoroutine(ShowInfoText(damage.ToString()));
         StartCoroutine(DelayedHealthAnimation());
+    }
+
+    public void Heal(float amount)
+    {
+        healthAmount += amount;
+        if(healthAmount > 100)
+        {
+            healthAmount = 100;
+        }
+
+        healthBar.fillAmount = healthAmount / 100;
+        delayedHealthBar.fillAmount = healthAmount / 100; // Delayed bar is updated as well
     }
 
     private IEnumerator ShowInfoText(string infoText)

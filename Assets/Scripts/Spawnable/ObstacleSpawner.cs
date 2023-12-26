@@ -13,7 +13,6 @@ public class ObstacleSpawner : MonoBehaviour
     public float minY;
 
     private float timeBetweenSpawn;
-
     private float spawnTime;
 
     // There should be a delay before emit, to wait until loading animation finishes

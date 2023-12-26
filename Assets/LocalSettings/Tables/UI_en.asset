@@ -125,7 +125,8 @@ MonoBehaviour:
   - m_Id: 76808552550264832
     m_Localized: '{0} Destroyed'
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 3768503849124626434
   - m_Id: 78575799883034624
     m_Localized: Fight
     m_Metadata:
@@ -150,10 +151,19 @@ MonoBehaviour:
     m_Localized: Loading
     m_Metadata:
       m_Items: []
+  - m_Id: 105453279449214976
+    m_Localized: Player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105456968700293120
+    m_Localized: '{0} Won'
+    m_Metadata:
+      m_Items:
+      - rid: 3768503849124626434
   references:
     version: 2
     RefIds:
     - rid: 3768503849124626434
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00703830ef520a0000703813103c1c00007038555a8f4a00007078de0e087b00
+        m_Entries: 00703830ef520a0000703813103c1c00007038555a8f4a00007078de0e087b00007078baf8e01001007078e68da87601

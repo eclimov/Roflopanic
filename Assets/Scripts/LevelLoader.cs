@@ -92,6 +92,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(5));
     }
 
+    public void LoadVersus()
+    {
+        StartCoroutine(LoadLevel(6));
+    }
+
     IEnumerator LoadLevel(int levelIndex)
     {
         // Play Animation
