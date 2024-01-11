@@ -56,6 +56,7 @@ public abstract class AbstractShopItem : MonoBehaviour
         SettingsManager.instance.OnTotalScoreChange += OnTotalScoreChange;
         SettingsManager.instance.OnEquippedItemsChange += InitializeStyles;
         SettingsManager.instance.OnPlayerSkinChange += InitializeStyles;
+        SettingsManager.instance.OnBackgroundChange += InitializeStyles;
     }
 
     private IEnumerator InfiniteGlintAnimation()
@@ -151,6 +152,7 @@ public abstract class AbstractShopItem : MonoBehaviour
         SettingsManager.instance.OnTotalScoreChange -= OnTotalScoreChange;
         SettingsManager.instance.OnEquippedItemsChange -= InitializeStyles;
         SettingsManager.instance.OnPlayerSkinChange -= InitializeStyles;
+        SettingsManager.instance.OnBackgroundChange -= InitializeStyles;
     }
 
     protected void DestroyConfirmPurchasePanel()

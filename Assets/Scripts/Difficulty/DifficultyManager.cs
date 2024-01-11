@@ -19,9 +19,6 @@ public class DifficultyManager : MonoBehaviour
     private Image buttonPreviousSprite;
     private Image buttonNextSprite;
 
-    public delegate void OnIsDifficultyChangeDelegate();
-    public event OnIsDifficultyChangeDelegate OnIsDifficultyChange;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -86,12 +83,7 @@ public class DifficultyManager : MonoBehaviour
                 break;
         }
 
-        SettingsManager.SetDifficultyId(index);
+        SettingsManager.instance.SetDifficultyId(index);
         difficultyNameText.text = difficulties[index].GetLocalizedString();
-
-        if (OnIsDifficultyChange != null)
-        {
-            OnIsDifficultyChange();
-        }
     }
 }

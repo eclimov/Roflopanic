@@ -58,6 +58,14 @@ MonoBehaviour:
     m_Localized: Hap-Hapych
     m_Metadata:
       m_Items: []
+  - m_Id: 51478015988232192
+    m_Localized: Background Cloudy Sky
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51478352241389568
+    m_Localized: Background Grass
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

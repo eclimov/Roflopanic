@@ -13,6 +13,7 @@ namespace SaveData
         public int coinChance = 0;
         public string purchasedAbilitiesList = "";
         public string purchasedSkinsList = "";
+        public string purchasedBackgroundsList = "";
 
         public int bossFightsWonCountClownich = 0;
     }

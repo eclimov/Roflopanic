@@ -19,9 +19,9 @@ public class ScoreManager : MonoBehaviour
 
     public Text scoreText;
 
-    public Animator scoreTextAnimator;
+    public Animator scoreAnimator;
 
-    public float score = 0f;
+    private float score = 0f;
     private float targetScore = 0;
 
     public GameObject floatingScoreTextPrefab;
@@ -156,9 +156,9 @@ public class ScoreManager : MonoBehaviour
             isTransitioning = false;
             ResetIncrementMultiplier();
 
-            if (scoreTextAnimator.GetCurrentAnimatorStateInfo(0).IsName("ScoreText_Bonus"))
+            if (scoreAnimator.GetCurrentAnimatorStateInfo(0).IsName("Score_Bonus"))
             {
-                scoreTextAnimator.SetBool("IsBonus", false);
+                scoreAnimator.SetBool("IsBonus", false);
             }
         }
     }
@@ -199,7 +199,7 @@ public class ScoreManager : MonoBehaviour
         isTransitioning = true;
         incrementMultiplier = 70;
 
-        scoreTextAnimator.SetBool("IsBonus", true);
+        scoreAnimator.SetBool("IsBonus", true);
 
         // Show floating text animation
         GameObject floatingScoreText = Instantiate(floatingScoreTextPrefab, playerGameObject.transform.position + Vector3.up, Quaternion.identity);

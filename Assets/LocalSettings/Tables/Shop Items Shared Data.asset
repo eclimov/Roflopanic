@@ -55,6 +55,14 @@ MonoBehaviour:
     m_Key: shop-item-haphapych
     m_Metadata:
       m_Items: []
+  - m_Id: 51478015988232192
+    m_Key: shop-item-background-cloud-sky
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51478352241389568
+    m_Key: shop-item-background-grass
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

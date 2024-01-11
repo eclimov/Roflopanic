@@ -87,8 +87,8 @@ public class GameManager : MonoBehaviour
             OnReincarnationStarted();
         }
 
-        BackgroundGameplay background = FindObjectOfType<BackgroundGameplay>();
-        background.NegateScrolling();
+        BackgroundScroller backgroundScroller = FindObjectOfType<BackgroundScroller>();
+        backgroundScroller.NegateScrolling();
 
         StopSpawn();
 
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
 
         playerGameObject.SetActive(true);
         playerGameObject.GetComponent<Player>().OnReincarnate();
-        background.NegateScrolling();
+        backgroundScroller.NegateScrolling();
 
         foreach (AbstractSpawnable obj in spawnables) // Move all spawnables in the correct directon
         {

@@ -76,7 +76,6 @@ public class PlayerManager : MonoBehaviour
     private void LoadCurrentSkin()
     {
         PlayerSkinModel currentSkin = playerSkins.Find(item => item.id == SettingsManager.GetPlayerSkin());
-        GameObject currentskinPrefab = currentSkin.playerSkinPrefab;
 
         if(playerGameObject != null)
         {

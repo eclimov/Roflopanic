@@ -57,6 +57,12 @@ public class SettingsManager : MonoBehaviour
     public delegate void OnSceneGuideSeenDelegate();
     public event OnSceneGuideSeenDelegate OnSceneGuideSeen;
 
+    public delegate void OnDifficultyChangeDelegate();
+    public event OnDifficultyChangeDelegate OnDifficultyChange;
+
+    public delegate void OnBackgroundChangeDelegate();
+    public event OnBackgroundChangeDelegate OnBackgroundChange;
+
     private void Awake()
     {
         if (instance == null)
@@ -91,7 +97,7 @@ public class SettingsManager : MonoBehaviour
             difficultyId = PlayerPrefs.GetInt("difficultyId", 1); // Use Medium difficulty by default
             difficultyMaps = new DifficultyMap[]{
                 new DifficultyMap(
-                    backgroundSpeed: .25f,
+                    backgroundSpeed: .2f,
                     obstacleTimeBetweenSpawn: .8f,
                     obstacleSpeed: 9f,
                     coinSpawnCooldownSeconds: 6,
@@ -100,7 +106,7 @@ public class SettingsManager : MonoBehaviour
                     coinBonusScore: 20f
                 ), // Easy
                 new DifficultyMap(
-                    backgroundSpeed: .6f,
+                    backgroundSpeed: .5f,
                     obstacleTimeBetweenSpawn: .4f,
                     obstacleSpeed: 15f,
                     coinSpawnCooldownSeconds: 5,
@@ -110,7 +116,7 @@ public class SettingsManager : MonoBehaviour
                 ), // Medium
 
                 new DifficultyMap(
-                    backgroundSpeed: 1f,
+                    backgroundSpeed: .8f,
                     obstacleTimeBetweenSpawn: .28f,
                     obstacleSpeed: 25f,
                     coinSpawnCooldownSeconds: 4,
@@ -146,10 +152,15 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    public static void SetDifficultyId(int value)
+    public void SetDifficultyId(int value)
     {
         PlayerPrefs.SetInt("difficultyId", value);
         difficultyId = value;
+
+        if (OnDifficultyChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnDifficultyChange();
+        }
     }
 
     public DifficultyMap GetDifficultyMap()
@@ -270,6 +281,58 @@ public class SettingsManager : MonoBehaviour
         if (OnPlayerSkinChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
         {
             OnPlayerSkinChange();
+        }
+    }
+
+    private static List<string> GetPurchasedBackgroundsList()
+    {
+        List<string> list = new List<string>();
+
+        string purchasedItemsPref = PlayerPrefs.GetString("purchasedBackgrounds", "");
+        if (purchasedItemsPref != "") // Otherwise, it will fill add an empty item to the list
+        {
+            list.AddRange(purchasedItemsPref.Split(","));
+        }
+
+        return list;
+    }
+
+    public static bool IsBackgroundPurchased(string itemId)
+    {
+        return itemId == "background_cloud_sky" || GetPurchasedBackgroundsList().Contains(itemId);
+    }
+
+    private static void SetPurchasedBackgrounds(string itemsList)
+    {
+        SaveData.purchasedBackgroundsList = itemsList;
+        PlayerPrefs.SetString("purchasedBackgrounds", itemsList);
+
+        CloudSaveManager.Instance.Save();
+    }
+
+    public static void PurchaseBackground(string itemId)
+    {
+        if (!IsBackgroundPurchased(itemId))
+        {
+            List<string> list = GetPurchasedBackgroundsList();
+            list.Add(itemId);
+
+            SetPurchasedBackgrounds(String.Join(",", list.ToArray()));
+        }
+    }
+
+    public static string GetBackground()
+    {
+        return PlayerPrefs.GetString("background", "background_cloud_sky");
+    }
+
+    public void SetBackground(string itemId)
+    {
+        PlayerPrefs.SetString("background", itemId);
+
+        if (OnBackgroundChange != null) // It is a MUST to check this, because the event is null if it has no subscribers
+        {
+            OnBackgroundChange();
         }
     }
 
@@ -546,6 +609,9 @@ public class SettingsManager : MonoBehaviour
         SetPurchasedSkins("");
         SetPlayerSkin("skin_roflan_wtf"); // Default skin
 
+        SetPurchasedBackgrounds("");
+        SetBackground("background_cloud_sky"); // Default background
+
         // Boss fights stats
         SetBossFightsWonCount(ClownichBossGameManager.bossFightsWonCountKey, 0);
     }
@@ -558,6 +624,7 @@ public class SettingsManager : MonoBehaviour
         SetCoinChance(data.coinChance);
         SetPurchasedAbilities(data.purchasedAbilitiesList);
         SetPurchasedSkins(data.purchasedSkinsList);
+        SetPurchasedBackgrounds(data.purchasedBackgroundsList);
 
         // Boss fights stats
         SetBossFightsWonCount(ClownichBossGameManager.bossFightsWonCountKey, data.bossFightsWonCountClownich);
