@@ -263,6 +263,14 @@ MonoBehaviour:
     m_Key: dad-slogan
     m_Metadata:
       m_Items: []
+  - m_Id: 80453530526707712
+    m_Key: king
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80453550340599808
+    m_Key: king-slogan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

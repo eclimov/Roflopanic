@@ -266,6 +266,14 @@ MonoBehaviour:
     m_Localized: Son, where are you going? I see you...
     m_Metadata:
       m_Items: []
+  - m_Id: 80453530526707712
+    m_Localized: The King
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80453550340599808
+    m_Localized: 0 help
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

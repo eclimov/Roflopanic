@@ -66,6 +66,10 @@ MonoBehaviour:
     m_Localized: Background Grass
     m_Metadata:
       m_Items: []
+  - m_Id: 53596976318017536
+    m_Localized: Background Sand
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

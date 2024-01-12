@@ -63,6 +63,10 @@ MonoBehaviour:
     m_Key: shop-item-background-grass
     m_Metadata:
       m_Items: []
+  - m_Id: 53596976318017536
+    m_Key: shop-item-background-sand
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

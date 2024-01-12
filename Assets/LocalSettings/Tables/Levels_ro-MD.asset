@@ -270,6 +270,14 @@ MonoBehaviour:
     m_Localized: "Fiule, unde mergi? Te v\u0103d..."
     m_Metadata:
       m_Items: []
+  - m_Id: 80453530526707712
+    m_Localized: Rege
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80453550340599808
+    m_Localized: 0 ajutor
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
