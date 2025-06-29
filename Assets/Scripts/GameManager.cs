@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         playerGameObject = GameObject.FindGameObjectWithTag("Player").gameObject; // Make sure Player object is instantiated by this time
         canReincarnate = SettingsManager.IsAbilityEquipped("reincarnation");
 
-        scoreManager = FindObjectOfType<ScoreManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     public void StartBossFight(AbstractBossGameManager bossGameManagerPrefab, string bossName, int reward)
@@ -87,12 +87,12 @@ public class GameManager : MonoBehaviour
             OnReincarnationStarted();
         }
 
-        BackgroundScroller backgroundScroller = FindObjectOfType<BackgroundScroller>();
+        BackgroundScroller backgroundScroller = FindAnyObjectByType<BackgroundScroller>();
         backgroundScroller.NegateScrolling();
 
         StopSpawn();
 
-        AbstractSpawnable[] spawnables = FindObjectsOfType<AbstractSpawnable>();
+        AbstractSpawnable[] spawnables = FindObjectsByType<AbstractSpawnable>(FindObjectsSortMode.None);
 
         foreach (AbstractSpawnable obj in spawnables) // Move all spawnables in the opposite directon
         {

@@ -127,7 +127,7 @@ public class BossFightConfirmManager : MonoBehaviour
 
         if(isFightConfirmed)
         {
-            FindObjectOfType<GameManager>().StartBossFight(bossGameManagerPrefab, bossNameText.text, rewardValue);
+            FindAnyObjectByType<GameManager>().StartBossFight(bossGameManagerPrefab, bossNameText.text, rewardValue);
         }
 
         Time.timeScale = 1f;

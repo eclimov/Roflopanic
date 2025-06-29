@@ -15,7 +15,7 @@ public class GameOverText : MonoBehaviour
 
     private void OnEnable()
     {
-        isHightscore = FindObjectOfType<ScoreManager>().IsHighscore();
+        isHightscore = FindAnyObjectByType<ScoreManager>().IsHighscore();
 
         if (isHightscore)
         {

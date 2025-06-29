@@ -25,6 +25,6 @@ public class InfoButtonHandler : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<HelpDialogueManager>().StartDialogue(dialogue);
+        FindAnyObjectByType<HelpDialogueManager>().StartDialogue(dialogue);
     }
 }

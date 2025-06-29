@@ -17,7 +17,7 @@ public class HapHapych : MonoBehaviour
         // Do not initialize this in Start, because Start goes after Enable
         cachedWaitForSecondsShootInterval = new WaitForSeconds(8f); // Use scaled time here, to avoid incrementing score during pause
 
-        playerGameObject = FindObjectOfType<Player>().gameObject;
+        playerGameObject = FindAnyObjectByType<Player>().gameObject;
     }
 
     private void OnEnable() // Works after reincarnation as well

@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-Locales
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Locales
-  m_Data:
-    m_SerializedData: []
   m_GUID: b62fc4c30bac81345a26131be992d9f5
   m_SerializeEntries:
   - m_GUID: 2bf6af19c87a5a74199d353521de4740
@@ -22,21 +20,25 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 394baf3f2d8b8584bafa7ded5ee5c45f
     m_Address: Ukrainian (uk)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-  - m_GUID: 9dda9fad6881e51498225a1681c9835a
-    m_Address: Russian (Russia) (ru-RU)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ae7720d83204514faa6094d4ff38a50
     m_Address: Romanian (Moldova) (ro-MD)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dda9fad6881e51498225a1681c9835a
+    m_Address: Russian (Russia) (ru-RU)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f052540650eee4549ab221779bd59ea3, type: 2}
   m_SchemaSet:

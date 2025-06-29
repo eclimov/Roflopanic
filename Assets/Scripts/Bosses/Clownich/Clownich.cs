@@ -132,10 +132,10 @@ public class Clownich : Boss
     {
         if (isDead)
         {
-            rb.velocity = new Vector2(0, -5f);
+            rb.linearVelocity = new Vector2(0, -5f);
         } else
         {
-            rb.velocity = new Vector2(0, directionY * speed);
+            rb.linearVelocity = new Vector2(0, directionY * speed);
         }
     }
 

@@ -17,7 +17,7 @@ public class HapHapychProjectile : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.velocity = new Vector2(10, 5);
+        rb.linearVelocity = new Vector2(10, 5);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

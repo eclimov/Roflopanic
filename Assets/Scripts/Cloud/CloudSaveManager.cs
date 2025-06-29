@@ -99,7 +99,7 @@ public class CloudSaveManager : MonoBehaviour
             }
 
             var update = new SavedGameMetadataUpdate.Builder().Build();
-            Authentication.Platform.SavedGame.CommitUpdate(metadata, update, data, SaveCallback);
+            PlayGamesPlatform.Instance.SavedGame.CommitUpdate(metadata, update, data, SaveCallback);
         }
         else
         {
@@ -124,7 +124,7 @@ public class CloudSaveManager : MonoBehaviour
     {
         if(status == SavedGameRequestStatus.Success)
         {
-            Authentication.Platform.SavedGame.ReadBinaryData(metadata, LoadCallback);
+            PlayGamesPlatform.Instance.SavedGame.ReadBinaryData(metadata, LoadCallback);
         } 
         else
         {
@@ -146,15 +146,14 @@ public class CloudSaveManager : MonoBehaviour
 
     private void OpenCloudSave(Action<SavedGameRequestStatus, ISavedGameMetadata> callback)
     {
-        if(!Social.localUser.authenticated 
-            || !PlayGamesClientConfiguration.DefaultConfiguration.EnableSavedGames
+        if (!PlayGamesPlatform.Instance.IsAuthenticated() 
             || string.IsNullOrEmpty(saveName)
         )
         {
             Debug.Log("OpenCloud Save Error!");
         }
 
-        Authentication.Platform.SavedGame
+        PlayGamesPlatform.Instance.SavedGame
             .OpenWithAutomaticConflictResolution(saveName, _dataSource, _conflicts, callback);
     }
 

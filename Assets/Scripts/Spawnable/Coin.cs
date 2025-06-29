@@ -34,7 +34,7 @@ public class Coin : AbstractSpawnable
         if(hasTarget)
         {
             Vector2 targetDirection = (targetPosition - myTransform.position).normalized;
-            rb.velocity = new Vector2(targetDirection.x, targetDirection.y) * (moveSpeed / 2);
+            rb.linearVelocity = new Vector2(targetDirection.x, targetDirection.y) * (moveSpeed / 2);
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames;
 using System;
+using Unity.VisualScripting;
 
 public class Authentication : MonoBehaviour
 {
@@ -11,8 +12,6 @@ public class Authentication : MonoBehaviour
     public GameObject adBanner; // Disabled by default
 
     public static bool Authenticated { get; private set; }
-
-    public static PlayGamesPlatform Platform { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -30,23 +29,19 @@ public class Authentication : MonoBehaviour
     {
         ShowLoadingOverlay();
 
-        if (Platform == null)
+        PlayGamesPlatform.Instance.Authenticate(status =>
         {
-            try
+            if (status == SignInStatus.Success)
             {
-                Platform = BuildPlatform();
+                Authenticated = true;
+                OnAuthenticationSucceeded();
             }
-            catch (Exception e)
+            else
             {
-                Debug.LogError(e);
+                Debug.LogError("Failed to authenticate: " + status);
+                Authenticated = false;
                 HideLoadingOverlay();
             }
-        }
-
-        PlayGamesPlatform.Instance.Authenticate(success =>
-        {
-            Authenticated = success;
-            OnAuthenticationSucceeded();
         });
     }
 
@@ -79,17 +74,5 @@ public class Authentication : MonoBehaviour
     private void ShowAdBanner()
     {
         adBanner.SetActive(true);
-    }
-
-    private PlayGamesPlatform BuildPlatform()
-    {
-        var builder = new PlayGamesClientConfiguration.Builder();
-        builder.EnableSavedGames();
-        // builder.RequestServerAuthCode(false); // Uncomment this if using auth via Firebase
-
-        PlayGamesPlatform.InitializeInstance(builder.Build());
-        PlayGamesPlatform.DebugLogEnabled = true;
-
-        return PlayGamesPlatform.Activate();
     }
 }

@@ -97,19 +97,19 @@ public class EyeMover : MonoBehaviour
 
     void SetRandomObstacleAsTarget()
     {
-        Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
+        Obstacle[] obstacles = FindObjectsByType<Obstacle>(FindObjectsSortMode.None);
         if (obstacles.Length != 0)
         {
             lookAtTarget = obstacles[Random.Range(0, obstacles.Length)].transform; // Look at a random enemy
         } else
         {
-            Boss boss = FindObjectOfType<Boss>();
+            Boss boss = FindAnyObjectByType<Boss>();
             if(boss != null)
             {
                 lookAtTarget = boss.transform; // Look at a random enemy
             } else
             {
-                MiniBuldiga[] miniBuldigas = FindObjectsOfType<MiniBuldiga>();
+                MiniBuldiga[] miniBuldigas = FindObjectsByType<MiniBuldiga>(FindObjectsSortMode.None);
                 if (miniBuldigas.Length != 0)
                 {
                     lookAtTarget = miniBuldigas[Random.Range(0, miniBuldigas.Length)].transform; // Look at a random mini buldiga

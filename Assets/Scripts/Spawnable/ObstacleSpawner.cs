@@ -39,7 +39,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        levelLoader = FindObjectOfType<LevelLoader>();
+        levelLoader = FindAnyObjectByType<LevelLoader>();
         levelLoader.OnLevelLoad += StartSpawn;
 
         timeBetweenSpawn = SettingsManager.instance.GetDifficultyMap().obstacleTimeBetweenSpawn;

@@ -66,10 +66,9 @@ public class Banner : MonoBehaviour
             CreateBannerView();
         }
         // create our request used to load the ad.
-        var adRequest = new AdRequest.Builder()
-            .AddKeyword("game")
-            .AddKeyword("humor")
-            .Build();
+        var adRequest = new AdRequest();
+        adRequest.Keywords.Add("game");
+        adRequest.Keywords.Add("humor");
 
         // send the request to load the ad.
         Debug.Log("Loading banner ad.");

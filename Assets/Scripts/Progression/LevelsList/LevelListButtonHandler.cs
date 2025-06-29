@@ -6,6 +6,6 @@ public class LevelListButtonHandler : MonoBehaviour
 {
     public void OpenLevelsListScene()
     {
-        FindObjectOfType<LevelLoader>().LoadLevels();
+        FindAnyObjectByType<LevelLoader>().LoadLevels();
     }
 }

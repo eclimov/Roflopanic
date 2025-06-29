@@ -22,7 +22,8 @@ public abstract class RewardScoreAbstract : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        rewardedAdManager = FindObjectOfType<RewardedAdManager>();
+        // Using FindFirstObjectByType because FindAnyObjectByType could return unexpected object in some cases, leading to 'rewardedAdManager.IsAdReady' being false
+        rewardedAdManager = FindFirstObjectByType<RewardedAdManager>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
 

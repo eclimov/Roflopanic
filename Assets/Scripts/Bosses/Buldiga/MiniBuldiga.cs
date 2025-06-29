@@ -43,7 +43,7 @@ public class MiniBuldiga : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButton(0) && !FindObjectOfType<PauseMenu>().isGamePaused)
+        if (Input.GetMouseButton(0) && !FindAnyObjectByType<PauseMenu>().isGamePaused)
         {
             if (isGood)
             {
@@ -69,7 +69,7 @@ public class MiniBuldiga : MonoBehaviour
         {
             if(isGood)
             {
-                FindObjectOfType<BuldigaBossGameManager>().AddBullet();
+                FindAnyObjectByType<BuldigaBossGameManager>().AddBullet();
                 Destroy(gameObject);
             } else if (!isDying)   
             {

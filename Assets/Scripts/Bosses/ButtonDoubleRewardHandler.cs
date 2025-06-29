@@ -19,7 +19,7 @@ public class ButtonDoubleRewardHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rewardedAdManager = FindObjectOfType<RewardedAdManager>();
+        rewardedAdManager = FindAnyObjectByType<RewardedAdManager>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
 

@@ -13,7 +13,7 @@ public class SceneGuideManager : MonoBehaviour
     {
         currentSceneName = SceneManager.GetActiveScene().name;
 
-        levelLoader = FindObjectOfType<LevelLoader>();
+        levelLoader = FindAnyObjectByType<LevelLoader>();
         levelLoader.OnLevelLoad += ShowSceneGuide;
     }
 

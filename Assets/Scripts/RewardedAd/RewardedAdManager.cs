@@ -83,10 +83,11 @@ public class RewardedAdManager : MonoBehaviour
 
     private AdRequest CreateAdRequest()
     {
-        return new AdRequest.Builder()
-            .AddKeyword("game")
-            .AddKeyword("humor")
-            .Build();
+        // create our request used to load the ad.
+        var adRequest = new AdRequest();
+        adRequest.Keywords.Add("game");
+        adRequest.Keywords.Add("humor");
+        return adRequest;
     }
 
     #endregion
