@@ -13,30 +13,33 @@ MonoBehaviour:
   m_Name: Localization-Assets-Shared
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Assets-Shared
-  m_Data:
-    m_SerializedData: []
   m_GUID: 6084066eff565f44da7930893334e9b5
   m_SerializeEntries:
-  - m_GUID: ab460739b38b794408856035ff254c38
-    m_Address: Assets/LocalSettings/Tables/String Table Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: f566074e5eb60aa4c96a9352cb7c8b96
-    m_Address: Assets/LocalSettings/Tables/Help Dialogue Table Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: f6a2d795deb5b204f838b3e54bd1805c
-    m_Address: Assets/LocalSettings/Tables/Levels Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: f82ce5951dc340d4b95cac5da16dccbb
-    m_Address: Assets/LocalSettings/Tables/Shop Items Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
   - m_GUID: 86a6cc72c63211c4ca7b60f8977fa46d
     m_Address: Assets/LocalSettings/Tables/Bosses Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab460739b38b794408856035ff254c38
+    m_Address: Assets/LocalSettings/Tables/String Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f566074e5eb60aa4c96a9352cb7c8b96
+    m_Address: Assets/LocalSettings/Tables/Help Dialogue Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6a2d795deb5b204f838b3e54bd1805c
+    m_Address: Assets/LocalSettings/Tables/Levels Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f82ce5951dc340d4b95cac5da16dccbb
+    m_Address: Assets/LocalSettings/Tables/Shop Items Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f052540650eee4549ab221779bd59ea3, type: 2}
   m_SchemaSet:

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
 
-        scoreManager = FindObjectOfType<ScoreManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
 
         playerSpeed = SettingsManager.instance.GetDifficultyMap().playerSpeed;
         rotationSpeed = playerSpeed * 25;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 
     public void ToggleMovement(bool status)
     {
-        rb.velocity *= 0; // Reset velocity
+        rb.linearVelocity *= 0; // Reset velocity
         canMove = status;
     }
 
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
             Vibration.Vibrate(100);
         }
 
-        GameManager gameManager = FindObjectOfType<GameManager>();
+        GameManager gameManager = FindAnyObjectByType<GameManager>();
         gameManager.GameOver();
     }
 
@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
 	{
         if(canMove)
         {
-            rb.velocity = new Vector2(0, directionY * playerSpeed);
+            rb.linearVelocity = new Vector2(0, directionY * playerSpeed);
         }
     }
 }

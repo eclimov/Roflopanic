@@ -36,7 +36,7 @@ public class ClownichProjectile : MonoBehaviour
                 velocityY_abs = 15f;
                 break;
         }
-        rb.velocity = new Vector2(velocityX, Random.Range(-velocityY_abs, velocityY_abs));
+        rb.linearVelocity = new Vector2(velocityX, Random.Range(-velocityY_abs, velocityY_abs));
     }
 
     public bool IsReady()
@@ -56,7 +56,7 @@ public class ClownichProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        lastVelocity = rb.velocity;
+        lastVelocity = rb.linearVelocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -73,7 +73,7 @@ public class ClownichProjectile : MonoBehaviour
         if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Border" || collision.gameObject.tag == "Projectile")
         {
             AudioManager.instance.PlayBallBounceSound();
-            rb.velocity = direction * Mathf.Max(speed, 0f);
+            rb.linearVelocity = direction * Mathf.Max(speed, 0f);
         }
 
         if (collision.gameObject.TryGetComponent(out ClownichGate clownichGate))
@@ -83,7 +83,7 @@ public class ClownichProjectile : MonoBehaviour
                 Destroy(gameObject);
             } else
             {
-                ClownichBossGameManager clownichBossGameManager = FindObjectOfType<ClownichBossGameManager>();
+                ClownichBossGameManager clownichBossGameManager = FindAnyObjectByType<ClownichBossGameManager>();
 
                 if(clownichGate.IsAlly() && !isAllyGateCollisionTriggered)
                 {
@@ -106,7 +106,7 @@ public class ClownichProjectile : MonoBehaviour
     {
         AudioManager.instance.AxeHitWoodAttemptSound();
 
-        GameObject explosionGameObject = Instantiate(explosionPrefab, FindObjectOfType<ClownichBossGameManager>().gameObject.transform);
+        GameObject explosionGameObject = Instantiate(explosionPrefab, FindAnyObjectByType<ClownichBossGameManager>().gameObject.transform);
         explosionGameObject.transform.position = gameObject.transform.position;
 
         Destroy(gameObject);

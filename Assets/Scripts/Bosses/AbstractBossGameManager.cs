@@ -23,9 +23,9 @@ public abstract class AbstractBossGameManager : MonoBehaviour
 
     protected virtual void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        scoreManager = FindObjectOfType<ScoreManager>();
-        player = FindObjectOfType<Player>();
+        gameManager = FindAnyObjectByType<GameManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+        player = FindAnyObjectByType<Player>();
 
         bossHealthManager = Instantiate(bossHealthManagerPrefab, GameObject.Find("Canvas").transform).GetComponent<HealthManager>();
 

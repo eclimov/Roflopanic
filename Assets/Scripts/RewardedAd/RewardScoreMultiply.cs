@@ -25,7 +25,7 @@ public class RewardScoreMultiply : RewardScoreAbstract
 
     protected override void OnAdRewardGrantedHandler()
     {
-        int scoreToAdd = FindObjectOfType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1); // Add the gathered score (multiplier - 1) times
+        int scoreToAdd = FindAnyObjectByType<ScoreManager>().GetScore() * (SettingsManager.rewardPointsMultiplier - 1); // Add the gathered score (multiplier - 1) times
         GrantReward(scoreToAdd);
     }
 

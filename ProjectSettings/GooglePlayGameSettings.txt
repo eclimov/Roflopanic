@@ -1,5 +1,5 @@
-lastUpgrade=01014
-proj.pluginVersion=0.10.14
+lastUpgrade=20000
+proj.pluginVersion=2.0.0
 proj.AppId=361813069823
 and.BundleId=com.eclimov.roflopanic
 proj.classDir=Assets

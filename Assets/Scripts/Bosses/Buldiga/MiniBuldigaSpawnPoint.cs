@@ -91,7 +91,7 @@ public class MiniBuldigaSpawnPoint : MonoBehaviour
 
     public void SpawnMiniBuldiga(float speed, bool isGood)
     {
-        playerPosition = FindObjectOfType<Player>().gameObject.transform.position;
+        playerPosition = FindAnyObjectByType<Player>().gameObject.transform.position;
 
         GameObject miniBuldigaGameObject = Instantiate(miniBuldigaPrefab, gameObject.transform);
         miniBuldigaGameObject.transform.position += Vector3.up * Random.Range(-10, 10);

@@ -450,7 +450,7 @@ public class SettingsManager : MonoBehaviour
         isMusicEnabled = isEnabled;
         PlayerPrefs.SetInt("isMusicEnabled", Convert.ToInt32(isMusicEnabled));
 
-        FindObjectOfType<AudioManager>().LoadMusicSettings();
+        FindAnyObjectByType<AudioManager>().LoadMusicSettings();
     }
 
     public void setSoundEnabled(bool isEnabled)
@@ -458,7 +458,7 @@ public class SettingsManager : MonoBehaviour
         isSoundEnabled = isEnabled;
         PlayerPrefs.SetInt("isSoundEnabled", Convert.ToInt32(isSoundEnabled));
 
-        FindObjectOfType<AudioManager>().PlayButtonSound();
+        FindAnyObjectByType<AudioManager>().PlayButtonSound();
     }
 
     public void setVibrationEnabled(bool isEnabled)

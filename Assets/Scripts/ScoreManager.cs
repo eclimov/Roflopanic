@@ -58,22 +58,23 @@ public class ScoreManager : MonoBehaviour
         cachedWaitForSecondsBeforeIncrement = new WaitForSeconds(1f); // Use scaled time here, to avoid incrementing score during pause
         defaultIncrementMultiplier = SettingsManager.instance.GetDifficultyMap().scoreIncrementMultiplier;
         coinBonusScore = SettingsManager.instance.GetDifficultyMap().coinBonusScore;
-        playerGameObject = FindObjectOfType<Player>().gameObject;
+        playerGameObject = FindAnyObjectByType<Player>().gameObject;
 
-        pauseMenu = FindObjectOfType<PauseMenu>();
+        pauseMenu = FindAnyObjectByType<PauseMenu>();
 
         foreach (BossFightConfig bossFightConfig in bossFightConfigs) { // Filling Queue for a more optimal work in Update
             bossFightConfigsQueue.Enqueue(bossFightConfig);
         }
         nearestBossFightTriggerConfig = bossFightConfigsQueue.Dequeue(); // Initialize the 1st one
 
-        gameManager = FindObjectOfType<GameManager>();
+
+        gameManager = FindAnyObjectByType<GameManager>();
         gameManager.OnGameOver += OnGameOverHandler;
 
         ResetIncrementMultiplier();
         SetTextValue();
 
-        levelLoader = FindObjectOfType<LevelLoader>();
+        levelLoader = FindAnyObjectByType<LevelLoader>();
         levelLoader.OnLevelLoad += OnLevelLoadHandler;
     }
 

@@ -150,7 +150,7 @@ public class VersusPhase2GameManager : MonoBehaviour
 
     private Vector3 GetAiTargetPosition(RectTransform playerControl)
     {
-        VersusOrange[] versusOranges = FindObjectsOfType<VersusOrange>();
+        VersusOrange[] versusOranges = FindObjectsByType<VersusOrange>(FindObjectsSortMode.None);
         foreach (VersusOrange versusOrange in versusOranges)
         {
             if (RectTransformUtility.RectangleContainsScreenPoint(playerControl, versusOrange.gameObject.transform.position))

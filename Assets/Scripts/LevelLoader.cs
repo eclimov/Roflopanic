@@ -18,7 +18,7 @@ public class LevelLoader : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = FindAnyObjectByType<AudioManager>();
 
         cachedWaitForSeconds = new WaitForSeconds(transitionTime);
         cachedWaitForSecondsRealtime = new WaitForSecondsRealtime(transitionTime);

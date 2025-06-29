@@ -19,7 +19,7 @@ public class ClownichProjectileSpawner : MonoBehaviour
 
         AudioManager.instance.PlaySwooshSound();
 
-        GameObject projectileGameObject = Instantiate(projectilePrefab, FindObjectOfType<ClownichBossGameManager>().gameObject.transform);
+        GameObject projectileGameObject = Instantiate(projectilePrefab, FindAnyObjectByType<ClownichBossGameManager>().gameObject.transform);
         projectileGameObject.transform.position = gameObject.transform.position;
 
         projectileGameObject.GetComponent<ClownichProjectile>().SetColor(PickNextProjectileColor());

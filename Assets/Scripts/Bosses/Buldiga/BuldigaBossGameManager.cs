@@ -24,13 +24,17 @@ public class BuldigaBossGameManager : AbstractBossGameManager
 
     private bool isReadyToShoot;
 
+    private Vector3 bossDefaultPosition;
+
     protected override void Awake()
     {
         base.Awake();
 
         mainCam = Camera.main;
 
-        FindObjectOfType<Player>().ToggleMovement(false);
+        bossDefaultPosition = boss.gameObject.transform.localPosition;
+
+        FindAnyObjectByType<Player>().ToggleMovement(false);
 
         countdownTimer.OnTick += OnTimerTick;
     }
@@ -65,7 +69,7 @@ public class BuldigaBossGameManager : AbstractBossGameManager
 
         MakeBossInvulnerable();
 
-        FindObjectOfType<PlayerManager>().TeleportPlayerToPositionCenter();
+        FindAnyObjectByType<PlayerManager>().TeleportPlayerToPositionCenter();
         ResumeMiniBuldigaSpawn();
     }
 
@@ -81,10 +85,18 @@ public class BuldigaBossGameManager : AbstractBossGameManager
         StartPhaseOne();
     }
 
+    private void ResetBossPosition()
+    {
+        Vector3 tempPosition = boss.gameObject.transform.localPosition;
+        tempPosition.x = bossDefaultPosition.x;
+        tempPosition.y = bossDefaultPosition.y;
+        boss.gameObject.transform.localPosition = tempPosition;
+    }
+
     private void StartPhaseTwo()
     {
         StartCoroutine(player.EnableTemporaryInvulnerability(1f));
-
+        ResetBossPosition();
         boss.gameObject.SetActive(true);
         StartCoroutine(TriggerReloadSoundDelayed(1.1f));
         StartCoroutine(TriggerCountdownTimerDelayed(1.3f));
@@ -92,7 +104,7 @@ public class BuldigaBossGameManager : AbstractBossGameManager
 
         MakeBossVulnerable();
         PauseMiniBuldigaSpawnAndDestroyAllMiniBuldiga();
-        FindObjectOfType<PlayerManager>().TeleportPlayerToPositionDefault();
+        FindAnyObjectByType<PlayerManager>().TeleportPlayerToPositionDefault();
     }
 
     private IEnumerator TriggerReloadSoundDelayed(float delay)
@@ -140,7 +152,7 @@ public class BuldigaBossGameManager : AbstractBossGameManager
         AudioManager.instance.PlaySound(bulletLoadSound);
         uiBulletGameObjects.Find(e => !e.activeSelf)?.SetActive(true);
 
-        if (uiBulletGameObjects.TrueForAll(e => e.activeSelf) 
+        if (uiBulletGameObjects.TrueForAll(e => e.activeSelf)
             && !boss.gameObject.activeSelf // And the boss is not activated yet (to prevent calling phase two twice)
         )
         {
@@ -209,20 +221,20 @@ public class BuldigaBossGameManager : AbstractBossGameManager
         countdownTimer.Stop();
 
         // Destroy existing minibuldigas
-        MiniBuldiga[] miniBuldigas = FindObjectsOfType<MiniBuldiga>();
+        MiniBuldiga[] miniBuldigas = FindObjectsByType<MiniBuldiga>(FindObjectsSortMode.None);
         foreach (MiniBuldiga miniBuldiga in miniBuldigas)
         {
             StartCoroutine(DestroyMiniBuldigaWithDelay(miniBuldiga, Random.Range(0f, .2f)));
         }
 
         // Destroy existing mini buldiga bullets
-        MiniBuldigaBullet[] miniBuldigaBullets = FindObjectsOfType<MiniBuldigaBullet>();
+        MiniBuldigaBullet[] miniBuldigaBullets = FindObjectsByType<MiniBuldigaBullet>(FindObjectsSortMode.None);
         foreach (MiniBuldigaBullet miniBuldigaBullet in miniBuldigaBullets)
         {
             miniBuldigaBullet.DestroyWithCircleExplosion();
         }
 
-        FindObjectOfType<Player>().ToggleMovement(true);
+        FindAnyObjectByType<Player>().ToggleMovement(true);
 
         yield return base.BossFightWon();
     }
@@ -264,7 +276,7 @@ public class BuldigaBossGameManager : AbstractBossGameManager
         miniBuldigaSpawnPointLeft.PauseSpawn();
         miniBuldigaSpawnPointRight.PauseSpawn();
 
-        MiniBuldiga[] miniBuldigas = FindObjectsOfType<MiniBuldiga>();
+        MiniBuldiga[] miniBuldigas = FindObjectsByType<MiniBuldiga>(FindObjectsSortMode.None);
         foreach (MiniBuldiga miniBuldiga in miniBuldigas)
         {
             StartCoroutine(DestroyMiniBuldigaWithDelay(miniBuldiga, Random.Range(0f, 1f)));

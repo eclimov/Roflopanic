@@ -10,7 +10,7 @@ public class Collector : MonoBehaviour
         {
             AudioManager.instance.PlayCoinSound();
             collision.gameObject.SetActive(false); // Disable coin
-            FindObjectOfType<Player>().OnCoinCollected();
+            FindAnyObjectByType<Player>().OnCoinCollected();
         }
     }
 }

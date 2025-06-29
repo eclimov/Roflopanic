@@ -16,17 +16,17 @@ public class SettingsInputController : MonoBehaviour
 
         toggleMusic.onValueChanged.AddListener(delegate
         {
-            FindObjectOfType<SettingsManager>().setMusicEnabled(toggleMusic.isOn);
+            FindAnyObjectByType<SettingsManager>().setMusicEnabled(toggleMusic.isOn);
         });
 
         toggleSound.onValueChanged.AddListener(delegate
         {
-            FindObjectOfType<SettingsManager>().setSoundEnabled(toggleSound.isOn);
+            FindAnyObjectByType<SettingsManager>().setSoundEnabled(toggleSound.isOn);
         });
 
         toggleVibration.onValueChanged.AddListener(delegate
         {
-            FindObjectOfType<SettingsManager>().setVibrationEnabled(toggleVibration.isOn);
+            FindAnyObjectByType<SettingsManager>().setVibrationEnabled(toggleVibration.isOn);
         });
     }
 

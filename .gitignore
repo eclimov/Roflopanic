@@ -49,6 +49,7 @@ crashlytics-build.properties
 
 .idea
 eclimov.keystore
+.utmp
 
 hooks
 lfs

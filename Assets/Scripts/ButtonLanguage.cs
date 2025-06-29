@@ -34,6 +34,6 @@ public class ButtonLanguage : MonoBehaviour
 
     public void ChangeLocaleProxy(ushort localeId)
     {
-        FindObjectOfType<SettingsManager>().ChangeLocale(localeId);
+        FindAnyObjectByType<SettingsManager>().ChangeLocale(localeId);
     }
 }

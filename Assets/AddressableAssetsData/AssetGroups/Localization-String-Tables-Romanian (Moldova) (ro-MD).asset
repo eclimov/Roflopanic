@@ -13,40 +13,43 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Romanian (Moldova) (ro-MD)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Romanian (Moldova) (ro-MD)
-  m_Data:
-    m_SerializedData: []
   m_GUID: c168aa7c44ebd9b469e05c966a6707f3
   m_SerializeEntries:
-  - m_GUID: e3189d7da11e8e5429113a52fdc80dec
-    m_Address: UI_ro-MD
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ro-MD
-    - Preload
-  - m_GUID: c7b3c41ac62d7104c938f9c20b10717e
-    m_Address: Help Dialogue Table_ro-MD
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ro-MD
-    - Preload
-  - m_GUID: ac88eede0daffa248890086491e50bfb
-    m_Address: Levels_ro-MD
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ro-MD
-    - Preload
-  - m_GUID: cbbe09b49fe01a746a0efc53f75da098
-    m_Address: Shop Items_ro-MD
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ro-MD
-    - Preload
   - m_GUID: 1cea06472e162b847a0df6ef4aa10d0d
     m_Address: Bosses_ro-MD
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ro-MD
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac88eede0daffa248890086491e50bfb
+    m_Address: Levels_ro-MD
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ro-MD
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7b3c41ac62d7104c938f9c20b10717e
+    m_Address: Help Dialogue Table_ro-MD
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ro-MD
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbbe09b49fe01a746a0efc53f75da098
+    m_Address: Shop Items_ro-MD
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ro-MD
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3189d7da11e8e5429113a52fdc80dec
+    m_Address: UI_ro-MD
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ro-MD
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f052540650eee4549ab221779bd59ea3, type: 2}
   m_SchemaSet:

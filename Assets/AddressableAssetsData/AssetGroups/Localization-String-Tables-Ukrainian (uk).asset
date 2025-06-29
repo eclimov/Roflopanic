@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Ukrainian (uk)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Ukrainian (uk)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 425ab70998b515f40ac860ff464c0073
   m_SerializeEntries:
   - m_GUID: 05cf745fa0d2f6c409a9439c3dce7ba2
@@ -23,30 +21,35 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-uk
     - Preload
-  - m_GUID: 6eea1bd89a95a1f44a67a5b7ab1a8f35
-    m_Address: Help Dialogue Table_uk
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-uk
-    - Preload
-  - m_GUID: e072eed154b89164aaf4acfc5700e223
-    m_Address: Levels_uk
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-uk
-    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d6b5f1c28619604fa4d46f182c639b4
     m_Address: Shop Items_uk
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-uk
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6eea1bd89a95a1f44a67a5b7ab1a8f35
+    m_Address: Help Dialogue Table_uk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-uk
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a4d6bfbb7f9ce840893feb20349e26e
     m_Address: Bosses_uk
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-uk
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e072eed154b89164aaf4acfc5700e223
+    m_Address: Levels_uk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-uk
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f052540650eee4549ab221779bd59ea3, type: 2}
   m_SchemaSet:

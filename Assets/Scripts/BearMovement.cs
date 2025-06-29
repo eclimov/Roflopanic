@@ -19,16 +19,16 @@ public class BearMovement : MonoBehaviour
     {
         var speed = lastVelocity.magnitude;
         var direction = Vector2.Reflect(lastVelocity.normalized, collision.GetContact(0).normal);
-        rb.velocity = direction * Mathf.Max(speed, 0f);
+        rb.linearVelocity = direction * Mathf.Max(speed, 0f);
 
         AddRandomTorque();
     }
 
     private void FixedUpdate()
     {
-        lastVelocity = rb.velocity;
+        lastVelocity = rb.linearVelocity;
 
-        rb.velocity *= .999f;
+        rb.linearVelocity *= .999f;
         rb.angularVelocity *= .999f;
     }
 

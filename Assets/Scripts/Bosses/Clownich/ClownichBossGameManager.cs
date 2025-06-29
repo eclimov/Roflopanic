@@ -16,7 +16,7 @@ public class ClownichBossGameManager : AbstractBossGameManager
     {
         base.Awake();
 
-        clownichProjectileSpawner = FindObjectOfType<ClownichProjectileSpawner>();
+        clownichProjectileSpawner = FindAnyObjectByType<ClownichProjectileSpawner>();
     }
 
     protected override void Start()
@@ -59,7 +59,7 @@ public class ClownichBossGameManager : AbstractBossGameManager
 
     private void DestroyAllProjectiles()
     {
-        ClownichProjectile[] clownichProjectiles = FindObjectsOfType<ClownichProjectile>();
+        ClownichProjectile[] clownichProjectiles = FindObjectsByType<ClownichProjectile>(FindObjectsSortMode.None);
         foreach (ClownichProjectile clownichProjectile in clownichProjectiles)
         {
             clownichProjectile.DestroyWithExplosion();
@@ -68,7 +68,7 @@ public class ClownichBossGameManager : AbstractBossGameManager
 
     private void DestroyAllGates()
     {
-        ClownichGate[] clownichGates = FindObjectsOfType<ClownichGate>();
+        ClownichGate[] clownichGates = FindObjectsByType<ClownichGate>(FindObjectsSortMode.None);
         foreach (ClownichGate clownichGate in clownichGates)
         {
             Destroy(clownichGate.gameObject);

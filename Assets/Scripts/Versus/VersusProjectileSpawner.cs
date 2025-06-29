@@ -10,7 +10,7 @@ public class VersusProjectileSpawner : MonoBehaviour
     {
         AudioManager.instance.PlaySwooshSound();
 
-        GameObject projectileGameObject = Instantiate(projectilePrefab, FindObjectOfType<VersusPhase2GameManager>().gameObject.transform);
+        GameObject projectileGameObject = Instantiate(projectilePrefab, FindAnyObjectByType<VersusPhase2GameManager>().gameObject.transform);
         projectileGameObject.transform.position = gameObject.transform.position;
 
         VersusProjectile versusProjectile = projectileGameObject.GetComponent<VersusProjectile>();
