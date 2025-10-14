@@ -7,6 +7,7 @@ using Unity.Services.Core;
 using Unity.Services.Core.Environments;
 using UnityEngine.Purchasing.Extension;
 
+// TODO: Upgrade to IAP version 5 - https://docs.unity.com/ugs/en-us/manual/iap/manual/upgrade-to-iap-v5
 public class PointsAndXp : AbstractShopItem, IDetailedStoreListener
 {
     [SerializeField]
@@ -61,6 +62,7 @@ public class PointsAndXp : AbstractShopItem, IDetailedStoreListener
         Debug.Log($"Loaded catalog with {catalog.allProducts.Count} items");
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        // TODO: Fake Store with IAP v5 - https://discussions.unity.com/t/fake-store-with-iap-v5/1684770
         StandardPurchasingModule.Instance().useFakeStoreUIMode = FakeStoreUIMode.StandardUser;
         StandardPurchasingModule.Instance().useFakeStoreAlways = true;
 #endif
