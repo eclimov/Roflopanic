@@ -104,6 +104,16 @@ MonoBehaviour:
     m_Localized: "\xCEntoarce-te din c\xE2nd \xEEn c\xE2nd!"
     m_Metadata:
       m_Items: []
+  - m_Id: 328833867676946432
+    m_Localized: "Dezvoltatorul s-a s\u0103turat de cerin\u021Bele constante ale
+      marketului de a actualiza bibliotecile \u0219i codul..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 328834351036928000
+    m_Localized: "...\u0219i, prin urmare, a fost eliminat\u0103 posibilitatea de
+      a cump\u0103ra puncte \u0219i experien\u021B\u0103 cu bani reali."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -104,6 +104,16 @@ MonoBehaviour:
     m_Localized: Come back from time to time!
     m_Metadata:
       m_Items: []
+  - m_Id: 328833867676946432
+    m_Localized: The dev is tired of the market's constant demands to update libraries
+      and code...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 328834351036928000
+    m_Localized: ...and therefore removed the ability to buy points and experience
+      for real money.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

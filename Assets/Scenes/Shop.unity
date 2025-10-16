@@ -317,6 +317,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4619082535434388300, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619082535434388300, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 194140410}
+    - target: {fileID: 4619082535434388300, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619082535434388300, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InfoButtonHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4619082535434388402, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
       propertyPath: itemData.itemId
       value: points_and_xp
@@ -334,8 +350,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4619082535434388298, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
-      insertIndex: -1
+      insertIndex: 6
       addedObject: {fileID: 194140410}
+    - targetCorrespondingSourceObject: {fileID: 4619082535434388298, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 194140411}
   m_SourcePrefab: {fileID: 100100000, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
 --- !u!224 &194140408 stripped
 RectTransform:
@@ -356,21 +375,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 194140409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d20b082c87cc948ada45004ff9d03e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e7a2e345f925044198e0a89bbdaff34, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  itemPriceContainer: {fileID: 194140412}
-  loadingSprite: {fileID: 194140411}
---- !u!1 &194140411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6518997071693953978, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
-  m_PrefabInstance: {fileID: 194140407}
+  m_EditorClassIdentifier: Assembly-CSharp::InfoButtonHandler
+  helpPanelPrefab: {fileID: 5497703965794649330, guid: cd6853f252109d64094d502878515e85, type: 3}
+  dialogue:
+    characterName:
+      m_TableReference:
+        m_TableCollectionName: GUID:f566074e5eb60aa4c96a9352cb7c8b96
+      m_TableEntryReference:
+        m_KeyId: 1398145602318336
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sentences:
+    - m_TableReference:
+        m_TableCollectionName: GUID:f566074e5eb60aa4c96a9352cb7c8b96
+      m_TableEntryReference:
+        m_KeyId: 328833867676946432
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:f566074e5eb60aa4c96a9352cb7c8b96
+      m_TableEntryReference:
+        m_KeyId: 328834351036928000
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!95 &194140411
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &194140412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4619082535134281407, guid: c99540e8c9b9c974ca942e35cef106c2, type: 3}
-  m_PrefabInstance: {fileID: 194140407}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194140409}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e9ce53fff956644fa884f7f713fac67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &216736450
 GameObject:
   m_ObjectHideFlags: 0
